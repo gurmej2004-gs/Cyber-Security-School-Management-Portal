@@ -316,5 +316,4 @@ Perfect for schools, colleges, and educational institutions of all sizes!
 
 ---
 
-*Last Updated: December 2024*
-*Version: 1.0.0*
+
