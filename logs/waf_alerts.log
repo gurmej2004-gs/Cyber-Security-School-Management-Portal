@@ -1,0 +1,116 @@
+[2025-09-12T08:10:41.797Z] WAF_BLOCKED: SQL_INJECTION_QUERY - IP: ::1 - Payload: id=1' OR '1'='1
+[2025-09-12T08:10:41.818Z] WAF_DETAILS: Type: SQL_INJECTION_QUERY, IP: ::1, Action: BLOCKED, PayloadLength: 15
+[2025-09-12T08:10:41.870Z] WAF_BLOCKED: SQL_INJECTION_URL - IP: ::1 - Payload: /api/students?search=%3Cscript%3Ealert(%27xss%27)%3C/script%3E
+[2025-09-12T08:10:41.876Z] WAF_DETAILS: Type: SQL_INJECTION_URL, IP: ::1, Action: BLOCKED, PayloadLength: 62
+[2025-09-12T08:10:41.893Z] WAF_BLOCKED: COMMON_ATTACK_URL - IP: ::1 - Payload: /etc/passwd
+[2025-09-12T08:10:41.894Z] WAF_DETAILS: Type: COMMON_ATTACK_URL, IP: ::1, Action: BLOCKED, PayloadLength: 11
+[2025-09-12T08:10:41.948Z] WAF_BLOCKED: SQL_INJECTION_BODY - IP: ::1 - Payload: {"username":"admin'; DROP TABLE users; --","password":"password","role":"admin"}
+[2025-09-12T08:10:41.949Z] WAF_DETAILS: Type: SQL_INJECTION_BODY, IP: ::1, Action: BLOCKED, PayloadLength: 80
+[2025-09-12T10:39:44.406Z] WAF_BLOCKED: SQL_INJECTION_BODY - IP: ::1 - Payload: {"username":"admin","password":"1234","role":"admin"}
+[2025-09-12T10:39:44.410Z] WAF_DETAILS: Type: SQL_INJECTION_BODY, IP: ::1, Action: BLOCKED, PayloadLength: 53
+[2025-09-12T10:39:44.458Z] WAF_BLOCKED: SQL_INJECTION_BODY - IP: ::1 - Payload: {"username":"admin","password":"1234","role":"admin"}
+[2025-09-12T10:39:44.470Z] WAF_DETAILS: Type: SQL_INJECTION_BODY, IP: ::1, Action: BLOCKED, PayloadLength: 53
+[2025-09-12T10:39:44.504Z] WAF_BLOCKED: SQL_INJECTION_BODY - IP: ::1 - Payload: {"username":"admin","password":"1234","role":"admin"}
+[2025-09-12T10:39:44.512Z] WAF_DETAILS: Type: SQL_INJECTION_BODY, IP: ::1, Action: BLOCKED, PayloadLength: 53
+[2025-09-12T10:39:44.547Z] WAF_BLOCKED: SQL_INJECTION_BODY - IP: ::1 - Payload: {"username":"admin","password":"1234","role":"admin"}
+[2025-09-12T10:39:44.568Z] WAF_DETAILS: Type: SQL_INJECTION_BODY, IP: ::1, Action: BLOCKED, PayloadLength: 53
+[2025-09-12T10:39:44.604Z] WAF_BLOCKED: SQL_INJECTION_BODY - IP: ::1 - Payload: {"username":"admin","password":"1234","role":"admin"}
+[2025-09-12T10:39:44.619Z] WAF_DETAILS: Type: SQL_INJECTION_BODY, IP: ::1, Action: BLOCKED, PayloadLength: 53
+[2025-09-12T11:28:26.802Z] WAF_BLOCKED: SQL_INJECTION_BODY - IP: ::1 - Payload: {"username":"' OR '1'='1 --","password":"test123","role":"admin"}
+[2025-09-12T11:28:26.820Z] WAF_DETAILS: Type: SQL_INJECTION_BODY, IP: ::1, Action: BLOCKED, PayloadLength: 65
+[2025-09-14T05:41:28.325Z] WAF_BLOCKED: SQL_INJECTION_BODY - IP: ::1 - Payload: {"username":"' OR '1'='1","password":"' OR '1'='1","role":"admin"}
+[2025-09-14T05:41:28.328Z] WAF_DETAILS: Type: SQL_INJECTION_BODY, IP: ::1, Action: BLOCKED, PayloadLength: 66
+[2025-09-14T05:41:28.859Z] WAF_BLOCKED: SQL_INJECTION_BODY - IP: ::1 - Payload: {"username":"' OR 1=1--","password":"' OR 1=1--","role":"admin"}
+[2025-09-14T05:41:28.861Z] WAF_DETAILS: Type: SQL_INJECTION_BODY, IP: ::1, Action: BLOCKED, PayloadLength: 64
+[2025-09-14T05:41:29.376Z] WAF_BLOCKED: SQL_INJECTION_BODY - IP: ::1 - Payload: {"username":"admin'--","password":"admin'--","role":"admin"}
+[2025-09-14T05:41:29.380Z] WAF_DETAILS: Type: SQL_INJECTION_BODY, IP: ::1, Action: BLOCKED, PayloadLength: 60
+[2025-09-14T05:41:29.902Z] WAF_BLOCKED: SQL_INJECTION_BODY - IP: ::1 - Payload: {"username":"' OR 'a'='a","password":"' OR 'a'='a","role":"admin"}
+[2025-09-14T05:41:29.903Z] WAF_DETAILS: Type: SQL_INJECTION_BODY, IP: ::1, Action: BLOCKED, PayloadLength: 66
+[2025-09-14T05:41:30.429Z] WAF_BLOCKED: SQL_INJECTION_BODY - IP: ::1 - Payload: {"username":"1' OR '1'='1' #","password":"1' OR '1'='1' #","role":"admin"}
+[2025-09-14T05:41:30.430Z] WAF_DETAILS: Type: SQL_INJECTION_BODY, IP: ::1, Action: BLOCKED, PayloadLength: 74
+[2025-09-14T05:41:30.945Z] WAF_BLOCKED: SQL_INJECTION_BODY - IP: ::1 - Payload: {"username":"' UNION SELECT * FROM users--","password":"' UNION SELECT * FROM users--","role":"admin"}
+[2025-09-14T05:41:30.946Z] WAF_DETAILS: Type: SQL_INJECTION_BODY, IP: ::1, Action: BLOCKED, PayloadLength: 102
+[2025-09-14T05:41:31.467Z] WAF_BLOCKED: SQL_INJECTION_BODY - IP: ::1 - Payload: {"username":"' UNION SELECT username,password FROM users--","password":"' UNION SELECT username,password FROM users--","role":"admin"}
+[2025-09-14T05:41:31.470Z] WAF_DETAILS: Type: SQL_INJECTION_BODY, IP: ::1, Action: BLOCKED, PayloadLength: 134
+[2025-09-14T05:41:32.055Z] WAF_BLOCKED: SQL_INJECTION_BODY - IP: ::1 - Payload: {"username":"1' UNION SELECT null,username,password FROM users--","password":"1' UNION SELECT null,username,password FROM users--","role":"admin"}
+[2025-09-14T05:41:32.065Z] WAF_DETAILS: Type: SQL_INJECTION_BODY, IP: ::1, Action: BLOCKED, PayloadLength: 146
+[2025-09-14T05:41:32.612Z] WAF_BLOCKED: SQL_INJECTION_BODY - IP: ::1 - Payload: {"username":"' UNION ALL SELECT * FROM information_schema.tables--","password":"' UNION ALL SELECT * FROM information_schema.tables--","role":"admin"}
+[2025-09-14T05:41:32.623Z] WAF_DETAILS: Type: SQL_INJECTION_BODY, IP: ::1, Action: BLOCKED, PayloadLength: 150
+[2025-09-14T05:41:33.151Z] WAF_BLOCKED: SQL_INJECTION_BODY - IP: ::1 - Payload: {"username":"' AND (SELECT COUNT(*) FROM users) > 0--","password":"' AND (SELECT COUNT(*) FROM users) > 0--","role":"admin"}
+[2025-09-14T05:41:33.152Z] WAF_DETAILS: Type: SQL_INJECTION_BODY, IP: ::1, Action: BLOCKED, PayloadLength: 124
+[2025-09-14T05:41:33.685Z] WAF_BLOCKED: SQL_INJECTION_BODY - IP: ::1 - Payload: {"username":"' AND (SELECT SUBSTRING(username,1,1) FROM users LIMIT 1)='a'--","password":"' AND (SELECT SUBSTRING(username,1,1) FROM users LIMIT 1)='a'--","role":"admin"}
+[2025-09-14T05:41:33.687Z] WAF_DETAILS: Type: SQL_INJECTION_BODY, IP: ::1, Action: BLOCKED, PayloadLength: 170
+[2025-09-14T05:41:34.206Z] WAF_BLOCKED: SQL_INJECTION_BODY - IP: ::1 - Payload: {"username":"' AND ASCII(SUBSTRING((SELECT username FROM users LIMIT 1),1,1))>64--","password":"' AND ASCII(SUBSTRING((SELECT username FROM users LIMIT 1),1,1))>64--","role":"admin"}
+[2025-09-14T05:41:34.207Z] WAF_DETAILS: Type: SQL_INJECTION_BODY, IP: ::1, Action: BLOCKED, PayloadLength: 182
+[2025-09-14T05:41:34.729Z] WAF_BLOCKED: SQL_INJECTION_BODY - IP: ::1 - Payload: {"username":"'; WAITFOR DELAY '00:00:05'--","password":"'; WAITFOR DELAY '00:00:05'--","role":"admin"}
+[2025-09-14T05:41:34.741Z] WAF_DETAILS: Type: SQL_INJECTION_BODY, IP: ::1, Action: BLOCKED, PayloadLength: 102
+[2025-09-14T05:41:35.264Z] WAF_BLOCKED: SQL_INJECTION_BODY - IP: ::1 - Payload: {"username":"' OR SLEEP(5)--","password":"' OR SLEEP(5)--","role":"admin"}
+[2025-09-14T05:41:35.294Z] WAF_DETAILS: Type: SQL_INJECTION_BODY, IP: ::1, Action: BLOCKED, PayloadLength: 74
+[2025-09-14T05:41:35.827Z] WAF_BLOCKED: SQL_INJECTION_BODY - IP: ::1 - Payload: {"username":"'; SELECT pg_sleep(5)--","password":"'; SELECT pg_sleep(5)--","role":"admin"}
+[2025-09-14T05:41:35.839Z] WAF_DETAILS: Type: SQL_INJECTION_BODY, IP: ::1, Action: BLOCKED, PayloadLength: 90
+[2025-09-14T05:41:36.359Z] WAF_BLOCKED: SQL_INJECTION_BODY - IP: ::1 - Payload: {"username":"' AND (SELECT * FROM (SELECT(SLEEP(5)))a)--","password":"' AND (SELECT * FROM (SELECT(SLEEP(5)))a)--","role":"admin"}
+[2025-09-14T05:41:36.361Z] WAF_DETAILS: Type: SQL_INJECTION_BODY, IP: ::1, Action: BLOCKED, PayloadLength: 130
+[2025-09-14T05:41:36.881Z] WAF_BLOCKED: SQL_INJECTION_BODY - IP: ::1 - Payload: {"username":"' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT version()), 0x7e))--","password":"' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT version()), 0x7e))--","role":"admin"}
+[2025-09-14T05:41:36.883Z] WAF_DETAILS: Type: SQL_INJECTION_BODY, IP: ::1, Action: BLOCKED, PayloadLength: 170
+[2025-09-14T05:41:37.400Z] WAF_BLOCKED: SQL_INJECTION_BODY - IP: ::1 - Payload: {"username":"' AND (SELECT * FROM (SELECT COUNT(*),CONCAT(version(),FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)a)--","password":"' AND (SELECT * FROM (SELECT COUNT(*),CONCAT(version(...
+[2025-09-14T05:41:37.401Z] WAF_DETAILS: Type: SQL_INJECTION_BODY, IP: ::1, Action: BLOCKED, PayloadLength: 284
+[2025-09-14T05:41:37.921Z] WAF_BLOCKED: SQL_INJECTION_BODY - IP: ::1 - Payload: {"username":"' AND UPDATEXML(1,CONCAT(0x7e,(SELECT version()),0x7e),1)--","password":"' AND UPDATEXML(1,CONCAT(0x7e,(SELECT version()),0x7e),1)--","role":"admin"}
+[2025-09-14T05:41:37.922Z] WAF_DETAILS: Type: SQL_INJECTION_BODY, IP: ::1, Action: BLOCKED, PayloadLength: 162
+[2025-09-14T05:41:38.445Z] WAF_BLOCKED: SQL_INJECTION_BODY - IP: ::1 - Payload: {"username":"'; DROP TABLE users; --","password":"'; DROP TABLE users; --","role":"admin"}
+[2025-09-14T05:41:38.447Z] WAF_DETAILS: Type: SQL_INJECTION_BODY, IP: ::1, Action: BLOCKED, PayloadLength: 90
+[2025-09-14T05:41:38.978Z] WAF_BLOCKED: SQL_INJECTION_BODY - IP: ::1 - Payload: {"username":"'; INSERT INTO users (username,password) VALUES ('hacker','pwned'); --","password":"'; INSERT INTO users (username,password) VALUES ('hacker','pwned'); --","role":"admin"}
+[2025-09-14T05:41:38.979Z] WAF_DETAILS: Type: SQL_INJECTION_BODY, IP: ::1, Action: BLOCKED, PayloadLength: 184
+[2025-09-14T05:41:39.489Z] WAF_BLOCKED: SQL_INJECTION_BODY - IP: ::1 - Payload: {"username":"'; UPDATE users SET password='hacked' WHERE username='admin'; --","password":"'; UPDATE users SET password='hacked' WHERE username='admin'; --","role":"admin"}
+[2025-09-14T05:41:39.490Z] WAF_DETAILS: Type: SQL_INJECTION_BODY, IP: ::1, Action: BLOCKED, PayloadLength: 172
+[2025-09-14T05:41:40.004Z] WAF_BLOCKED: SQL_INJECTION_BODY - IP: ::1 - Payload: {"username":"' OR EXISTS(SELECT * FROM users WHERE username='admin' AND password LIKE 'a%')--","password":"' OR EXISTS(SELECT * FROM users WHERE username='admin' AND password LIKE 'a%')--","role":"adm...
+[2025-09-14T05:41:40.005Z] WAF_DETAILS: Type: SQL_INJECTION_BODY, IP: ::1, Action: BLOCKED, PayloadLength: 204
+[2025-09-14T05:41:40.531Z] WAF_BLOCKED: SQL_INJECTION_QUERY - IP: ::1 - Payload: id=1' OR '1'='1
+[2025-09-14T05:41:40.532Z] WAF_DETAILS: Type: SQL_INJECTION_QUERY, IP: ::1, Action: BLOCKED, PayloadLength: 15
+[2025-09-14T05:41:40.853Z] WAF_BLOCKED: SQL_INJECTION_QUERY - IP: ::1 - Payload: id=1; DROP TABLE students--
+[2025-09-14T05:41:40.859Z] WAF_DETAILS: Type: SQL_INJECTION_QUERY, IP: ::1, Action: BLOCKED, PayloadLength: 27
+[2025-09-14T05:41:41.181Z] WAF_BLOCKED: SQL_INJECTION_URL - IP: ::1 - Payload: /api/students?id=1%27%20UNION%20SELECT%20*%20FROM%20users--
+[2025-09-14T05:41:41.182Z] WAF_DETAILS: Type: SQL_INJECTION_URL, IP: ::1, Action: BLOCKED, PayloadLength: 59
+[2025-09-14T05:41:41.815Z] WAF_BLOCKED: SQL_INJECTION_QUERY - IP: ::1 - Payload: id=1' OR '1'='1
+[2025-09-14T05:41:41.818Z] WAF_DETAILS: Type: SQL_INJECTION_QUERY, IP: ::1, Action: BLOCKED, PayloadLength: 15
+[2025-09-14T05:41:42.141Z] WAF_BLOCKED: SQL_INJECTION_QUERY - IP: ::1 - Payload: id=1; DROP TABLE students--
+[2025-09-14T05:41:42.142Z] WAF_DETAILS: Type: SQL_INJECTION_QUERY, IP: ::1, Action: BLOCKED, PayloadLength: 27
+[2025-09-14T05:41:42.447Z] WAF_BLOCKED: SQL_INJECTION_URL - IP: ::1 - Payload: /api/teachers?id=1%27%20UNION%20SELECT%20*%20FROM%20users--
+[2025-09-14T05:41:42.448Z] WAF_DETAILS: Type: SQL_INJECTION_URL, IP: ::1, Action: BLOCKED, PayloadLength: 59
+[2025-09-14T05:41:43.085Z] WAF_BLOCKED: SQL_INJECTION_QUERY - IP: ::1 - Payload: search=1' OR '1'='1
+[2025-09-14T05:41:43.086Z] WAF_DETAILS: Type: SQL_INJECTION_QUERY, IP: ::1, Action: BLOCKED, PayloadLength: 19
+[2025-09-14T05:41:43.400Z] WAF_BLOCKED: SQL_INJECTION_QUERY - IP: ::1 - Payload: search=1; DROP TABLE students--
+[2025-09-14T05:41:43.402Z] WAF_DETAILS: Type: SQL_INJECTION_QUERY, IP: ::1, Action: BLOCKED, PayloadLength: 31
+[2025-09-14T05:41:43.722Z] WAF_BLOCKED: SQL_INJECTION_URL - IP: ::1 - Payload: /api/users?search=1%27%20UNION%20SELECT%20*%20FROM%20users--
+[2025-09-14T05:41:43.723Z] WAF_DETAILS: Type: SQL_INJECTION_URL, IP: ::1, Action: BLOCKED, PayloadLength: 60
+[2025-09-14T05:41:45.400Z] WAF_BLOCKED: SQL_INJECTION_BODY - IP: ::1 - Payload: {"username":"admin","password":"test' OR '1'='1' --","role":"admin'; DROP TABLE students; --"}
+[2025-09-14T05:41:45.402Z] WAF_DETAILS: Type: SQL_INJECTION_BODY, IP: ::1, Action: BLOCKED, PayloadLength: 94
+[2025-09-14T05:41:46.420Z] WAF_BLOCKED: SQL_INJECTION_BODY - IP: ::1 - Payload: {"username":"test'; WAITFOR DELAY '00:00:05'; --","password":"password","role":"student"}
+[2025-09-14T05:41:46.427Z] WAF_DETAILS: Type: SQL_INJECTION_BODY, IP: ::1, Action: BLOCKED, PayloadLength: 89
+[2025-09-14T05:42:21.852Z] WAF_BLOCKED: SQL_INJECTION_BODY - IP: ::1 - Payload: {"username":"' OR '1'='1","password":"' OR '1'='1","role":"admin"}
+[2025-09-14T05:42:21.853Z] WAF_DETAILS: Type: SQL_INJECTION_BODY, IP: ::1, Action: BLOCKED, PayloadLength: 66
+[2025-09-14T05:42:22.375Z] WAF_BLOCKED: SQL_INJECTION_BODY - IP: ::1 - Payload: {"username":"admin'--","password":"admin'--","role":"admin"}
+[2025-09-14T05:42:22.378Z] WAF_DETAILS: Type: SQL_INJECTION_BODY, IP: ::1, Action: BLOCKED, PayloadLength: 60
+[2025-09-14T05:42:22.900Z] WAF_BLOCKED: SQL_INJECTION_BODY - IP: ::1 - Payload: {"username":"' UNION SELECT * FROM users--","password":"' UNION SELECT * FROM users--","role":"admin"}
+[2025-09-14T05:42:22.902Z] WAF_DETAILS: Type: SQL_INJECTION_BODY, IP: ::1, Action: BLOCKED, PayloadLength: 102
+[2025-09-14T05:42:23.433Z] WAF_BLOCKED: SQL_INJECTION_BODY - IP: ::1 - Payload: {"username":"'; DROP TABLE users; --","password":"'; DROP TABLE users; --","role":"admin"}
+[2025-09-14T05:42:23.436Z] WAF_DETAILS: Type: SQL_INJECTION_BODY, IP: ::1, Action: BLOCKED, PayloadLength: 90
+[2026-02-01T10:19:58.864Z] WAF_BLOCKED: SQL_INJECTION_BODY from ::1 - Payload: {"query":"how to login","response":"To login: 1) Select your role (Student, Teacher, or Admin), 2) Enter your username, 3) Enter your password, 4) Click the Login button. Make sure you have valid cred...
+[2026-02-01T10:20:22.225Z] WAF_BLOCKED: SQL_INJECTION_BODY from ::1 - Payload: {"query":"contact admin","response":"To contact the administrator, please visit the school's main office during working hours or send an email to the administration. For urgent matters, you can call t...
+[2026-02-01T10:21:20.832Z] WAF_BLOCKED: SQL_INJECTION_BODY from ::1 - Payload: {"query":"how to login","response":"To login: 1) Select your role (Student, Teacher, or Admin), 2) Enter your username, 3) Enter your password, 4) Click the Login button. Make sure you have valid cred...
+[2026-02-01T10:22:22.600Z] WAF_BLOCKED: SQL_INJECTION_BODY from ::1 - Payload: {"query":"how to login","response":"To login: 1) Select your role (Student, Teacher, or Admin), 2) Enter your username, 3) Enter your password, 4) Click the Login button. Make sure you have valid cred...
+[2026-02-01T10:34:53.905Z] WAF_BLOCKED: SQL_INJECTION_BODY from ::1 - Payload: {"query":"how to login","response":"To login: 1) Select your role (Student, Teacher, or Admin), 2) Enter your username, 3) Enter your password, 4) Click the Login button. Make sure you have valid cred...
+[2026-02-04T10:49:44.992Z] WAF_BLOCKED: SQL_INJECTION_BODY from ::1 - Payload: {"query":"Contact admin","response":"To contact the administrator, please visit the school's main office during working hours or send an email to the administration. For urgent matters, you can call t...
+[2026-02-04T14:43:13.999Z] WAF_BLOCKED: XSS_HEADER from ::1 - Payload: cookie: ajs_anonymous_id=a3880d54-e1bc-4d70-9fc0-3feb0da5b965
+[2026-02-04T14:43:14.080Z] WAF_BLOCKED: XSS_HEADER from ::1 - Payload: cookie: ajs_anonymous_id=a3880d54-e1bc-4d70-9fc0-3feb0da5b965
+[2026-02-04T14:44:58.109Z] WAF_BLOCKED: XSS_HEADER from ::1 - Payload: cookie: ajs_anonymous_id=a3880d54-e1bc-4d70-9fc0-3feb0da5b965
+[2026-02-04T14:44:58.177Z] WAF_BLOCKED: XSS_HEADER from ::1 - Payload: cookie: ajs_anonymous_id=a3880d54-e1bc-4d70-9fc0-3feb0da5b965
+[2026-02-04T14:45:19.240Z] WAF_BLOCKED: XSS_HEADER from ::1 - Payload: cookie: ajs_anonymous_id=a3880d54-e1bc-4d70-9fc0-3feb0da5b965
+[2026-02-04T14:45:19.282Z] WAF_BLOCKED: XSS_HEADER from ::1 - Payload: cookie: ajs_anonymous_id=a3880d54-e1bc-4d70-9fc0-3feb0da5b965
+[2026-02-04T14:45:48.172Z] WAF_BLOCKED: XSS_HEADER from ::1 - Payload: cookie: ajs_anonymous_id=a3880d54-e1bc-4d70-9fc0-3feb0da5b965
+[2026-02-04T14:45:48.250Z] WAF_BLOCKED: XSS_HEADER from ::1 - Payload: cookie: ajs_anonymous_id=a3880d54-e1bc-4d70-9fc0-3feb0da5b965
+[2026-02-04T14:48:11.887Z] WAF_BLOCKED: XSS_HEADER from ::1 - Payload: cookie: ajs_anonymous_id=a3880d54-e1bc-4d70-9fc0-3feb0da5b965
+[2026-02-04T14:48:12.002Z] WAF_BLOCKED: XSS_HEADER from ::1 - Payload: cookie: ajs_anonymous_id=a3880d54-e1bc-4d70-9fc0-3feb0da5b965
+[2026-02-04T14:50:27.653Z] WAF_BLOCKED: XSS_HEADER from ::1 - Payload: cookie: ajs_anonymous_id=a3880d54-e1bc-4d70-9fc0-3feb0da5b965
+[2026-02-04T14:50:27.734Z] WAF_BLOCKED: XSS_HEADER from ::1 - Payload: cookie: ajs_anonymous_id=a3880d54-e1bc-4d70-9fc0-3feb0da5b965
+[2026-02-05T04:29:47.402Z] WAF_BLOCKED: XSS_HEADER from ::1 - Payload: cookie: ajs_anonymous_id=a3880d54-e1bc-4d70-9fc0-3feb0da5b965
+[2026-02-05T04:29:47.477Z] WAF_BLOCKED: XSS_HEADER from ::1 - Payload: cookie: ajs_anonymous_id=a3880d54-e1bc-4d70-9fc0-3feb0da5b965

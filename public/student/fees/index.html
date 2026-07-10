@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fees - Student Portal</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --primary-dark: #020617;
+            --secondary: #1e293b;
+            --accent: #3b82f6;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --info: #06b6d4;
+            --dark: #020617;
+            --gray: #64748b;
+            --light: #f1f5f9;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 2px 0 rgb(15 23 42 / 0.05);
+            --shadow: 0 4px 6px -1px rgb(15 23 42 / 0.1), 0 2px 4px -2px rgb(15 23 42 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(15 23 42 / 0.1), 0 4px 6px -4px rgb(15 23 42 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(15 23 42 / 0.1), 0 8px 10px -6px rgb(15 23 42 / 0.1);
+            --radius: 8px;
+            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #ffffff;
+            min-height: 100vh;
+            color: var(--dark);
+            line-height: 1.5;
+            font-size: 14px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .fees-container {
+            max-width: 100%;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 0;
+            padding: 0;
+            box-shadow: none;
+            border: none;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(30deg, rgba(255,255,255,0.03) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.03) 87.5%, rgba(255,255,255,0.03)),
+                linear-gradient(150deg, rgba(255,255,255,0.03) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.03) 87.5%, rgba(255,255,255,0.03)),
+                linear-gradient(30deg, rgba(255,255,255,0.03) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.03) 87.5%, rgba(255,255,255,0.03)),
+                linear-gradient(150deg, rgba(255,255,255,0.03) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.03) 87.5%, rgba(255,255,255,0.03)),
+                linear-gradient(60deg, rgba(255,255,255,0.05) 25%, transparent 25.5%, transparent 75%, rgba(255,255,255,0.05) 75%, rgba(255,255,255,0.05)),
+                linear-gradient(120deg, rgba(255,255,255,0.05) 25%, transparent 25.5%, transparent 75%, rgba(255,255,255,0.05) 75%, rgba(255,255,255,0.05));
+            background-size: 80px 140px;
+            pointer-events: none;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header h1 {
+            font-size: 2.25rem;
+            font-weight: 600;
+            color: white;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.025em;
+        }
+
+        .header .material-icons {
+            font-size: 2.25rem;
+            color: white;
+        }
+
+        .header .subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.875rem;
+            font-weight: 400;
+            margin-top: 0.5rem;
+        }
+
+        .content-wrapper {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fafbfc;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--white);
+            color: var(--dark);
+            padding: 0.625rem 1.25rem;
+            border: 1px solid #e5e7eb;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            font-size: 0.875rem;
+        }
+
+        .back-btn:hover {
+            background: #f9fafb;
+            border-color: #d1d5db;
+            transform: translateY(-1px);
+            box-shadow: var(--shadow);
+        }
+
+        .fees-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .summary-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid #e5e7eb;
+            transition: var(--transition);
+        }
+
+        .summary-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            border-color: #d1d5db;
+        }
+
+        .summary-card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .amount {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .status {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            font-size: 0.875rem;
+        }
+
+        .status.paid {
+            color: var(--success);
+        }
+
+        .status.pending {
+            color: var(--warning);
+        }
+
+        .due-date {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .amount-due {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--danger);
+            margin-bottom: 1rem;
+        }
+
+        .pay-now {
+            background: linear-gradient(135deg, var(--accent), #1d4ed8);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.875rem;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .pay-now:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow);
+        }
+
+        .fees-details {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid #e5e7eb;
+            margin-bottom: 2rem;
+        }
+
+        .fees-details h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        th {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 1rem 0.75rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.875rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            letter-spacing: 0.025em;
+            text-transform: uppercase;
+        }
+
+        td {
+            padding: 0.75rem;
+            text-align: left;
+            border: 1px solid #e5e7eb;
+            font-size: 0.875rem;
+        }
+
+        tr:nth-child(even) {
+            background: #fafbfc;
+        }
+
+        .status-badge {
+            padding: 0.375rem 0.75rem;
+            border-radius: var(--radius);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .status-badge.paid {
+            background: #d1fae5;
+            color: var(--success);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .status-badge.pending {
+            background: #fef3c7;
+            color: var(--warning);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        .status-badge.upcoming {
+            background: #f0f7ff;
+            color: var(--accent);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .receipt-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.875rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .receipt-link:hover {
+            text-decoration: underline;
+        }
+
+        .payment-methods {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid #e5e7eb;
+        }
+
+        .payment-methods h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .payment-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .payment-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+        .payment-card:hover {
+            background: #f1f5f9;
+            border-color: #d1d5db;
+        }
+
+        .card-logo img {
+            width: 40px;
+            height: 24px;
+        }
+
+        .card-details {
+            flex: 1;
+        }
+
+        .card-number {
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 0.875rem;
+        }
+
+        .card-expiry {
+            color: var(--gray);
+            font-size: 0.75rem;
+            margin-top: 0.25rem;
+        }
+
+        .card-type {
+            color: var(--accent);
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-top: 0.125rem;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn-edit, .btn-remove {
+            background: transparent;
+            border: 1px solid #e5e7eb;
+            color: var(--gray);
+            padding: 0.5rem;
+            border-radius: var(--radius);
+            font-size: 0.75rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-edit {
+            color: var(--accent);
+            border-color: rgba(59, 130, 246, 0.2);
+        }
+
+        .btn-edit:hover {
+            background: #f0f7ff;
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .btn-remove {
+            color: var(--danger);
+            border-color: rgba(239, 68, 68, 0.2);
+        }
+
+        .btn-remove:hover {
+            background: #fef2f2;
+            border-color: rgba(239, 68, 68, 0.3);
+            color: var(--danger);
+        }
+
+        .add-card {
+            background: transparent;
+            color: var(--accent);
+            border: 2px dashed var(--accent);
+            padding: 1rem;
+            border-radius: var(--radius);
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .add-card:hover {
+            background: #f0f7ff;
+            border-style: solid;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                padding: 2rem 1rem;
+            }
+
+            .header h1 {
+                font-size: 1.875rem;
+            }
+
+            .content-wrapper {
+                padding: 1.5rem 1rem;
+            }
+
+            .fees-summary {
+                grid-template-columns: 1fr;
+            }
+
+            .table-container {
+                font-size: 0.75rem;
+            }
+            
+            th, td {
+                padding: 0.5rem 0.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="fees-container">
+        <header class="header">
+            <div class="header-content">
+                <h1>
+                    <i class="material-icons">payments</i>
+                    Fees & Payments
+                </h1>
+                <div class="subtitle">Academic Fee Management</div>
+            </div>
+        </header>
+
+        <div class="content-wrapper">
+            <a href="../student_dashboard.html" class="back-btn">
+                <i class="material-icons">arrow_back</i>
+                Back to Dashboard
+            </a>
+        
+            <div class="fees-summary">
+                <div class="summary-card">
+                    <h3>Total Fees</h3>
+                    <div class="amount">₹1,87,500.00</div>
+                    <div class="status paid">Paid: ₹1,50,000.00</div>
+                    <div class="status pending">Pending: ₹37,500.00</div>
+                </div>
+                
+                <div class="summary-card">
+                    <h3>Next Due Date</h3>
+                    <div class="amount-due">₹18,750.00</div>
+                    <button class="pay-now">Pay Now</button>
+                </div>
+            </div>
+
+            <div class="fees-details">
+                <h2>Fee Details</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Receipt</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2024-01-15</td>
+                                <td>Tuition Fee - Spring 2024</td>
+                                <td>₹75,000.00</td>
+                                <td><span class="status-badge paid">Paid</span></td>
+                                <td><a href="#" class="receipt-link">Download</a></td>
+                            </tr>
+                            <tr>
+                                <td>2024-02-01</td>
+                                <td>Library Fee</td>
+                                <td>₹7,500.00</td>
+                                <td><span class="status-badge paid">Paid</span></td>
+                                <td><a href="#" class="receipt-link">Download</a></td>
+                            </tr>
+                            <tr>
+                                <td>2024-02-15</td>
+                                <td>Tuition Fee - Spring 2024</td>
+                                <td>₹75,000.00</td>
+                                <td><span class="status-badge paid">Paid</span></td>
+                                <td><a href="#" class="receipt-link">Download</a></td>
+                            </tr>
+                            <tr>
+                                <td>2024-03-15</td>
+                                <td>Tuition Fee - Spring 2024</td>
+                                <td>₹18,750.00</td>
+                                <td><span class="status-badge pending">Pending</span></td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>2024-04-15</td>
+                                <td>Tuition Fee - Spring 2024</td>
+                                <td>₹18,750.00</td>
+                                <td><span class="status-badge upcoming">Upcoming</span></td>
+                                <td>-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Complete Payment</h2>
+                <button class="close-btn" onclick="closePaymentModal()">
+                    <i class="material-icons">close</i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="receipt-details">
+                    <h3>Current Receipt Details</h3>
+                    <div class="receipt-item">
+                        <span>Receipt ID:</span>
+                        <span id="currentReceiptId">REC2024021501</span>
+                    </div>
+                    <div class="receipt-item">
+                        <span>Date:</span>
+                        <span id="currentDate"></span>
+                    </div>
+                    <div class="receipt-item">
+                        <span>Time:</span>
+                        <span id="currentTime"></span>
+                    </div>
+                    <div class="receipt-item">
+                        <span>Amount Due:</span>
+                        <span class="amount-due-modal">₹18,750.00</span>
+                    </div>
+                    <div class="receipt-item">
+                        <span>Description:</span>
+                        <span>Tuition Fee - Spring 2024</span>
+                    </div>
+                    <div class="receipt-item">
+                        <span>Status:</span>
+                        <span class="status-badge pending">Pending</span>
+                    </div>
+                </div>
+                
+                <div class="payment-form">
+                    <h3>Complete Payment</h3>
+                    <div class="payment-options">
+                        <label class="payment-option">
+                            <input type="radio" name="paymentMethod" value="saved" checked>
+                            <div class="option-content">
+                                <div class="card-info">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/196/196578.png" alt="Visa">
+                                    <span>•••• •••• •••• 4242</span>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="paymentMethod" value="new">
+                            <div class="option-content">
+                                <div class="card-info">
+                                    <i class="material-icons">add_circle</i>
+                                    <span>Add New Card</span>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                    
+                    <div class="new-card-form" id="newCardForm" style="display: none;">
+                        <input type="text" placeholder="Card Number" class="form-input">
+                        <input type="text" placeholder="Cardholder Name" class="form-input">
+                        <div class="form-row">
+                            <input type="text" placeholder="MM/YY" class="form-input">
+                            <input type="text" placeholder="CVV" class="form-input">
+                        </div>
+                    </div>
+                    
+                    <button class="submit-payment-btn" onclick="processPayment()">
+                        <i class="material-icons">lock</i>
+                        Complete Payment
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content success-modal">
+            <div class="success-icon">
+                <i class="material-icons">check_circle</i>
+            </div>
+            <h2>Payment Successful!</h2>
+            <p>Your payment has been processed successfully.</p>
+            <div class="success-actions">
+                <button class="btn-primary" onclick="downloadReceipt()">
+                    <i class="material-icons">download</i>
+                    Download Receipt
+                </button>
+                <button class="btn-secondary" onclick="closeSuccessModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Payment functionality
+        function openPaymentModal() {
+            // Update current date and time
+            updateCurrentDateTime();
+            
+            document.getElementById('paymentModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function updateCurrentDateTime() {
+            const now = new Date();
+            
+            // Update receipt ID with current date
+            const dateStr = now.getFullYear() + 
+                           String(now.getMonth() + 1).padStart(2, '0') + 
+                           String(now.getDate()).padStart(2, '0');
+            const randomNum = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+            document.getElementById('currentReceiptId').textContent = 'REC' + dateStr + randomNum;
+            
+            // Update current date in Indian format
+            const currentDate = now.toLocaleDateString('en-IN', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric'
+            });
+            document.getElementById('currentDate').textContent = currentDate;
+            
+            // Update current time
+            const currentTime = now.toLocaleTimeString('en-IN', {
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            });
+            document.getElementById('currentTime').textContent = currentTime;
+        }
+
+        function closePaymentModal() {
+            document.getElementById('paymentModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('successModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function processPayment() {
+            // Show loading state
+            const btn = document.querySelector('.submit-payment-btn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="material-icons">hourglass_empty</i> Processing...';
+            btn.disabled = true;
+
+            // Simulate payment processing
+            setTimeout(() => {
+                closePaymentModal();
+                showSuccessModal();
+                updateFeeStatus();
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }, 2000);
+        }
+
+        function showSuccessModal() {
+            document.getElementById('successModal').style.display = 'flex';
+        }
+
+        function updateFeeStatus() {
+            // Update the pending fee to paid
+            const pendingRow = document.querySelector('tr:has(.status-badge.pending)');
+            if (pendingRow) {
+                const statusBadge = pendingRow.querySelector('.status-badge.pending');
+                statusBadge.className = 'status-badge paid';
+                statusBadge.textContent = 'Paid';
+                
+                const receiptCell = pendingRow.querySelector('td:last-child');
+                receiptCell.innerHTML = '<a href="#" class="receipt-link" onclick="downloadReceipt()">Download</a>';
+            }
+
+            // Update summary cards
+            const totalAmount = document.querySelector('.amount');
+            const paidStatus = document.querySelector('.status.paid');
+            const pendingStatus = document.querySelector('.status.pending');
+
+            if (totalAmount && paidStatus && pendingStatus) {
+                const currentPaid = parseFloat(paidStatus.textContent.replace(/[₹,]/g, ''));
+                const currentPending = parseFloat(pendingStatus.textContent.replace(/[₹,]/g, ''));
+                const paymentAmount = 18750;
+
+                paidStatus.textContent = `Paid: ₹${(currentPaid + paymentAmount).toLocaleString('en-IN')}.00`;
+                pendingStatus.textContent = `Pending: ₹${(currentPending - paymentAmount).toLocaleString('en-IN')}.00`;
+            }
+        }
+
+        function downloadReceipt(receiptId = null) {
+            // Generate receipt content with current date
+            const receiptContent = generateReceiptContent(receiptId);
+            
+            // Create and download PDF
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            
+            // Get current date in Indian format
+            const currentDate = new Date();
+            const formattedDate = currentDate.toLocaleDateString('en-IN', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric'
+            });
+            
+            // Add content to PDF
+            doc.setFontSize(20);
+            doc.text('Payment Receipt', 20, 20);
+            
+            doc.setFontSize(12);
+            doc.text('Student Portal Fee Management System', 20, 35);
+            doc.text(`Receipt ID: ${receiptId || 'REC' + Date.now()}`, 20, 50);
+            doc.text(`Payment Date: ${formattedDate}`, 20, 60);
+            doc.text(`Payment Time: ${currentDate.toLocaleTimeString('en-IN')}`, 20, 70);
+            doc.text('----------------------------------------', 20, 80);
+            
+            doc.text('Payment Details:', 20, 95);
+            doc.text(`Amount: ₹18,750.00`, 30, 105);
+            doc.text('Description: Tuition Fee - Spring 2024', 30, 115);
+            doc.text('Payment Method: Card (•••• 4242)', 30, 125);
+            doc.text('Status: Paid', 30, 135);
+            doc.text('Transaction ID: TXN' + Date.now(), 30, 145);
+            
+            doc.text('----------------------------------------', 20, 160);
+            doc.text('Student Information:', 20, 175);
+            doc.text('Name: Student Name', 30, 185);
+            doc.text('ID: STU001', 30, 195);
+            doc.text('Course: B.Tech Computer Science', 30, 205);
+            doc.text('Semester: 1st Semester', 30, 215);
+            
+            doc.text('----------------------------------------', 20, 230);
+            doc.text('This is a computer-generated receipt.', 20, 245);
+            doc.text('No signature required.', 20, 255);
+            
+            // Save the PDF with current date in filename
+            const fileName = `receipt_${formattedDate.replace(/\//g, '-')}_${receiptId || Date.now()}.pdf`;
+            doc.save(fileName);
+            
+            // Show success message
+            showNotification('Receipt downloaded successfully!');
+        }
+
+        function generateReceiptContent(receiptId) {
+            const currentDate = new Date();
+            const formattedDate = currentDate.toLocaleDateString('en-IN', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric'
+            });
+            
+            return {
+                id: receiptId || 'REC' + Date.now(),
+                date: formattedDate,
+                time: currentDate.toLocaleTimeString('en-IN'),
+                amount: '₹18,750.00',
+                description: 'Tuition Fee - Spring 2024',
+                method: 'Card (•••• 4242)',
+                status: 'Paid',
+                transactionId: 'TXN' + Date.now()
+            };
+        }
+
+        function showNotification(message) {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.innerHTML = `
+                <i class="material-icons">check_circle</i>
+                <span>${message}</span>
+            `;
+            
+            // Add to page
+            document.body.appendChild(notification);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        function removePaymentMethod(cardId) {
+            const card = document.querySelector(`[data-card-id="${cardId}"]`);
+            if (card) {
+                if (confirm('Are you sure you want to remove this payment method?')) {
+                    card.style.opacity = '0.5';
+                    card.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        card.remove();
+                        showNotification('Payment method removed successfully!');
+                        updatePaymentOptions();
+                    }, 300);
+                }
+            }
+        }
+
+        function editPaymentMethod(cardId) {
+            const card = document.querySelector(`[data-card-id="${cardId}"]`);
+            if (card) {
+                const cardNumber = card.querySelector('.card-number').textContent;
+                const expiry = card.querySelector('.card-expiry').textContent;
+                const cardType = card.querySelector('.card-type').textContent;
+                
+                // Create edit modal
+                const modal = document.createElement('div');
+                modal.className = 'modal';
+                modal.innerHTML = `
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2>Edit Payment Method</h2>
+                            <button class="close-btn" onclick="this.closest('.modal').remove()">
+                                <i class="material-icons">close</i>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="new-card-form">
+                                <input type="text" id="editCardNumber" placeholder="Card Number" value="${cardNumber}" class="form-input">
+                                <input type="text" id="editCardName" placeholder="Cardholder Name" value="John Doe" class="form-input">
+                                <div class="form-row">
+                                    <input type="text" id="editExpiry" placeholder="MM/YY" value="${expiry.replace('Expires ', '')}" class="form-input">
+                                    <input type="text" id="editCVV" placeholder="CVV" class="form-input">
+                                </div>
+                                <button class="submit-payment-btn" onclick="saveEditedCard('${cardId}', this)">
+                                    <i class="material-icons">save</i>
+                                    Save Changes
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(modal);
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function saveEditedCard(cardId, button) {
+            const cardNumber = document.getElementById('editCardNumber').value;
+            const expiry = document.getElementById('editExpiry').value;
+            
+            if (cardNumber && expiry) {
+                const card = document.querySelector(`[data-card-id="${cardId}"]`);
+                if (card) {
+                    card.querySelector('.card-number').textContent = cardNumber;
+                    card.querySelector('.card-expiry').textContent = 'Expires ' + expiry;
+                    
+                    button.innerHTML = '<i class="material-icons">hourglass_empty</i> Saving...';
+                    button.disabled = true;
+                    
+                    setTimeout(() => {
+                        button.closest('.modal').remove();
+                        document.body.style.overflow = 'auto';
+                        showNotification('Payment method updated successfully!');
+                        updatePaymentOptions();
+                    }, 1000);
+                }
+            }
+        }
+
+        function addNewPaymentMethod() {
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Add New Payment Method</h2>
+                        <button class="close-btn" onclick="this.closest('.modal').remove()">
+                            <i class="material-icons">close</i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="new-card-form">
+                            <select id="cardType" class="form-input">
+                                <option value="">Select Card Type</option>
+                                <option value="visa">Visa</option>
+                                <option value="mastercard">Mastercard</option>
+                                <option value="amex">American Express</option>
+                                <option value="rupay">RuPay</option>
+                            </select>
+                            <input type="text" id="cardNumber" placeholder="Card Number" maxlength="19" class="form-input">
+                            <input type="text" id="cardName" placeholder="Cardholder Name" class="form-input">
+                            <div class="form-row">
+                                <input type="text" id="expiry" placeholder="MM/YY" maxlength="5" class="form-input">
+                                <input type="text" id="cvv" placeholder="CVV" maxlength="4" class="form-input">
+                            </div>
+                            <div class="form-row">
+                                <input type="text" id="billingAddress" placeholder="Billing Address" class="form-input">
+                                <input type="text" id="postalCode" placeholder="Postal Code" class="form-input">
+                            </div>
+                            <button class="submit-payment-btn" onclick="saveNewCard(this)">
+                                <i class="material-icons">add_circle</i>
+                                Add Payment Method
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            document.body.style.overflow = 'hidden';
+            
+            // Add input formatting
+            addCardInputFormatting();
+        }
+
+        function saveNewCard(button) {
+            const cardType = document.getElementById('cardType').value;
+            const cardNumber = document.getElementById('cardNumber').value;
+            const cardName = document.getElementById('cardName').value;
+            const expiry = document.getElementById('expiry').value;
+            const cvv = document.getElementById('cvv').value;
+            
+            if (cardType && cardNumber && cardName && expiry && cvv) {
+                // Validate card number (basic validation)
+                if (cardNumber.length < 13 || cardNumber.length > 19) {
+                    showNotification('Please enter a valid card number', 'error');
+                    return;
+                }
+                
+                button.innerHTML = '<i class="material-icons">hourglass_empty</i> Adding...';
+                button.disabled = true;
+                
+                setTimeout(() => {
+                    // Create new card element
+                    const newCardId = 'card' + Date.now();
+                    const cardIcons = {
+                        visa: 'https://cdn-icons-png.flaticon.com/512/196/196578.png',
+                        mastercard: 'https://cdn-icons-png.flaticon.com/512/349/349221.png',
+                        amex: 'https://cdn-icons-png.flaticon.com/512/349/349219.png',
+                        rupay: 'https://cdn-icons-png.flaticon.com/512/825/825454.png'
+                    };
+                    
+                    const newCard = document.createElement('div');
+                    newCard.className = 'payment-card';
+                    newCard.setAttribute('data-card-id', newCardId);
+                    newCard.innerHTML = `
+                        <div class="card-logo">
+                            <img src="${cardIcons[cardType]}" alt="${cardType}">
+                        </div>
+                        <div class="card-details">
+                            <div class="card-number">•••• •••• •••• ${cardNumber.slice(-4)}</div>
+                            <div class="card-expiry">Expires ${expiry}</div>
+                            <div class="card-type">${cardType.charAt(0).toUpperCase() + cardType.slice(1)}</div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn-edit" onclick="editPaymentMethod('${newCardId}')">
+                                <i class="material-icons">edit</i>
+                            </button>
+                            <button class="btn-remove" onclick="removePaymentMethod('${newCardId}')">
+                                <i class="material-icons">delete</i>
+                            </button>
+                        </div>
+                    `;
+                    
+                    // Add to container
+                    const container = document.getElementById('paymentCardsContainer');
+                    const addButton = container.querySelector('.add-card');
+                    container.insertBefore(newCard, addButton);
+                    
+                    button.closest('.modal').remove();
+                    document.body.style.overflow = 'auto';
+                    showNotification('Payment method added successfully!');
+                    updatePaymentOptions();
+                }, 1500);
+            } else {
+                showNotification('Please fill in all required fields', 'error');
+            }
+        }
+
+        function updatePaymentOptions() {
+            // Update payment options in the payment modal
+            const paymentOptions = document.querySelectorAll('.payment-option');
+            const cards = document.querySelectorAll('.payment-card[data-card-id]');
+            
+            // Clear existing options (except the "Add New Card" option)
+            paymentOptions.forEach(option => {
+                const radio = option.querySelector('input[value="new"]');
+                if (!radio) {
+                    option.remove();
+                }
+            });
+            
+            // Add updated card options
+            const paymentOptionsContainer = document.querySelector('.payment-options');
+            if (paymentOptionsContainer && cards.length > 0) {
+                cards.forEach((card, index) => {
+                    const cardNumber = card.querySelector('.card-number').textContent;
+                    const cardType = card.querySelector('.card-type').textContent;
+                    const cardLogo = card.querySelector('.card-logo img').src;
+                    const cardId = card.getAttribute('data-card-id');
+                    
+                    const option = document.createElement('label');
+                    option.className = 'payment-option';
+                    option.innerHTML = `
+                        <input type="radio" name="paymentMethod" value="${cardId}" ${index === 0 ? 'checked' : ''}>
+                        <div class="option-content">
+                            <div class="card-info">
+                                <img src="${cardLogo}" alt="${cardType}">
+                                <span>${cardNumber}</span>
+                            </div>
+                        </div>
+                    `;
+                    
+                    const newCardOption = paymentOptionsContainer.querySelector('input[value="new"]').closest('.payment-option');
+                    paymentOptionsContainer.insertBefore(option, newCardOption);
+                });
+            }
+        }
+
+        function addCardInputFormatting() {
+            // Wait a bit for the DOM to be ready
+            setTimeout(() => {
+                // Card number formatting
+                const cardNumberInput = document.getElementById('cardNumber');
+                if (cardNumberInput) {
+                    // Remove any existing listeners first
+                    cardNumberInput.replaceWith(cardNumberInput.cloneNode(true));
+                    const newCardInput = document.getElementById('cardNumber');
+                    newCardInput.addEventListener('input', function(e) {
+                        let value = e.target.value.replace(/\s/g, '');
+                        let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value;
+                        e.target.value = formattedValue;
+                    });
+                }
+                
+                // Expiry formatting
+                const expiryInput = document.getElementById('expiry');
+                if (expiryInput) {
+                    // Remove any existing listeners first
+                    expiryInput.replaceWith(expiryInput.cloneNode(true));
+                    const newExpiryInput = document.getElementById('expiry');
+                    newExpiryInput.addEventListener('input', function(e) {
+                        let value = e.target.value.replace(/\D/g, '');
+                        if (value.length >= 2) {
+                            value = value.slice(0, 2) + '/' + value.slice(2, 4);
+                        }
+                        e.target.value = value;
+                    });
+                }
+                
+                // CVV formatting
+                const cvvInput = document.getElementById('cvv');
+                if (cvvInput) {
+                    // Remove any existing listeners first
+                    cvvInput.replaceWith(cvvInput.cloneNode(true));
+                    const newCvvInput = document.getElementById('cvv');
+                    newCvvInput.addEventListener('input', function(e) {
+                        e.target.value = e.target.value.replace(/\D/g, '');
+                    });
+                }
+            }, 100);
+        }
+
+        function showNotification(message, type = 'success') {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            if (type === 'error') {
+                notification.style.background = 'var(--danger)';
+            }
+            notification.innerHTML = `
+                <i class="material-icons">${type === 'error' ? 'error' : 'check_circle'}</i>
+                <span>${message}</span>
+            `;
+            
+            // Add to page
+            document.body.appendChild(notification);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Payment method radio button change
+            const paymentRadios = document.querySelectorAll('input[name="paymentMethod"]');
+            paymentRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    const newCardForm = document.getElementById('newCardForm');
+                    if (this.value === 'new') {
+                        newCardForm.style.display = 'block';
+                    } else {
+                        newCardForm.style.display = 'none';
+                    }
+                });
+            });
+
+            // Close modals on outside click
+            window.addEventListener('click', function(event) {
+                if (event.target.classList.contains('modal')) {
+                    event.target.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Pay now button
+            const payNowBtn = document.querySelector('.pay-now');
+            if (payNowBtn) {
+                payNowBtn.addEventListener('click', openPaymentModal);
+            }
+
+            // Add card button - Fix the event listener
+            const addCardBtn = document.querySelector('.add-card');
+            if (addCardBtn) {
+                addCardBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    addNewPaymentMethod();
+                });
+            }
+
+            // Remove card buttons
+            const removeBtns = document.querySelectorAll('.btn-remove');
+            removeBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const card = this.closest('.payment-card');
+                    const cardId = card.getAttribute('data-card-id');
+                    removePaymentMethod(cardId);
+                });
+            });
+
+            // Edit card buttons
+            const editBtns = document.querySelectorAll('.btn-edit');
+            editBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const card = this.closest('.payment-card');
+                    const cardId = card.getAttribute('data-card-id');
+                    editPaymentMethod(cardId);
+                });
+            });
+
+            // Receipt download links
+            const receiptLinks = document.querySelectorAll('.receipt-link');
+            receiptLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const receiptId = 'REC' + Math.random().toString(36).substr(2, 9).toUpperCase();
+                    downloadReceipt(receiptId);
+                });
+            });
+
+            // Initialize payment options
+            updatePaymentOptions();
+        });
+
+        // Add jsPDF library for receipt generation
+        const script = document.createElement('script');
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+        document.head.appendChild(script);
+    </script>
+
+    <style>
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 0;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .modal-header h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin: 0;
+        }
+
+        .close-btn {
+            background: transparent;
+            border: none;
+            color: var(--gray);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+        .close-btn:hover {
+            background: #f1f5f9;
+            color: var(--dark);
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .receipt-details {
+            margin-bottom: 2rem;
+        }
+
+        .receipt-details h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .receipt-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .receipt-item:last-child {
+            border-bottom: none;
+        }
+
+        .payment-summary {
+            margin-bottom: 2rem;
+        }
+
+        .payment-summary h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .amount-due-modal {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--danger);
+        }
+
+        .payment-form h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .payment-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .payment-option {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border: 1px solid #e5e7eb;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .payment-option:hover {
+            border-color: var(--accent);
+            background: #f0f7ff;
+        }
+
+        .payment-option input[type="radio"] {
+            margin-right: 1rem;
+        }
+
+        .card-info {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .card-info img {
+            width: 32px;
+            height: 20px;
+        }
+
+        .new-card-form {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #e5e7eb;
+            border-radius: var(--radius);
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            transition: var(--transition);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .submit-payment-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--accent), #1d4ed8);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: var(--radius);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .submit-payment-btn:hover:not(:disabled) {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow);
+        }
+
+        .submit-payment-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .success-modal {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            color: var(--success);
+            margin-bottom: 1rem;
+        }
+
+        .success-modal h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .success-modal p {
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+
+        .success-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.875rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), #1d4ed8);
+            color: white;
+            border: none;
+        }
+
+        .btn-secondary {
+            background: #f1f5f9;
+            color: var(--dark);
+            border: 1px solid #e5e7eb;
+        }
+
+        .btn-primary:hover, .btn-secondary:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow);
+        }
+
+        .notification {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--success);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            z-index: 2000;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .modal-content {
+                width: 95%;
+                margin: 1rem;
+            }
+            
+            .success-actions {
+                flex-direction: column;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</body>
+</html>

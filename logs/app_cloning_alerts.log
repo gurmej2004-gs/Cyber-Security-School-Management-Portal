@@ -1,0 +1,348 @@
+[2025-09-12T10:47:56.825Z] APP_CLONING_BLOCKED: INVALID_SIGNATURE - IP: ::1 - Details: {"reason":"Missing or invalid header: X-App-Signature","expected":"SchoolMgmt-Auth-Token","received":"missing","endpoint":"/","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
+[2025-09-12T10:47:56.831Z] APP_CLONING_DETAILS: Type: INVALID_SIGNATURE, IP: ::1, Action: BLOCKED, Reason: Missing or invalid header: X-App-Signature
+[2025-09-12T10:47:56.845Z] APP_CLONING_BLOCKED: INVALID_SIGNATURE - IP: ::1 - Details: {"reason":"Missing or invalid header: X-App-Signature","expected":"SchoolMgmt-Auth-Token","received":"FakeApp-Clone-Token","endpoint":"/","userAgent":"SchoolManagement/1.0"}
+[2025-09-12T10:47:56.847Z] APP_CLONING_DETAILS: Type: INVALID_SIGNATURE, IP: ::1, Action: BLOCKED, Reason: Missing or invalid header: X-App-Signature
+[2025-09-12T10:47:56.857Z] APP_CLONING_BLOCKED: SUSPICIOUS_USER_AGENT - IP: ::1 - Details: {"reason":"Suspicious User-Agent pattern detected","userAgent":"CloneBot/1.0 (Unauthorized Copy)","pattern":"/bot/i","endpoint":"/"}
+[2025-09-12T10:47:56.858Z] APP_CLONING_DETAILS: Type: SUSPICIOUS_USER_AGENT, IP: ::1, Action: BLOCKED, Reason: Suspicious User-Agent pattern detected
+[2025-09-12T10:47:57.029Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":68,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.035Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.040Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":12,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.041Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.045Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":5,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.047Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.051Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":6,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.052Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.057Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":6,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.059Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.063Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":6,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.065Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.068Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":5,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.069Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.072Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":4,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.074Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.077Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":5,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.078Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.083Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":5,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.089Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.093Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":11,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.096Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.099Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":6,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.101Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.103Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":4,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.104Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.108Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":5,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.109Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.111Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":3,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.113Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.115Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":4,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.117Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.124Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":9,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.125Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.128Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":4,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.129Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.133Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":5,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.134Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.137Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":4,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.138Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.140Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":3,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.142Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.144Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":4,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.146Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.147Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":3,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.149Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.151Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":4,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.152Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.154Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":3,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.156Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.158Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":4,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.159Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.162Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":4,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.163Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.167Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":5,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.172Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.178Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":11,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.180Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.183Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":5,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.184Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.187Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":4,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.195Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.197Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":10,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.200Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.204Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":7,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.205Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.208Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":4,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.210Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.212Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":4,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.213Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.216Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":4,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.223Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.229Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":13,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.232Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.234Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":5,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.236Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.239Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":5,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.242Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.245Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":6,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.262Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.264Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":19,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.280Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.283Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":19,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.287Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.290Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":7,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.292Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.296Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":6,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.298Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.302Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":6,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.308Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.313Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":11,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.328Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.330Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":17,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.367Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.369Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":39,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.373Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.377Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":8,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.419Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.429Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":52,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.490Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.495Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":66,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.533Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.541Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":46,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.576Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.581Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":40,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.601Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.604Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":22,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.634Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.638Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":35,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.666Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.686Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":48,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.690Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.694Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":8,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.699Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.704Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":10,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.720Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T10:47:57.722Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Request rate limit exceeded","requestCount":61,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.725Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Request rate limit exceeded
+[2025-09-12T10:47:57.728Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Request rate limit exceeded","requestCount":62,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.751Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Request rate limit exceeded
+[2025-09-12T10:47:57.754Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Request rate limit exceeded","requestCount":63,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.757Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Request rate limit exceeded
+[2025-09-12T10:47:57.760Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Request rate limit exceeded","requestCount":64,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.772Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Request rate limit exceeded
+[2025-09-12T10:47:57.774Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Request rate limit exceeded","requestCount":65,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.776Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Request rate limit exceeded
+[2025-09-12T10:47:57.780Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Request rate limit exceeded","requestCount":66,"endpoint":"/","userAgent":"SchoolManagement/1.0 OfficialClient/1.0"}
+[2025-09-12T10:47:57.783Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Request rate limit exceeded
+[2025-09-12T10:47:57.800Z] APP_CLONING_BLOCKED: INVALID_SIGNATURE - IP: ::1 - Details: {"reason":"Missing or invalid header: X-App-Version","expected":"1.0.0","received":"2.0.0","endpoint":"/","userAgent":"SchoolManagement/1.0"}
+[2025-09-12T10:47:57.837Z] APP_CLONING_DETAILS: Type: INVALID_SIGNATURE, IP: ::1, Action: BLOCKED, Reason: Missing or invalid header: X-App-Version
+[2025-09-12T10:47:57.904Z] APP_CLONING_BLOCKED: INVALID_SIGNATURE - IP: ::1 - Details: {"reason":"Missing or invalid header: X-App-Signature","expected":"SchoolMgmt-Auth-Token","received":"FakeClone-Token","endpoint":"/api/login","userAgent":"UnauthorizedClone/1.0"}
+[2025-09-12T10:47:57.907Z] APP_CLONING_DETAILS: Type: INVALID_SIGNATURE, IP: ::1, Action: BLOCKED, Reason: Missing or invalid header: X-App-Signature
+[2025-09-12T10:59:21.983Z] APP_CLONING_BLOCKED: INVALID_SIGNATURE - IP: ::1 - Details: {"reason":"Missing or invalid header: X-App-Signature","expected":"SchoolMgmt-Auth-Token","received":"missing","endpoint":"/api/login","userAgent":"axios/1.12.0"}
+[2025-09-12T10:59:21.990Z] APP_CLONING_DETAILS: Type: INVALID_SIGNATURE, IP: ::1, Action: BLOCKED, Reason: Missing or invalid header: X-App-Signature
+[2025-09-12T10:59:40.762Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"f943a8e0d6b143489262eecc9459fea2","newFingerprint":"2cd3d9dbb32b27bc9b6c06f1a7d8740e","endpoint":"/api/login","userAgent":"SchoolManagement/1.0.0 (Test Client)"}
+[2025-09-12T10:59:40.764Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-12T11:01:20.430Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"f943a8e0d6b143489262eecc9459fea2","newFingerprint":"2cd3d9dbb32b27bc9b6c06f1a7d8740e","endpoint":"/api/login","userAgent":"SchoolManagement/1.0.0 (Test Client)"}
+[2025-09-12T11:01:20.436Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-12T11:01:52.523Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"f943a8e0d6b143489262eecc9459fea2","newFingerprint":"2cd3d9dbb32b27bc9b6c06f1a7d8740e","endpoint":"/api/login","userAgent":"SchoolManagement/1.0.0 (Test Client)"}
+[2025-09-12T11:01:52.525Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-12T11:01:52.700Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"f943a8e0d6b143489262eecc9459fea2","newFingerprint":"2cd3d9dbb32b27bc9b6c06f1a7d8740e","endpoint":"/api/session-info","userAgent":"SchoolManagement/1.0.0 (Test Client)"}
+[2025-09-12T11:01:52.702Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-12T11:01:52.728Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":27,"endpoint":"/users","userAgent":"SchoolManagement/1.0.0 (Test Client)"}
+[2025-09-12T11:01:52.729Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T11:01:52.736Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":9,"endpoint":"/api/refresh-token","userAgent":"SchoolManagement/1.0.0 (Test Client)"}
+[2025-09-12T11:01:52.737Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T11:01:52.759Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":23,"endpoint":"/api/admin/session-stats","userAgent":"SchoolManagement/1.0.0 (Test Client)"}
+[2025-09-12T11:01:52.763Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T11:01:52.770Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":11,"endpoint":"/users","userAgent":"SchoolManagement/1.0.0 (Test Client)"}
+[2025-09-12T11:01:52.771Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T11:01:52.781Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":11,"endpoint":"/api/logout","userAgent":"SchoolManagement/1.0.0 (Test Client)"}
+[2025-09-12T11:01:52.783Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T11:01:52.790Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":9,"endpoint":"/api/session-info","userAgent":"SchoolManagement/1.0.0 (Test Client)"}
+[2025-09-12T11:01:52.791Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-12T11:05:37.142Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"f943a8e0d6b143489262eecc9459fea2","newFingerprint":"2cd3d9dbb32b27bc9b6c06f1a7d8740e","endpoint":"/api/login","userAgent":"SchoolManagement/1.0.0 (Test Client)"}
+[2025-09-12T11:05:37.145Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-12T11:07:56.639Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"f943a8e0d6b143489262eecc9459fea2","newFingerprint":"2cd3d9dbb32b27bc9b6c06f1a7d8740e","endpoint":"/api/login","userAgent":"SchoolManagement/1.0.0 (Test Client)"}
+[2025-09-12T11:07:56.640Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-12T11:08:21.659Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"f943a8e0d6b143489262eecc9459fea2","newFingerprint":"2cd3d9dbb32b27bc9b6c06f1a7d8740e","endpoint":"/api/login","userAgent":"SchoolManagement/1.0.0 (Test Client)"}
+[2025-09-12T11:08:21.666Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-12T11:08:45.257Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"f943a8e0d6b143489262eecc9459fea2","newFingerprint":"2cd3d9dbb32b27bc9b6c06f1a7d8740e","endpoint":"/api/login","userAgent":"SchoolManagement/1.0.0 (Test Client)"}
+[2025-09-12T11:08:45.258Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:20:52.580Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":74,"endpoint":"/test-db","userAgent":"axios/1.12.0"}
+[2025-09-14T05:20:52.582Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-14T05:21:56.016Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":78,"endpoint":"/test-db","userAgent":"axios/1.12.0"}
+[2025-09-14T05:21:56.018Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-14T05:21:56.055Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":39,"endpoint":"/api/login","userAgent":"axios/1.12.0"}
+[2025-09-14T05:21:56.056Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-14T05:22:58.841Z] APP_CLONING_BLOCKED: INVALID_SIGNATURE - IP: ::1 - Details: {"reason":"Missing or invalid header: X-App-Signature","expected":"SchoolMgmt-Auth-Token","received":"missing","endpoint":"/test-db","userAgent":"axios/1.12.0"}
+[2025-09-14T05:22:58.843Z] APP_CLONING_DETAILS: Type: INVALID_SIGNATURE, IP: ::1, Action: BLOCKED, Reason: Missing or invalid header: X-App-Signature
+[2025-09-14T05:22:59.038Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":19,"endpoint":"/api/login","userAgent":"axios/1.12.0"}
+[2025-09-14T05:22:59.040Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-14T05:28:05.825Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":17,"endpoint":"/test-db","userAgent":"axios/1.12.0"}
+[2025-09-14T05:28:05.826Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-14T05:40:05.997Z] APP_CLONING_BLOCKED: SUSPICIOUS_USER_AGENT - IP: ::1 - Details: {"reason":"Suspicious User-Agent pattern detected","userAgent":"PhishingBot/1.0 (Credential Harvester)","pattern":"/bot/i","endpoint":"/api/login"}
+[2025-09-14T05:40:06.006Z] APP_CLONING_DETAILS: Type: SUSPICIOUS_USER_AGENT, IP: ::1, Action: BLOCKED, Reason: Suspicious User-Agent pattern detected
+[2025-09-14T05:40:29.873Z] APP_CLONING_BLOCKED: SUSPICIOUS_USER_AGENT - IP: ::1 - Details: {"reason":"Suspicious User-Agent pattern detected","userAgent":"BruteForce-Bot/1.0","pattern":"/bot/i","endpoint":"/api/login"}
+[2025-09-14T05:40:29.875Z] APP_CLONING_DETAILS: Type: SUSPICIOUS_USER_AGENT, IP: ::1, Action: BLOCKED, Reason: Suspicious User-Agent pattern detected
+[2025-09-14T05:40:29.898Z] APP_CLONING_BLOCKED: SUSPICIOUS_USER_AGENT - IP: ::1 - Details: {"reason":"Suspicious User-Agent pattern detected","userAgent":"AttackBot-192.168.1.100","pattern":"/bot/i","endpoint":"/api/login"}
+[2025-09-14T05:40:29.899Z] APP_CLONING_DETAILS: Type: SUSPICIOUS_USER_AGENT, IP: ::1, Action: BLOCKED, Reason: Suspicious User-Agent pattern detected
+[2025-09-14T05:40:30.237Z] APP_CLONING_BLOCKED: SUSPICIOUS_USER_AGENT - IP: ::1 - Details: {"reason":"Suspicious User-Agent pattern detected","userAgent":"AttackBot-192.168.1.100","pattern":"/bot/i","endpoint":"/api/login"}
+[2025-09-14T05:40:30.273Z] APP_CLONING_DETAILS: Type: SUSPICIOUS_USER_AGENT, IP: ::1, Action: BLOCKED, Reason: Suspicious User-Agent pattern detected
+[2025-09-14T05:40:30.601Z] APP_CLONING_BLOCKED: SUSPICIOUS_USER_AGENT - IP: ::1 - Details: {"reason":"Suspicious User-Agent pattern detected","userAgent":"AttackBot-192.168.1.100","pattern":"/bot/i","endpoint":"/api/login"}
+[2025-09-14T05:40:30.602Z] APP_CLONING_DETAILS: Type: SUSPICIOUS_USER_AGENT, IP: ::1, Action: BLOCKED, Reason: Suspicious User-Agent pattern detected
+[2025-09-14T05:40:30.911Z] APP_CLONING_BLOCKED: SUSPICIOUS_USER_AGENT - IP: ::1 - Details: {"reason":"Suspicious User-Agent pattern detected","userAgent":"AttackBot-192.168.1.100","pattern":"/bot/i","endpoint":"/api/login"}
+[2025-09-14T05:40:30.913Z] APP_CLONING_DETAILS: Type: SUSPICIOUS_USER_AGENT, IP: ::1, Action: BLOCKED, Reason: Suspicious User-Agent pattern detected
+[2025-09-14T05:40:31.233Z] APP_CLONING_BLOCKED: SUSPICIOUS_USER_AGENT - IP: ::1 - Details: {"reason":"Suspicious User-Agent pattern detected","userAgent":"AttackBot-192.168.1.100","pattern":"/bot/i","endpoint":"/api/login"}
+[2025-09-14T05:40:31.234Z] APP_CLONING_DETAILS: Type: SUSPICIOUS_USER_AGENT, IP: ::1, Action: BLOCKED, Reason: Suspicious User-Agent pattern detected
+[2025-09-14T05:40:31.546Z] APP_CLONING_BLOCKED: SUSPICIOUS_USER_AGENT - IP: ::1 - Details: {"reason":"Suspicious User-Agent pattern detected","userAgent":"AttackBot-10.0.0.50","pattern":"/bot/i","endpoint":"/api/login"}
+[2025-09-14T05:40:31.548Z] APP_CLONING_DETAILS: Type: SUSPICIOUS_USER_AGENT, IP: ::1, Action: BLOCKED, Reason: Suspicious User-Agent pattern detected
+[2025-09-14T05:40:31.870Z] APP_CLONING_BLOCKED: SUSPICIOUS_USER_AGENT - IP: ::1 - Details: {"reason":"Suspicious User-Agent pattern detected","userAgent":"AttackBot-10.0.0.50","pattern":"/bot/i","endpoint":"/api/login"}
+[2025-09-14T05:40:31.872Z] APP_CLONING_DETAILS: Type: SUSPICIOUS_USER_AGENT, IP: ::1, Action: BLOCKED, Reason: Suspicious User-Agent pattern detected
+[2025-09-14T05:40:32.198Z] APP_CLONING_BLOCKED: SUSPICIOUS_USER_AGENT - IP: ::1 - Details: {"reason":"Suspicious User-Agent pattern detected","userAgent":"AttackBot-10.0.0.50","pattern":"/bot/i","endpoint":"/api/login"}
+[2025-09-14T05:40:32.200Z] APP_CLONING_DETAILS: Type: SUSPICIOUS_USER_AGENT, IP: ::1, Action: BLOCKED, Reason: Suspicious User-Agent pattern detected
+[2025-09-14T05:40:32.522Z] APP_CLONING_BLOCKED: SUSPICIOUS_USER_AGENT - IP: ::1 - Details: {"reason":"Suspicious User-Agent pattern detected","userAgent":"AttackBot-10.0.0.50","pattern":"/bot/i","endpoint":"/api/login"}
+[2025-09-14T05:40:32.524Z] APP_CLONING_DETAILS: Type: SUSPICIOUS_USER_AGENT, IP: ::1, Action: BLOCKED, Reason: Suspicious User-Agent pattern detected
+[2025-09-14T05:40:32.830Z] APP_CLONING_BLOCKED: SUSPICIOUS_USER_AGENT - IP: ::1 - Details: {"reason":"Suspicious User-Agent pattern detected","userAgent":"AttackBot-10.0.0.50","pattern":"/bot/i","endpoint":"/api/login"}
+[2025-09-14T05:40:32.831Z] APP_CLONING_DETAILS: Type: SUSPICIOUS_USER_AGENT, IP: ::1, Action: BLOCKED, Reason: Suspicious User-Agent pattern detected
+[2025-09-14T05:40:33.264Z] APP_CLONING_BLOCKED: SUSPICIOUS_USER_AGENT - IP: ::1 - Details: {"reason":"Suspicious User-Agent pattern detected","userAgent":"AttackBot-172.16.0.25","pattern":"/bot/i","endpoint":"/api/login"}
+[2025-09-14T05:40:33.290Z] APP_CLONING_DETAILS: Type: SUSPICIOUS_USER_AGENT, IP: ::1, Action: BLOCKED, Reason: Suspicious User-Agent pattern detected
+[2025-09-14T05:40:33.609Z] APP_CLONING_BLOCKED: SUSPICIOUS_USER_AGENT - IP: ::1 - Details: {"reason":"Suspicious User-Agent pattern detected","userAgent":"AttackBot-172.16.0.25","pattern":"/bot/i","endpoint":"/api/login"}
+[2025-09-14T05:40:33.610Z] APP_CLONING_DETAILS: Type: SUSPICIOUS_USER_AGENT, IP: ::1, Action: BLOCKED, Reason: Suspicious User-Agent pattern detected
+[2025-09-14T05:40:33.919Z] APP_CLONING_BLOCKED: SUSPICIOUS_USER_AGENT - IP: ::1 - Details: {"reason":"Suspicious User-Agent pattern detected","userAgent":"AttackBot-172.16.0.25","pattern":"/bot/i","endpoint":"/api/login"}
+[2025-09-14T05:40:33.922Z] APP_CLONING_DETAILS: Type: SUSPICIOUS_USER_AGENT, IP: ::1, Action: BLOCKED, Reason: Suspicious User-Agent pattern detected
+[2025-09-14T05:40:34.228Z] APP_CLONING_BLOCKED: SUSPICIOUS_USER_AGENT - IP: ::1 - Details: {"reason":"Suspicious User-Agent pattern detected","userAgent":"AttackBot-172.16.0.25","pattern":"/bot/i","endpoint":"/api/login"}
+[2025-09-14T05:40:34.232Z] APP_CLONING_DETAILS: Type: SUSPICIOUS_USER_AGENT, IP: ::1, Action: BLOCKED, Reason: Suspicious User-Agent pattern detected
+[2025-09-14T05:40:34.540Z] APP_CLONING_BLOCKED: SUSPICIOUS_USER_AGENT - IP: ::1 - Details: {"reason":"Suspicious User-Agent pattern detected","userAgent":"AttackBot-172.16.0.25","pattern":"/bot/i","endpoint":"/api/login"}
+[2025-09-14T05:40:34.541Z] APP_CLONING_DETAILS: Type: SUSPICIOUS_USER_AGENT, IP: ::1, Action: BLOCKED, Reason: Suspicious User-Agent pattern detected
+[2025-09-14T05:40:34.849Z] APP_CLONING_BLOCKED: SUSPICIOUS_USER_AGENT - IP: ::1 - Details: {"reason":"Suspicious User-Agent pattern detected","userAgent":"AttackBot-203.0.113.10","pattern":"/bot/i","endpoint":"/api/login"}
+[2025-09-14T05:40:34.854Z] APP_CLONING_DETAILS: Type: SUSPICIOUS_USER_AGENT, IP: ::1, Action: BLOCKED, Reason: Suspicious User-Agent pattern detected
+[2025-09-14T05:40:35.163Z] APP_CLONING_BLOCKED: SUSPICIOUS_USER_AGENT - IP: ::1 - Details: {"reason":"Suspicious User-Agent pattern detected","userAgent":"AttackBot-203.0.113.10","pattern":"/bot/i","endpoint":"/api/login"}
+[2025-09-14T05:40:35.164Z] APP_CLONING_DETAILS: Type: SUSPICIOUS_USER_AGENT, IP: ::1, Action: BLOCKED, Reason: Suspicious User-Agent pattern detected
+[2025-09-14T05:40:35.488Z] APP_CLONING_BLOCKED: SUSPICIOUS_USER_AGENT - IP: ::1 - Details: {"reason":"Suspicious User-Agent pattern detected","userAgent":"AttackBot-203.0.113.10","pattern":"/bot/i","endpoint":"/api/login"}
+[2025-09-14T05:40:35.490Z] APP_CLONING_DETAILS: Type: SUSPICIOUS_USER_AGENT, IP: ::1, Action: BLOCKED, Reason: Suspicious User-Agent pattern detected
+[2025-09-14T05:40:35.800Z] APP_CLONING_BLOCKED: SUSPICIOUS_USER_AGENT - IP: ::1 - Details: {"reason":"Suspicious User-Agent pattern detected","userAgent":"AttackBot-203.0.113.10","pattern":"/bot/i","endpoint":"/api/login"}
+[2025-09-14T05:40:35.801Z] APP_CLONING_DETAILS: Type: SUSPICIOUS_USER_AGENT, IP: ::1, Action: BLOCKED, Reason: Suspicious User-Agent pattern detected
+[2025-09-14T05:40:36.110Z] APP_CLONING_BLOCKED: SUSPICIOUS_USER_AGENT - IP: ::1 - Details: {"reason":"Suspicious User-Agent pattern detected","userAgent":"AttackBot-203.0.113.10","pattern":"/bot/i","endpoint":"/api/login"}
+[2025-09-14T05:40:36.115Z] APP_CLONING_DETAILS: Type: SUSPICIOUS_USER_AGENT, IP: ::1, Action: BLOCKED, Reason: Suspicious User-Agent pattern detected
+[2025-09-14T05:40:36.423Z] APP_CLONING_BLOCKED: SUSPICIOUS_USER_AGENT - IP: ::1 - Details: {"reason":"Suspicious User-Agent pattern detected","userAgent":"AttackBot-198.51.100.5","pattern":"/bot/i","endpoint":"/api/login"}
+[2025-09-14T05:40:36.424Z] APP_CLONING_DETAILS: Type: SUSPICIOUS_USER_AGENT, IP: ::1, Action: BLOCKED, Reason: Suspicious User-Agent pattern detected
+[2025-09-14T05:40:36.735Z] APP_CLONING_BLOCKED: SUSPICIOUS_USER_AGENT - IP: ::1 - Details: {"reason":"Suspicious User-Agent pattern detected","userAgent":"AttackBot-198.51.100.5","pattern":"/bot/i","endpoint":"/api/login"}
+[2025-09-14T05:40:36.739Z] APP_CLONING_DETAILS: Type: SUSPICIOUS_USER_AGENT, IP: ::1, Action: BLOCKED, Reason: Suspicious User-Agent pattern detected
+[2025-09-14T05:40:37.059Z] APP_CLONING_BLOCKED: SUSPICIOUS_USER_AGENT - IP: ::1 - Details: {"reason":"Suspicious User-Agent pattern detected","userAgent":"AttackBot-198.51.100.5","pattern":"/bot/i","endpoint":"/api/login"}
+[2025-09-14T05:40:37.061Z] APP_CLONING_DETAILS: Type: SUSPICIOUS_USER_AGENT, IP: ::1, Action: BLOCKED, Reason: Suspicious User-Agent pattern detected
+[2025-09-14T05:40:37.383Z] APP_CLONING_BLOCKED: SUSPICIOUS_USER_AGENT - IP: ::1 - Details: {"reason":"Suspicious User-Agent pattern detected","userAgent":"AttackBot-198.51.100.5","pattern":"/bot/i","endpoint":"/api/login"}
+[2025-09-14T05:40:37.384Z] APP_CLONING_DETAILS: Type: SUSPICIOUS_USER_AGENT, IP: ::1, Action: BLOCKED, Reason: Suspicious User-Agent pattern detected
+[2025-09-14T05:40:37.696Z] APP_CLONING_BLOCKED: SUSPICIOUS_USER_AGENT - IP: ::1 - Details: {"reason":"Suspicious User-Agent pattern detected","userAgent":"AttackBot-198.51.100.5","pattern":"/bot/i","endpoint":"/api/login"}
+[2025-09-14T05:40:37.699Z] APP_CLONING_DETAILS: Type: SUSPICIOUS_USER_AGENT, IP: ::1, Action: BLOCKED, Reason: Suspicious User-Agent pattern detected
+[2025-09-14T05:40:38.024Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"a104463e5b9cdba5be64b1cfe9e2606a","endpoint":"/api/login","userAgent":"PasswordSpray-Tool/2.0"}
+[2025-09-14T05:40:38.025Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:40:38.764Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"a104463e5b9cdba5be64b1cfe9e2606a","endpoint":"/api/login","userAgent":"PasswordSpray-Tool/2.0"}
+[2025-09-14T05:40:38.766Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:40:39.288Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"a104463e5b9cdba5be64b1cfe9e2606a","endpoint":"/api/login","userAgent":"PasswordSpray-Tool/2.0"}
+[2025-09-14T05:40:39.293Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:40:39.819Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"a104463e5b9cdba5be64b1cfe9e2606a","endpoint":"/api/login","userAgent":"PasswordSpray-Tool/2.0"}
+[2025-09-14T05:40:39.821Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:40:40.333Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"a104463e5b9cdba5be64b1cfe9e2606a","endpoint":"/api/login","userAgent":"PasswordSpray-Tool/2.0"}
+[2025-09-14T05:40:40.338Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:40:40.859Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"a104463e5b9cdba5be64b1cfe9e2606a","endpoint":"/api/login","userAgent":"PasswordSpray-Tool/2.0"}
+[2025-09-14T05:40:40.860Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:40:41.370Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"a104463e5b9cdba5be64b1cfe9e2606a","endpoint":"/api/login","userAgent":"PasswordSpray-Tool/2.0"}
+[2025-09-14T05:40:41.371Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:40:41.883Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"a104463e5b9cdba5be64b1cfe9e2606a","endpoint":"/api/login","userAgent":"PasswordSpray-Tool/2.0"}
+[2025-09-14T05:40:41.885Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:40:42.395Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"a104463e5b9cdba5be64b1cfe9e2606a","endpoint":"/api/login","userAgent":"PasswordSpray-Tool/2.0"}
+[2025-09-14T05:40:42.397Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:40:42.928Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"a104463e5b9cdba5be64b1cfe9e2606a","endpoint":"/api/login","userAgent":"PasswordSpray-Tool/2.0"}
+[2025-09-14T05:40:42.929Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:40:45.456Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"a104463e5b9cdba5be64b1cfe9e2606a","endpoint":"/api/login","userAgent":"PasswordSpray-Tool/2.0"}
+[2025-09-14T05:40:45.458Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:40:45.984Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"a104463e5b9cdba5be64b1cfe9e2606a","endpoint":"/api/login","userAgent":"PasswordSpray-Tool/2.0"}
+[2025-09-14T05:40:45.992Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:40:46.513Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"a104463e5b9cdba5be64b1cfe9e2606a","endpoint":"/api/login","userAgent":"PasswordSpray-Tool/2.0"}
+[2025-09-14T05:40:46.516Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:40:47.048Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"a104463e5b9cdba5be64b1cfe9e2606a","endpoint":"/api/login","userAgent":"PasswordSpray-Tool/2.0"}
+[2025-09-14T05:40:47.050Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:40:47.569Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"a104463e5b9cdba5be64b1cfe9e2606a","endpoint":"/api/login","userAgent":"PasswordSpray-Tool/2.0"}
+[2025-09-14T05:40:47.571Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:40:48.084Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"a104463e5b9cdba5be64b1cfe9e2606a","endpoint":"/api/login","userAgent":"PasswordSpray-Tool/2.0"}
+[2025-09-14T05:40:48.094Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:40:48.610Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"a104463e5b9cdba5be64b1cfe9e2606a","endpoint":"/api/login","userAgent":"PasswordSpray-Tool/2.0"}
+[2025-09-14T05:40:48.612Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:40:49.122Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"a104463e5b9cdba5be64b1cfe9e2606a","endpoint":"/api/login","userAgent":"PasswordSpray-Tool/2.0"}
+[2025-09-14T05:40:49.126Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:40:49.637Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"a104463e5b9cdba5be64b1cfe9e2606a","endpoint":"/api/login","userAgent":"PasswordSpray-Tool/2.0"}
+[2025-09-14T05:40:49.640Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:40:50.159Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"a104463e5b9cdba5be64b1cfe9e2606a","endpoint":"/api/login","userAgent":"PasswordSpray-Tool/2.0"}
+[2025-09-14T05:40:50.161Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:40:52.850Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"a104463e5b9cdba5be64b1cfe9e2606a","endpoint":"/api/login","userAgent":"PasswordSpray-Tool/2.0"}
+[2025-09-14T05:40:52.852Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:40:53.366Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"a104463e5b9cdba5be64b1cfe9e2606a","endpoint":"/api/login","userAgent":"PasswordSpray-Tool/2.0"}
+[2025-09-14T05:40:53.368Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:40:53.890Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"a104463e5b9cdba5be64b1cfe9e2606a","endpoint":"/api/login","userAgent":"PasswordSpray-Tool/2.0"}
+[2025-09-14T05:40:53.892Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:40:54.401Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"a104463e5b9cdba5be64b1cfe9e2606a","endpoint":"/api/login","userAgent":"PasswordSpray-Tool/2.0"}
+[2025-09-14T05:40:54.402Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:40:54.924Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"a104463e5b9cdba5be64b1cfe9e2606a","endpoint":"/api/login","userAgent":"PasswordSpray-Tool/2.0"}
+[2025-09-14T05:40:54.935Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:40:55.466Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"a104463e5b9cdba5be64b1cfe9e2606a","endpoint":"/api/login","userAgent":"PasswordSpray-Tool/2.0"}
+[2025-09-14T05:40:55.468Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:40:55.993Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"a104463e5b9cdba5be64b1cfe9e2606a","endpoint":"/api/login","userAgent":"PasswordSpray-Tool/2.0"}
+[2025-09-14T05:40:55.994Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:40:56.506Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"a104463e5b9cdba5be64b1cfe9e2606a","endpoint":"/api/login","userAgent":"PasswordSpray-Tool/2.0"}
+[2025-09-14T05:40:56.509Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:40:57.032Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"a104463e5b9cdba5be64b1cfe9e2606a","endpoint":"/api/login","userAgent":"PasswordSpray-Tool/2.0"}
+[2025-09-14T05:40:57.033Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:40:57.544Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"a104463e5b9cdba5be64b1cfe9e2606a","endpoint":"/api/login","userAgent":"PasswordSpray-Tool/2.0"}
+[2025-09-14T05:40:57.554Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:41:00.084Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"88c5214e90c26d28d9cfe9fe21577148","endpoint":"/api/login","userAgent":"CredentialStuffer/3.0"}
+[2025-09-14T05:41:00.089Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:41:01.106Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"88c5214e90c26d28d9cfe9fe21577148","endpoint":"/api/login","userAgent":"CredentialStuffer/3.0"}
+[2025-09-14T05:41:01.107Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:41:02.145Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"88c5214e90c26d28d9cfe9fe21577148","endpoint":"/api/login","userAgent":"CredentialStuffer/3.0"}
+[2025-09-14T05:41:02.147Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:41:03.157Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"88c5214e90c26d28d9cfe9fe21577148","endpoint":"/api/login","userAgent":"CredentialStuffer/3.0"}
+[2025-09-14T05:41:03.159Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:41:04.193Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"88c5214e90c26d28d9cfe9fe21577148","endpoint":"/api/login","userAgent":"CredentialStuffer/3.0"}
+[2025-09-14T05:41:04.195Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:41:05.222Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"88c5214e90c26d28d9cfe9fe21577148","endpoint":"/api/login","userAgent":"CredentialStuffer/3.0"}
+[2025-09-14T05:41:05.224Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:41:41.489Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"17b29cf14e9b4cbab48a09a829974bdb","endpoint":"/api/students?id=1%27%20AND%20SLEEP(5)--","userAgent":"SQLNinja/2.0"}
+[2025-09-14T05:41:41.490Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:41:42.762Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"17b29cf14e9b4cbab48a09a829974bdb","endpoint":"/api/teachers?id=1%27%20AND%20SLEEP(5)--","userAgent":"SQLNinja/2.0"}
+[2025-09-14T05:41:42.763Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:41:44.047Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"17b29cf14e9b4cbab48a09a829974bdb","endpoint":"/api/users?search=1%27%20AND%20SLEEP(5)--","userAgent":"SQLNinja/2.0"}
+[2025-09-14T05:41:44.050Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:41:44.379Z] APP_CLONING_DETECTED: FINGERPRINT_MISMATCH - IP: ::1 - Details: {"reason":"Client fingerprint changed","oldFingerprint":"dad8ee65d65198de914e934b618117c2","newFingerprint":"fafdda87b332e0db466a1846bd18a513","endpoint":"/api/login","userAgent":"Mozilla/5.0' UNION SELECT * FROM users--"}
+[2025-09-14T05:41:44.380Z] APP_CLONING_DETAILS: Type: FINGERPRINT_MISMATCH, IP: ::1, Action: DETECTED, Reason: Client fingerprint changed
+[2025-09-14T05:42:21.634Z] APP_CLONING_BLOCKED: SUSPICIOUS_USER_AGENT - IP: ::1 - Details: {"reason":"Suspicious User-Agent pattern detected","userAgent":"BruteForce-Bot/1.0","pattern":"/bot/i","endpoint":"/api/login"}
+[2025-09-14T05:42:21.636Z] APP_CLONING_DETAILS: Type: SUSPICIOUS_USER_AGENT, IP: ::1, Action: BLOCKED, Reason: Suspicious User-Agent pattern detected
+[2025-09-15T05:35:34.304Z] APP_CLONING_BLOCKED: INVALID_SIGNATURE - IP: ::1 - Details: {"reason":"Missing or invalid header: X-App-Signature","expected":"SchoolMgmt-Auth-Token","received":"missing","endpoint":"/","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Sa"}
+[2025-09-15T05:35:34.330Z] APP_CLONING_DETAILS: Type: INVALID_SIGNATURE, IP: ::1, Action: BLOCKED, Reason: Missing or invalid header: X-App-Signature
+[2025-09-15T05:35:34.469Z] APP_CLONING_BLOCKED: INVALID_SIGNATURE - IP: ::1 - Details: {"reason":"Missing or invalid header: X-App-Signature","expected":"SchoolMgmt-Auth-Token","received":"missing","endpoint":"/favicon.ico","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Sa"}
+[2025-09-15T05:35:34.471Z] APP_CLONING_DETAILS: Type: INVALID_SIGNATURE, IP: ::1, Action: BLOCKED, Reason: Missing or invalid header: X-App-Signature
+[2025-09-15T05:45:44.398Z] APP_CLONING_BLOCKED: INVALID_SIGNATURE - IP: ::1 - Details: {"reason":"Missing or invalid header: X-App-Signature","expected":"SchoolMgmt-Auth-Token","received":"missing","endpoint":"/","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Sa"}
+[2025-09-15T05:45:44.415Z] APP_CLONING_DETAILS: Type: INVALID_SIGNATURE, IP: ::1, Action: BLOCKED, Reason: Missing or invalid header: X-App-Signature
+[2025-09-15T05:45:44.518Z] APP_CLONING_BLOCKED: INVALID_SIGNATURE - IP: ::1 - Details: {"reason":"Missing or invalid header: X-App-Signature","expected":"SchoolMgmt-Auth-Token","received":"missing","endpoint":"/favicon.ico","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Sa"}
+[2025-09-15T05:45:44.520Z] APP_CLONING_DETAILS: Type: INVALID_SIGNATURE, IP: ::1, Action: BLOCKED, Reason: Missing or invalid header: X-App-Signature
+[2025-09-15T05:46:39.159Z] APP_CLONING_BLOCKED: INVALID_SIGNATURE - IP: ::1 - Details: {"reason":"Missing or invalid header: X-App-Signature","expected":"SchoolMgmt-Auth-Token","received":"missing","endpoint":"/api/login","userAgent":"axios/1.12.1"}
+[2025-09-15T05:46:39.160Z] APP_CLONING_DETAILS: Type: INVALID_SIGNATURE, IP: ::1, Action: BLOCKED, Reason: Missing or invalid header: X-App-Signature
+[2025-09-15T05:46:39.203Z] APP_CLONING_BLOCKED: INVALID_SIGNATURE - IP: ::1 - Details: {"reason":"Missing or invalid header: X-App-Signature","expected":"SchoolMgmt-Auth-Token","received":"missing","endpoint":"/api/login","userAgent":"axios/1.12.1"}
+[2025-09-15T05:46:39.205Z] APP_CLONING_DETAILS: Type: INVALID_SIGNATURE, IP: ::1, Action: BLOCKED, Reason: Missing or invalid header: X-App-Signature
+[2025-09-15T05:48:09.551Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":55,"endpoint":"/api/login","userAgent":"SchoolMgmt-TestSuite/1.0.0"}
+[2025-09-15T05:48:09.552Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent
+[2025-09-15T05:49:32.428Z] APP_CLONING_BLOCKED: INVALID_SIGNATURE - IP: ::1 - Details: {"reason":"Missing or invalid header: X-App-Signature","expected":"SchoolMgmt-Auth-Token","received":"missing","endpoint":"/","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Sa"}
+[2025-09-15T05:49:32.440Z] APP_CLONING_DETAILS: Type: INVALID_SIGNATURE, IP: ::1, Action: BLOCKED, Reason: Missing or invalid header: X-App-Signature
+[2025-09-15T05:49:32.493Z] APP_CLONING_BLOCKED: INVALID_SIGNATURE - IP: ::1 - Details: {"reason":"Missing or invalid header: X-App-Signature","expected":"SchoolMgmt-Auth-Token","received":"missing","endpoint":"/favicon.ico","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Sa"}
+[2025-09-15T05:49:32.518Z] APP_CLONING_DETAILS: Type: INVALID_SIGNATURE, IP: ::1, Action: BLOCKED, Reason: Missing or invalid header: X-App-Signature
+[2025-09-15T05:49:39.003Z] APP_CLONING_BLOCKED: INVALID_SIGNATURE - IP: ::1 - Details: {"reason":"Missing or invalid header: X-App-Signature","expected":"SchoolMgmt-Auth-Token","received":"missing","endpoint":"/","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Sa"}
+[2025-09-15T05:49:39.009Z] APP_CLONING_DETAILS: Type: INVALID_SIGNATURE, IP: ::1, Action: BLOCKED, Reason: Missing or invalid header: X-App-Signature
+[2025-09-15T05:49:39.112Z] APP_CLONING_BLOCKED: INVALID_SIGNATURE - IP: ::1 - Details: {"reason":"Missing or invalid header: X-App-Signature","expected":"SchoolMgmt-Auth-Token","received":"missing","endpoint":"/favicon.ico","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Sa"}
+[2025-09-15T05:49:39.128Z] APP_CLONING_DETAILS: Type: INVALID_SIGNATURE, IP: ::1, Action: BLOCKED, Reason: Missing or invalid header: X-App-Signature
+[2025-09-15T05:54:31.767Z] APP_CLONING_BLOCKED: INVALID_SIGNATURE - IP: ::1 - Details: {"reason":"Missing or invalid header: X-App-Signature","expected":"SchoolMgmt-Auth-Token","received":"missing","endpoint":"/","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Sa"}
+[2025-09-15T05:54:31.782Z] APP_CLONING_DETAILS: Type: INVALID_SIGNATURE, IP: ::1, Action: BLOCKED, Reason: Missing or invalid header: X-App-Signature
+[2025-09-15T05:54:31.905Z] APP_CLONING_BLOCKED: INVALID_SIGNATURE - IP: ::1 - Details: {"reason":"Missing or invalid header: X-App-Signature","expected":"SchoolMgmt-Auth-Token","received":"missing","endpoint":"/favicon.ico","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Sa"}
+[2025-09-15T05:54:31.911Z] APP_CLONING_DETAILS: Type: INVALID_SIGNATURE, IP: ::1, Action: BLOCKED, Reason: Missing or invalid header: X-App-Signature
+[2025-09-15T05:54:35.287Z] APP_CLONING_BLOCKED: INVALID_SIGNATURE - IP: ::1 - Details: {"reason":"Missing or invalid header: X-App-Signature","expected":"SchoolMgmt-Auth-Token","received":"missing","endpoint":"/","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Sa"}
+[2025-09-15T05:54:35.288Z] APP_CLONING_DETAILS: Type: INVALID_SIGNATURE, IP: ::1, Action: BLOCKED, Reason: Missing or invalid header: X-App-Signature
+[2025-09-15T05:54:35.332Z] APP_CLONING_BLOCKED: INVALID_SIGNATURE - IP: ::1 - Details: {"reason":"Missing or invalid header: X-App-Signature","expected":"SchoolMgmt-Auth-Token","received":"missing","endpoint":"/favicon.ico","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Sa"}
+[2025-09-15T05:54:35.334Z] APP_CLONING_DETAILS: Type: INVALID_SIGNATURE, IP: ::1, Action: BLOCKED, Reason: Missing or invalid header: X-App-Signature
+[2025-09-15T05:55:47.396Z] APP_CLONING_BLOCKED: TIMING_VIOLATION - IP: ::1 - Details: {"reason":"Requests too frequent","interval":48,"endpoint":"/api/login","userAgent":"SchoolManagement/1.0"}
+[2025-09-15T05:55:47.398Z] APP_CLONING_DETAILS: Type: TIMING_VIOLATION, IP: ::1, Action: BLOCKED, Reason: Requests too frequent

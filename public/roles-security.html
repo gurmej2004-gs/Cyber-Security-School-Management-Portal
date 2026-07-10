@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roles & Security - School Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --secondary: #1e40af;
+            --dark: #0f172a;
+            --card: #111827;
+            --text: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --border: #334155;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--dark), #1a1f3a);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        .header {
+            background: var(--card);
+            border-bottom: 2px solid var(--border);
+            padding: 20px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .back-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        .main-content {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 30px;
+        }
+
+        .page-header {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            background: var(--card);
+            padding: 10px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .tab {
+            padding: 12px 24px;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .tab.active {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .content-card {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid var(--border);
+            margin-bottom: 30px;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        .roles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .role-card {
+            background: var(--dark);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .role-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-color: var(--primary);
+        }
+
+        .role-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .role-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .role-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--text);
+        }
+
+        .role-count {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--primary);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .role-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .permissions-list {
+            margin-bottom: 20px;
+        }
+
+        .permission-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .permission-item i {
+            color: var(--success);
+            font-size: 0.8rem;
+        }
+
+        .role-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 8px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn.edit {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--primary);
+        }
+
+        .action-btn.delete {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--danger);
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .security-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .security-item {
+            background: var(--dark);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .security-item:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary);
+        }
+
+        .security-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .security-icon.waf { background: linear-gradient(135deg, var(--primary), var(--secondary)); }
+        .security-icon.ids { background: linear-gradient(135deg, var(--success), #16a34a); }
+        .security-icon.encryption { background: linear-gradient(135deg, var(--warning), #d97706); }
+        .security-icon.auth { background: linear-gradient(135deg, var(--danger), #dc2626); }
+
+        .security-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+
+        .security-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .status-indicator.active {
+            background: rgba(34, 197, 94, 0.2);
+            color: var(--success);
+        }
+
+        .status-indicator.inactive {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--danger);
+        }
+
+        @media (max-width: 768px) {
+            .page-header { flex-direction: column; gap: 20px; }
+            .tabs { flex-wrap: wrap; }
+            .roles-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                School Management System
+            </div>
+            <a href="dashboard.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Back to Dashboard
+            </a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="page-header">
+            <h1 class="page-title">
+                <i class="fas fa-shield-alt"></i>
+                Roles & Security Management
+            </h1>
+            <div style="display: flex; gap: 15px;">
+                <button class="btn btn-primary">
+                    <i class="fas fa-plus"></i> Add Role
+                </button>
+                <button class="btn btn-primary">
+                    <i class="fas fa-cog"></i> Security Settings
+                </button>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('roles')">
+                <i class="fas fa-user-tag"></i> User Roles
+            </button>
+            <button class="tab" onclick="showTab('security')">
+                <i class="fas fa-shield-alt"></i> Security Features
+            </button>
+            <button class="tab" onclick="showTab('logs')">
+                <i class="fas fa-history"></i> Security Logs
+            </button>
+        </div>
+
+        <div id="roles-content" class="tab-content">
+            <div class="content-card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <i class="fas fa-users-cog"></i>
+                        System Roles
+                    </h3>
+                </div>
+
+                <div class="roles-grid">
+                    <div class="role-card">
+                        <div class="role-header">
+                            <div class="role-name">Super Administrator</div>
+                            <div class="role-count">2 users</div>
+                        </div>
+                        <div class="role-description">
+                            Full system access with complete control over all features, settings, and user management.
+                        </div>
+                        <div class="permissions-list">
+                            <div class="permission-item">
+                                <i class="fas fa-check"></i>
+                                <span>Complete system administration</span>
+                            </div>
+                            <div class="permission-item">
+                                <i class="fas fa-check"></i>
+                                <span>User role management</span>
+                            </div>
+                            <div class="permission-item">
+                                <i class="fas fa-check"></i>
+                                <span>Security configuration</span>
+                            </div>
+                            <div class="permission-item">
+                                <i class="fas fa-check"></i>
+                                <span>Database management</span>
+                            </div>
+                        </div>
+                        <div class="role-actions">
+                            <button class="action-btn edit">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                            <button class="action-btn delete">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="role-card">
+                        <div class="role-header">
+                            <div class="role-name">Administrator</div>
+                            <div class="role-count">5 users</div>
+                        </div>
+                        <div class="role-description">
+                            Administrative access for managing students, teachers, classes, and daily operations.
+                        </div>
+                        <div class="permissions-list">
+                            <div class="permission-item">
+                                <i class="fas fa-check"></i>
+                                <span>Student management</span>
+                            </div>
+                            <div class="permission-item">
+                                <i class="fas fa-check"></i>
+                                <span>Teacher management</span>
+                            </div>
+                            <div class="permission-item">
+                                <i class="fas fa-check"></i>
+                                <span>Class & subject management</span>
+                            </div>
+                            <div class="permission-item">
+                                <i class="fas fa-check"></i>
+                                <span>Attendance tracking</span>
+                            </div>
+                        </div>
+                        <div class="role-actions">
+                            <button class="action-btn edit">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                            <button class="action-btn delete">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="role-card">
+                        <div class="role-header">
+                            <div class="role-name">Teacher</div>
+                            <div class="role-count">56 users</div>
+                        </div>
+                        <div class="role-description">
+                            Access to manage assigned students, take attendance, and update grades for their classes.
+                        </div>
+                        <div class="permissions-list">
+                            <div class="permission-item">
+                                <i class="fas fa-check"></i>
+                                <span>View assigned students</span>
+                            </div>
+                            <div class="permission-item">
+                                <i class="fas fa-check"></i>
+                                <span>Mark attendance</span>
+                            </div>
+                            <div class="permission-item">
+                                <i class="fas fa-check"></i>
+                                <span>Update grades</span>
+                            </div>
+                            <div class="permission-item">
+                                <i class="fas fa-check"></i>
+                                <span>Generate class reports</span>
+                            </div>
+                        </div>
+                        <div class="role-actions">
+                            <button class="action-btn edit">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                            <button class="action-btn delete">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="role-card">
+                        <div class="role-header">
+                            <div class="role-name">Student</div>
+                            <div class="role-count">1,234 users</div>
+                        </div>
+                        <div class="role-description">
+                            Limited access to view personal information, grades, attendance, and class schedules.
+                        </div>
+                        <div class="permissions-list">
+                            <div class="permission-item">
+                                <i class="fas fa-check"></i>
+                                <span>View personal profile</span>
+                            </div>
+                            <div class="permission-item">
+                                <i class="fas fa-check"></i>
+                                <span>View grades & results</span>
+                            </div>
+                            <div class="permission-item">
+                                <i class="fas fa-check"></i>
+                                <span>View attendance record</span>
+                            </div>
+                            <div class="permission-item">
+                                <i class="fas fa-check"></i>
+                                <span>View class timetable</span>
+                            </div>
+                        </div>
+                        <div class="role-actions">
+                            <button class="action-btn edit">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                            <button class="action-btn delete">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="security-content" class="tab-content" style="display: none;">
+            <div class="content-card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <i class="fas fa-shield-alt"></i>
+                        Active Security Features
+                    </h3>
+                </div>
+
+                <div class="security-features">
+                    <div class="security-item">
+                        <div class="security-icon waf">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <h4 class="security-title">Web Application Firewall</h4>
+                        <p class="security-description">
+                            Advanced WAF protection against SQL injection, XSS, and other web attacks with real-time blocking.
+                        </p>
+                        <div class="status-indicator active">
+                            <i class="fas fa-circle"></i> Active
+                        </div>
+                    </div>
+
+                    <div class="security-item">
+                        <div class="security-icon ids">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h4 class="security-title">Intrusion Detection System</h4>
+                        <p class="security-description">
+                            Comprehensive monitoring and logging of all system activities with automatic threat detection.
+                        </p>
+                        <div class="status-indicator active">
+                            <i class="fas fa-circle"></i> Active
+                        </div>
+                    </div>
+
+                    <div class="security-item">
+                        <div class="security-icon encryption">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h4 class="security-title">Database Encryption</h4>
+                        <p class="security-description">
+                            AES-256-CBC encryption for all sensitive data at rest with automatic encryption/decryption.
+                        </p>
+                        <div class="status-indicator active">
+                            <i class="fas fa-circle"></i> Active
+                        </div>
+                    </div>
+
+                    <div class="security-item">
+                        <div class="security-icon auth">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <h4 class="security-title">Role-Based Access Control</h4>
+                        <p class="security-description">
+                            Granular permission system with JWT authentication and role-based authorization.
+                        </p>
+                        <div class="status-indicator active">
+                            <i class="fas fa-circle"></i> Active
+                        </div>
+                    </div>
+
+                    <div class="security-item">
+                        <div class="security-icon" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
+                            <i class="fas fa-fingerprint"></i>
+                        </div>
+                        <h4 class="security-title">App Cloning Protection</h4>
+                        <p class="security-description">
+                            Advanced signature verification and fingerprinting to prevent unauthorized app access.
+                        </p>
+                        <div class="status-indicator active">
+                            <i class="fas fa-circle"></i> Active
+                        </div>
+                    </div>
+
+                    <div class="security-item">
+                        <div class="security-icon" style="background: linear-gradient(135deg, #06b6d4, #0891b2);">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h4 class="security-title">Anti-Phishing Protection</h4>
+                        <p class="security-description">
+                            Header validation and domain verification to prevent phishing and credential theft attacks.
+                        </p>
+                        <div class="status-indicator active">
+                            <i class="fas fa-circle"></i> Active
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="logs-content" class="tab-content" style="display: none;">
+            <div class="content-card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <i class="fas fa-history"></i>
+                        Security Event Logs
+                    </h3>
+                </div>
+                <div style="text-align: center; padding: 50px; color: var(--text-secondary);">
+                    <i class="fas fa-shield-alt" style="font-size: 4rem; margin-bottom: 20px; color: var(--primary);"></i>
+                    <h3>Security Monitoring Dashboard</h3>
+                    <p>Real-time monitoring of security events, threat detection, and system access logs.</p>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-download"></i> Export Logs
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.style.display = 'none';
+            });
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.getElementById(tabName + '-content').style.display = 'block';
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>

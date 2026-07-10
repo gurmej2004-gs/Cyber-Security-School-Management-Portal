@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management - School Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --secondary: #1e40af;
+            --dark: #0f172a;
+            --card: #111827;
+            --text: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --border: #334155;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--dark), #1a1f3a);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        .header {
+            background: var(--card);
+            border-bottom: 2px solid var(--border);
+            padding: 20px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .back-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        .main-content {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 30px;
+        }
+
+        .page-header {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid var(--border);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, var(--success), #16a34a);
+            color: white;
+        }
+
+        .btn-warning {
+            background: linear-gradient(135deg, var(--warning), #d97706);
+            color: white;
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, var(--danger), #dc2626);
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-color: var(--primary);
+        }
+
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 15px;
+            color: white;
+        }
+
+        .stat-icon.total { background: linear-gradient(135deg, var(--primary), var(--secondary)); }
+        .stat-icon.active { background: linear-gradient(135deg, var(--success), #16a34a); }
+        .stat-icon.new { background: linear-gradient(135deg, var(--warning), #d97706); }
+        .stat-icon.graduated { background: linear-gradient(135deg, var(--danger), #dc2626); }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--text);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .content-card {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid var(--border);
+            margin-bottom: 30px;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 12px 16px;
+            background: var(--dark);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .filter-select {
+            padding: 12px 16px;
+            background: var(--dark);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+        }
+
+        .students-table th:first-child,
+        .students-table td:first-child {
+            width: 40px;
+            text-align: center;
+        }
+
+        .students-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .students-table th {
+            background: var(--dark);
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--primary);
+            border-bottom: 2px solid var(--border);
+        }
+
+        .students-table td {
+            padding: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .students-table tr:hover {
+            background: rgba(59, 130, 246, 0.05);
+        }
+
+        .student-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .student-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .status-badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .status-badge.active {
+            background: rgba(34, 197, 94, 0.2);
+            color: var(--success);
+        }
+
+        .status-badge.inactive {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--danger);
+        }
+
+        .action-btns {
+            display: flex;
+            gap: 8px;
+        }
+
+        .action-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn.edit {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--primary);
+        }
+
+        .action-btn.delete {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--danger);
+        }
+
+        .action-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            border: 1px solid var(--border);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--dark);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .page-header { flex-direction: column; gap: 20px; }
+            .search-box { flex-direction: column; }
+            .students-table { font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                School Management System
+            </div>
+            <a href="dashboard.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Back to Dashboard
+            </a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon total">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-value">1,234</div>
+                <div class="stat-label">Total Students</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon active">
+                    <i class="fas fa-user-check"></i>
+                </div>
+                <div class="stat-value">1,156</div>
+                <div class="stat-label">Active Students</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon new">
+                    <i class="fas fa-user-plus"></i>
+                </div>
+                <div class="stat-value">78</div>
+                <div class="stat-label">New Admissions</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon graduated">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="stat-value">45</div>
+                <div class="stat-label">Graduated</div>
+            </div>
+        </div>
+
+        <div class="page-header">
+            <div class="action-buttons">
+                <button class="btn btn-primary" onclick="openAddModal()">
+                    <i class="fas fa-plus"></i> Add Student
+                </button>
+                <button class="btn btn-success" onclick="openExportModal()">
+                    <i class="fas fa-download"></i> Export
+                </button>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <i class="fas fa-list"></i>
+                    Students List
+                </h3>
+                <div>
+                    <button class="btn btn-danger" id="deleteSelectedBtn" style="display:none;">
+                        <i class="fas fa-trash"></i> Delete Selected
+                    </button>
+                </div>
+            </div>
+
+            <div class="search-box">
+                <input type="text" class="search-input" id="studentSearchInput" placeholder="Search students by name, email, or ID...">
+                <select class="filter-select" id="classFilter">
+                    <option value="">All Classes</option>
+                    <option value="1">Class 1</option>
+                    <option value="2">Class 2</option>
+                    <option value="3">Class 3</option>
+                    <option value="4">Class 4</option>
+                    <option value="5">Class 5</option>
+                    <option value="6">Class 6</option>
+                    <option value="7">Class 7</option>
+                    <option value="8">Class 8</option>
+                    <option value="9">Class 9</option>
+                    <option value="10">Class 10</option>
+                    <option value="11">Class 11</option>
+                    <option value="12">Class 12</option>
+                </select>
+                <select class="filter-select" id="statusFilter">
+                    <option value="">All Status</option>
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                </select>
+            </div>
+
+            <table class="students-table">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" id="selectAll"></th>
+                        <th>Student</th>
+                        <th>ID</th>
+                        <th>Class</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="studentsTableBody">
+                    <!-- Students will be loaded here dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content" style="max-width: 400px;">
+            <div class="modal-header">
+                <h3 class="modal-title" id="confirmTitle">Confirm</h3>
+                <button class="close-btn" onclick="closeConfirmModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="confirmMessage"></p>
+            </div>
+            <div class="modal-footer" style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px;">
+                <button class="btn btn-secondary" id="confirmCancelBtn">Cancel</button>
+                <button class="btn btn-primary" id="confirmOkBtn">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Export Modal -->
+    <div id="exportModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Export Students</h3>
+                <button class="close-btn" onclick="closeExportModal()">&times;</button>
+            </div>
+            <form id="exportForm">
+                <div class="form-group">
+                    <label>Search (name/email/ID)</label>
+                    <input type="text" class="form-control" id="exportSearch" placeholder="Leave blank to include all">
+                </div>
+                <div class="form-group">
+                    <label>Class</label>
+                    <select class="form-control" id="exportClass">
+                        <option value="">All Classes</option>
+                        <option value="1">Class 1</option>
+                        <option value="2">Class 2</option>
+                        <option value="3">Class 3</option>
+                        <option value="4">Class 4</option>
+                        <option value="5">Class 5</option>
+                        <option value="6">Class 6</option>
+                        <option value="7">Class 7</option>
+                        <option value="8">Class 8</option>
+                        <option value="9">Class 9</option>
+                        <option value="10">Class 10</option>
+                        <option value="11">Class 11</option>
+                        <option value="12">Class 12</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Status</label>
+                    <select class="form-control" id="exportStatus">
+                        <option value="">All Status</option>
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                    </select>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <button type="submit" class="btn btn-primary">Export</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeExportModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Student Modal -->
+    <div id="addStudentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="addStudentModalTitle">Add New Student</h3>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <form id="addStudentForm">
+                <input type="hidden" id="studentEditId">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" class="form-control" id="studentName" placeholder="Enter student name" required>
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" class="form-control" id="studentEmail" placeholder="Enter email address" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" class="form-control" id="studentPhone" placeholder="Enter phone number">
+                </div>
+                <div class="form-group">
+                    <label>Class</label>
+                    <select class="form-control" id="studentClass" required>
+                        <option value="">Select Class</option>
+                        <option value="1">Class 1</option>
+                        <option value="2">Class 2</option>
+                        <option value="3">Class 3</option>
+                        <option value="4">Class 4</option>
+                        <option value="5">Class 5</option>
+                        <option value="6">Class 6</option>
+                        <option value="7">Class 7</option>
+                        <option value="8">Class 8</option>
+                        <option value="9">Class 9</option>
+                        <option value="10">Class 10</option>
+                        <option value="11">Class 11</option>
+                        <option value="12">Class 12</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Age</label>
+                    <input type="number" class="form-control" id="studentAge" placeholder="Enter age" min="5" max="25">
+                </div>
+                <div class="form-group">
+                    <label>Grade</label>
+                    <input type="text" class="form-control" id="studentGrade" placeholder="Enter grade (e.g., 10th)">
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <button type="submit" class="btn btn-primary" id="addStudentSubmitBtn">Add Student</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function openAddModal() {
+            document.getElementById('addStudentModalTitle').textContent = 'Add New Student';
+            document.getElementById('addStudentSubmitBtn').textContent = 'Add Student';
+            document.getElementById('studentEditId').value = '';
+            document.getElementById('addStudentForm').reset();
+            document.getElementById('addStudentModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('addStudentModal').style.display = 'none';
+            document.getElementById('addStudentForm').reset();
+            document.getElementById('studentEditId').value = '';
+        }
+
+        function openExportModal() {
+            document.getElementById('exportModal').style.display = 'flex';
+        }
+
+        function closeExportModal() {
+            document.getElementById('exportModal').style.display = 'none';
+            document.getElementById('exportForm').reset();
+        }
+
+        // Reusable confirmation modal
+        function showConfirm(title, message, onConfirm, okText = 'Confirm', cancelText = 'Cancel') {
+            document.getElementById('confirmTitle').textContent = title;
+            document.getElementById('confirmMessage').textContent = message;
+            document.getElementById('confirmOkBtn').textContent = okText;
+            document.getElementById('confirmCancelBtn').textContent = cancelText;
+            document.getElementById('confirmModal').style.display = 'flex';
+
+            const handleConfirm = () => {
+                closeConfirmModal();
+                onConfirm();
+            };
+            const handleCancel = () => {
+                closeConfirmModal();
+            };
+
+            document.getElementById('confirmOkBtn').onclick = handleConfirm;
+            document.getElementById('confirmCancelBtn').onclick = handleCancel;
+        }
+
+        function closeConfirmModal() {
+            document.getElementById('confirmModal').style.display = 'none';
+        }
+
+        // Close modals when clicking outside
+        window.onclick = function(event) {
+            const addModal = document.getElementById('addStudentModal');
+            const exportModal = document.getElementById('exportModal');
+            const confirmModal = document.getElementById('confirmModal');
+            if (event.target == addModal) {
+                closeModal();
+            }
+            if (event.target == exportModal) {
+                closeExportModal();
+            }
+            if (event.target == confirmModal) {
+                closeConfirmModal();
+            }
+        }
+
+        // Store all students globally for filtering
+        let allStudents = [];
+
+        // Load students from backend and render table
+        async function loadStudents() {
+            console.log('loadStudents: starting');
+            try {
+                const response = await authenticatedFetch('/students');
+                console.log('loadStudents: response status', response.status);
+                const data = await response.json();
+                console.log('loadStudents: data', data);
+                if (!response.ok) throw new Error(data.message || 'Failed to load students');
+
+                allStudents = Array.isArray(data.data) ? data.data : [];
+                renderStudents(allStudents);
+            } catch (err) {
+                console.error('Failed to load students:', err);
+                document.getElementById('studentsTableBody').innerHTML = '<tr><td colspan="7" style="text-align:center;padding:20px;">Error loading students.</td></tr>';
+            }
+        }
+
+        // Render filtered students
+        function renderStudents(students) {
+            const tbody = document.getElementById('studentsTableBody');
+            tbody.innerHTML = '';
+
+            if (!students || students.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:20px;">No students found.</td></tr>';
+                return;
+            }
+
+            students.forEach((student, index) => {
+                console.log('renderStudents: rendering student', student);
+                const initials = student.name ? student.name.split(' ').map(n=>n[0]).join('').toUpperCase().slice(0,2) : '??';
+                const ageDisplay = student.age ? `Age: ${student.age}` : '';
+                const status = student.status || 'Active';
+                const statusClass = status.toLowerCase() === 'active' ? 'active' : 'inactive';
+
+                // Debug: log class and email specifically
+                console.log(`Student ID ${student.id}: class="${student.class}", email="${student.email}"`);
+
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><input type="checkbox" class="student-checkbox" data-id="${student.id}"></td>
+                    <td>
+                        <div class="student-info">
+                            <div class="student-avatar">${initials}</div>
+                            <div>
+                                <div>${student.name || 'Unnamed'}</div>
+                                <small style="color: var(--text-secondary);">${ageDisplay}</small>
+                            </div>
+                        </div>
+                    </td>
+                    <td>${student.id || ''}</td>
+                    <td>${student.class || ''}</td>
+                    <td>${student.email || ''}</td>
+                    <td>${student.phone || ''}</td>
+                    <td><span class="status-badge ${statusClass}">${status}</span></td>
+                    <td>
+                        <div class="action-btns">
+                            <button class="action-btn edit" onclick="editStudent(${student.id})">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="action-btn delete" onclick="deleteStudent(${student.id})">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Filter students based on search and filters
+        function filterStudents() {
+            const query = document.getElementById('studentSearchInput').value.trim().toLowerCase();
+            const classFilter = document.getElementById('classFilter').value;
+            const statusFilter = document.getElementById('statusFilter').value;
+
+            const filtered = allStudents.filter(student => {
+                const matchesSearch = !query || (
+                    (student.name && student.name.toLowerCase().includes(query)) ||
+                    (student.email && student.email.toLowerCase().includes(query)) ||
+                    (student.id && student.id.toString().toLowerCase().includes(query))
+                );
+                const matchesClass = !classFilter || student.class === classFilter;
+                const matchesStatus = !statusFilter || (student.status || 'Active') === statusFilter;
+                return matchesSearch && matchesClass && matchesStatus;
+            });
+
+            renderStudents(filtered);
+        }
+
+        // Handle add/edit student form submission
+        document.getElementById('addStudentForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const editId = document.getElementById('studentEditId').value;
+            const isEdit = !!editId;
+
+            const name = document.getElementById('studentName').value.trim();
+            const email = document.getElementById('studentEmail').value.trim();
+            const phone = document.getElementById('studentPhone').value.trim();
+            const cls = document.getElementById('studentClass').value;
+            const age = document.getElementById('studentAge').value ? parseInt(document.getElementById('studentAge').value) : null;
+            const grade = document.getElementById('studentGrade').value.trim() || null;
+
+            if (!name || !email || !cls) {
+                alert('Please fill in Name, Email, and Class.');
+                return;
+            }
+
+            const payload = { name, email, phone, class: cls, age, grade };
+            console.log(isEdit ? 'editStudent: sending payload' : 'addStudent: sending payload', payload);
+
+            try {
+                const method = isEdit ? 'PUT' : 'POST';
+                const url = isEdit ? `/students/${editId}` : '/students';
+                const response = await authenticatedFetch(url, {
+                    method,
+                    body: JSON.stringify(payload)
+                });
+
+                const data = await response.json();
+                console.log(isEdit ? 'editStudent: response' : 'addStudent: response', { status: response.status, data });
+                if (!response.ok) {
+                    throw new Error(data.message || `Failed to ${isEdit ? 'update' : 'add'} student`);
+                }
+
+                showConfirm(
+                    'Success',
+                    `Student ${isEdit ? 'updated' : 'added'} successfully!`,
+                    () => {},
+                    'OK'
+                );
+                closeModal();
+                console.log(isEdit ? 'editStudent: about to reload students' : 'addStudent: about to reload students');
+                // Reload the student list instead of full page reload
+                await loadStudents();
+                console.log(isEdit ? 'editStudent: reload completed' : 'addStudent: reload completed');
+            } catch (err) {
+                console.error(isEdit ? 'editStudent: error' : 'addStudent: error', err);
+                showConfirm('Error', 'Error: ' + (err.message || 'Something went wrong'), () => {}, 'OK');
+            }
+        });
+
+        // Delete selected students
+        async function deleteSelectedStudents() {
+            const checkboxes = document.querySelectorAll('.student-checkbox:checked');
+            if (checkboxes.length === 0) {
+                showConfirm('No Selection', 'No students selected.', () => {}, 'OK');
+                return;
+            }
+
+            const ids = Array.from(checkboxes).map(cb => parseInt(cb.dataset.id));
+            showConfirm(
+                'Delete Students',
+                `Are you sure you want to delete ${checkboxes.length} student(s)?`,
+                async () => {
+                    try {
+                        const results = await Promise.allSettled(
+                            ids.map(id => authenticatedFetch(`/students/${id}`, { method: 'DELETE' }))
+                        );
+                        const failed = results.filter(r => r.status === 'rejected' || !r.value.ok);
+                        if (failed.length) {
+                            showConfirm(
+                                'Partial Success',
+                                `Deleted ${ids.length - failed.length} of ${ids.length} students. ${failed.length} failed.`,
+                                () => {},
+                                'OK'
+                            );
+                        } else {
+                            showConfirm(
+                                'Success',
+                                `${ids.length} student(s) deleted successfully!`,
+                                () => {},
+                                'OK'
+                            );
+                        }
+                        await loadStudents();
+                    } catch (err) {
+                        showConfirm('Error', 'Error deleting selected students: ' + (err.message || 'Something went wrong'), () => {}, 'OK');
+                    }
+                },
+                'Delete',
+                'Cancel'
+            );
+        }
+
+        // Update delete selected button visibility
+        function updateDeleteSelectedButton() {
+            const checked = document.querySelectorAll('.student-checkbox:checked').length;
+            const btn = document.getElementById('deleteSelectedBtn');
+            btn.style.display = checked > 0 ? 'inline-block' : 'none';
+        }
+        // Handle export form submission
+        document.getElementById('exportForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const search = document.getElementById('exportSearch').value.trim();
+            const classVal = document.getElementById('exportClass').value;
+            const statusVal = document.getElementById('exportStatus').value;
+
+            const filtered = allStudents.filter(student => {
+                const matchesSearch = !search || (
+                    (student.name && student.name.toLowerCase().includes(search.toLowerCase())) ||
+                    (student.email && student.email.toLowerCase().includes(search.toLowerCase())) ||
+                    (student.id && student.id.toString().toLowerCase().includes(search.toLowerCase()))
+                );
+                const matchesClass = !classVal || student.class === classVal;
+                const matchesStatus = !statusVal || (student.status || 'Active').toLowerCase() === statusVal.toLowerCase();
+                return matchesSearch && matchesClass && matchesStatus;
+            });
+
+            if (filtered.length === 0) {
+                showConfirm('No Results', 'No students match the given criteria.', () => {}, 'OK');
+                return;
+            }
+
+            const criteria = [
+                search && `search "${search}"`,
+                classVal && `class ${classVal}`,
+                statusVal && `status ${statusVal}`
+            ].filter(Boolean).join(', ') || 'all students';
+
+            showConfirm(
+                'Export Students',
+                `Export ${filtered.length} student(s) (${criteria})?`,
+                () => {
+                    const rows = [
+                        ['ID', 'Name', 'Email', 'Phone', 'Class', 'Age', 'Grade', 'Status']
+                    ];
+                    filtered.forEach(student => {
+                        rows.push([
+                            student.id || '',
+                            student.name || '',
+                            student.email || '',
+                            student.phone || '',
+                            student.class || '',
+                            student.age || '',
+                            student.grade || '',
+                            student.status || 'Active'
+                        ]);
+                    });
+                    const csvContent = rows.map(r => r.map(cell => `"${cell}"`).join(',')).join('\n');
+                    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+                    const link = document.createElement('a');
+                    const url = URL.createObjectURL(blob);
+                    const suffix = criteria !== 'all students' ? '_' + criteria.replace(/[^a-z0-9]+/gi, '_') : '';
+                    link.setAttribute('href', url);
+                    link.setAttribute('download', `students_export${suffix}_${new Date().toISOString().slice(0,10)}.csv`);
+                    link.style.visibility = 'hidden';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                },
+                'Export',
+                'Cancel'
+            );
+            closeExportModal();
+            return;
+        });
+        async function editStudent(id) {
+            const student = allStudents.find(s => s.id == id);
+            if (!student) {
+                showConfirm('Not Found', 'Student not found.', () => {}, 'OK');
+                return;
+            }
+            document.getElementById('addStudentModalTitle').textContent = 'Edit Student';
+            document.getElementById('addStudentSubmitBtn').textContent = 'Update Student';
+            document.getElementById('studentEditId').value = id;
+            document.getElementById('studentName').value = student.name || '';
+            document.getElementById('studentEmail').value = student.email || '';
+            document.getElementById('studentPhone').value = student.phone || '';
+            document.getElementById('studentClass').value = student.class || '';
+            document.getElementById('studentAge').value = student.age || '';
+            document.getElementById('studentGrade').value = student.grade || '';
+            document.getElementById('addStudentModal').style.display = 'flex';
+        }
+
+        async function deleteStudent(id) {
+            showConfirm(
+                'Delete Student',
+                'Are you sure you want to delete this student?',
+                async () => {
+                    try {
+                        const response = await authenticatedFetch(`/students/${id}`, { method: 'DELETE' });
+                        const data = await response.json();
+                        if (!response.ok) throw new Error(data.message || 'Failed to delete student');
+                        showConfirm('Success', 'Student deleted successfully!', () => {}, 'OK');
+                        await loadStudents();
+                    } catch (err) {
+                        showConfirm('Error', 'Error deleting student: ' + (err.message || 'Something went wrong'), () => {}, 'OK');
+                    }
+                },
+                'Delete',
+                'Cancel'
+            );
+        }
+
+        // Load students on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            loadStudents();
+            // Wire up search and filters
+            document.getElementById('studentSearchInput').addEventListener('input', filterStudents);
+            document.getElementById('classFilter').addEventListener('change', filterStudents);
+            document.getElementById('statusFilter').addEventListener('change', filterStudents);
+            // Wire up select all
+            document.getElementById('selectAll').addEventListener('change', (e) => {
+                const checkboxes = document.querySelectorAll('.student-checkbox');
+                checkboxes.forEach(cb => cb.checked = e.target.checked);
+                updateDeleteSelectedButton();
+            });
+            // Wire up delete selected button
+            document.getElementById('deleteSelectedBtn').addEventListener('click', deleteSelectedStudents);
+            // Event delegation for checkbox changes
+            document.getElementById('studentsTableBody').addEventListener('change', (e) => {
+                if (e.target.classList.contains('student-checkbox')) {
+                    updateDeleteSelectedButton();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

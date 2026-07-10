@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard - School Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-dark: #4338ca;
+            --secondary: #06b6d4;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --dark: #1f2937;
+            --light: #f8fafc;
+            --gray: #6b7280;
+            --border: #e5e7eb;
+            --shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: var(--dark);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 260px;
+            height: 100vh;
+            background: white;
+            box-shadow: var(--shadow-lg);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+        }
+
+        .sidebar-header h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .sidebar-menu {
+            padding: 1rem 0;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            color: var(--dark);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+        }
+
+        .menu-item:hover {
+            background: var(--light);
+            color: var(--primary);
+            padding-left: 2rem;
+        }
+
+        .menu-item.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .menu-item i {
+            width: 20px;
+            margin-right: 0.75rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 260px;
+            min-height: 100vh;
+            background: var(--light);
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+
+        .search-bar {
+            position: relative;
+        }
+
+        .search-bar input {
+            padding: 0.5rem 2.5rem 0.5rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            width: 300px;
+            transition: all 0.3s ease;
+        }
+
+        .search-bar input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        .search-bar i {
+            position: absolute;
+            right: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .notification-btn, .profile-btn {
+            position: relative;
+            background: none;
+            border: none;
+            font-size: 1.25rem;
+            color: var(--dark);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .notification-btn:hover, .profile-btn:hover {
+            background: var(--light);
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--danger);
+            color: white;
+            font-size: 0.75rem;
+            padding: 0.125rem 0.375rem;
+            border-radius: 12px;
+        }
+
+        .profile-info {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .profile-info:hover {
+            background: var(--light);
+        }
+
+        .profile-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        /* Dashboard Content */
+        .dashboard-content {
+            padding: 2rem;
+        }
+
+        .welcome-section {
+            margin-bottom: 2rem;
+        }
+
+        .welcome-card {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .welcome-card h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .welcome-card p {
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .welcome-stats {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .stat-label {
+            opacity: 0.8;
+            font-size: 0.875rem;
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .action-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            text-decoration: none;
+            color: var(--dark);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .action-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .action-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            background: var(--light);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .action-card:hover .action-icon {
+            background: var(--primary);
+            color: white;
+        }
+
+        .action-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .action-description {
+            font-size: 0.875rem;
+            color: var(--gray);
+        }
+
+        /* Main Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        /* Schedule Card */
+        .schedule-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .card-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .schedule-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .schedule-item:hover {
+            background: var(--light);
+        }
+
+        .schedule-time {
+            font-weight: 600;
+            color: var(--primary);
+            margin-right: 1rem;
+            min-width: 80px;
+        }
+
+        .schedule-content {
+            flex: 1;
+        }
+
+        .schedule-subject {
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .schedule-class {
+            font-size: 0.875rem;
+            color: var(--gray);
+        }
+
+        .schedule-status {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .status-current {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+        }
+
+        .status-upcoming {
+            background: rgba(79, 70, 229, 0.1);
+            color: var(--primary);
+        }
+
+        .status-completed {
+            background: rgba(107, 114, 128, 0.1);
+            color: var(--gray);
+        }
+
+        /* Tasks Card */
+        .tasks-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .task-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .task-item:hover {
+            background: var(--light);
+        }
+
+        .task-checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--border);
+            border-radius: 4px;
+            margin-right: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .task-checkbox:hover {
+            border-color: var(--primary);
+        }
+
+        .task-checkbox.checked {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .task-checkbox.checked::after {
+            content: '✓';
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .task-content {
+            flex: 1;
+        }
+
+        .task-title {
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .task-meta {
+            font-size: 0.75rem;
+            color: var(--gray);
+        }
+
+        .task-priority {
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .priority-high {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--danger);
+        }
+
+        .priority-medium {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--warning);
+        }
+
+        .priority-low {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+        }
+
+        /* Recent Activity */
+        .activity-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin-top: 2rem;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .activity-item:hover {
+            background: var(--light);
+        }
+
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .activity-icon.success {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+        }
+
+        .activity-icon.info {
+            background: rgba(79, 70, 229, 0.1);
+            color: var(--primary);
+        }
+
+        .activity-icon.warning {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--warning);
+        }
+
+        .activity-content {
+            flex: 1;
+        }
+
+        .activity-title {
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .activity-time {
+            font-size: 0.75rem;
+            color: var(--gray);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .search-bar input {
+                width: 200px;
+            }
+
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .welcome-stats {
+                gap: 1rem;
+            }
+
+            .action-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+
+        /* Utility Classes */
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        .btn-secondary {
+            background: var(--light);
+            color: var(--dark);
+            border: 1px solid var(--border);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--border);
+        }
+
+        /* Toast Notifications */
+        .toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+        }
+
+        .toast {
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow-lg);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            min-width: 300px;
+            border-left: 4px solid var(--primary);
+            animation: slideIn 0.3s ease;
+        }
+
+        .toast.success {
+            border-left-color: var(--success);
+        }
+
+        .toast.warning {
+            border-left-color: var(--warning);
+        }
+
+        .toast.error {
+            border-left-color: var(--danger);
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3><i class="fas fa-graduation-cap"></i> Teacher Portal</h3>
+        </div>
+        <nav class="sidebar-menu">
+            <a href="#" class="menu-item active">
+                <i class="fas fa-home"></i> Dashboard
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fas fa-users"></i> Students (87)
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fas fa-book"></i> Assignments (12)
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fas fa-chart-line"></i> Grades & Reports
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fas fa-calendar"></i> Schedule & Timetable
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fas fa-bullhorn"></i> Notices & Announcements
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fas fa-comments"></i> Messages (5)
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fas fa-cog"></i> Settings
+            </a>
+            <a href="#" class="menu-item" onclick="handleLogout()">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <button class="menu-toggle" onclick="toggleSidebar()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search students, assignments...">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+            <div class="header-right">
+                <button class="notification-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </button>
+                <div class="profile-info">
+                    <div class="profile-avatar">JD</div>
+                    <div>
+                        <div style="font-weight: 500;">John Doe</div>
+                        <div style="font-size: 0.875rem; color: var(--gray);">Mathematics Teacher</div>
+                        <div style="font-size: 0.75rem; color: var(--gray);">Class 10A, 10B, 11A</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard-content">
+            <!-- Welcome Section -->
+            <section class="welcome-section">
+                <div class="welcome-card">
+                    <h1>Welcome back, John! 👋</h1>
+                    <p>Here's what's happening with your classes today. You have 3 classes remaining and 12 pending tasks.</p>
+                    <div class="welcome-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">87</span>
+                            <span class="stat-label">Total Students</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">5</span>
+                            <span class="stat-label">Classes Today</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">12</span>
+                            <span class="stat-label">Pending Tasks</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">94%</span>
+                            <span class="stat-label">Attendance Rate</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">8</span>
+                            <span class="stat-label">New Messages</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">3</span>
+                            <span class="stat-label">Urgent Notices</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Actions -->
+            <section class="quick-actions">
+                <h2 class="section-title">Quick Actions</h2>
+                <div class="action-grid">
+                    <a href="#" class="action-card" onclick="quickMarkAttendance(); return false;">
+                        <div class="action-icon">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <div class="action-title">Mark Attendance</div>
+                        <div class="action-description">Take attendance for your classes</div>
+                    </a>
+                    <a href="#" class="action-card" onclick="quickAddHomework(); return false;">
+                        <div class="action-icon">
+                            <i class="fas fa-plus-circle"></i>
+                        </div>
+                        <div class="action-title">Add Homework</div>
+                        <div class="action-description">Create new assignments</div>
+                    </a>
+                    <a href="#" class="action-card" onclick="quickGradePapers(); return false;">
+                        <div class="action-icon">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <div class="action-title">Grade Papers</div>
+                        <div class="action-description">Review and grade submissions</div>
+                    </a>
+                    <a href="#" class="action-card" onclick="quickPostNotice(); return false;">
+                        <div class="action-icon">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <div class="action-title">Post Notice</div>
+                        <div class="action-description">Send announcements</div>
+                    </a>
+                    <a href="#" class="action-card" onclick="quickApplyLeave(); return false;">
+                        <div class="action-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="action-title">Apply Leave</div>
+                        <div class="action-description">Request time off</div>
+                    </a>
+                    <a href="#" class="action-card" onclick="quickViewMessages(); return false;">
+                        <div class="action-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="action-title">Messages</div>
+                        <div class="action-description">Check communications</div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Main Grid -->
+            <div class="main-grid">
+                <!-- Today's Schedule -->
+                <div class="schedule-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Today's Schedule</h3>
+                        <button class="btn-secondary">View All</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="schedule-item">
+                            <div class="schedule-time">8:00 AM</div>
+                            <div class="schedule-content">
+                                <div class="schedule-subject">Mathematics - Algebra Basics</div>
+                                <div class="schedule-class">Class 10A • Room 201 • 45 students</div>
+                            </div>
+                            <span class="schedule-status status-completed">Completed</span>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-time">9:30 AM</div>
+                            <div class="schedule-content">
+                                <div class="schedule-subject">Mathematics - Geometry</div>
+                                <div class="schedule-class">Class 10B • Room 202 • 42 students</div>
+                            </div>
+                            <span class="schedule-status status-completed">Completed</span>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-time">11:00 AM</div>
+                            <div class="schedule-content">
+                                <div class="schedule-subject">Advanced Algebra</div>
+                                <div class="schedule-class">Class 11A • Room 301 • 38 students</div>
+                            </div>
+                            <span class="schedule-status status-current">Current</span>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-time">1:30 PM</div>
+                            <div class="schedule-content">
+                                <div class="schedule-subject">Geometry & Trigonometry</div>
+                                <div class="schedule-class">Class 10A • Room 201 • 45 students</div>
+                            </div>
+                            <span class="schedule-status status-upcoming">Upcoming</span>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-time">3:00 PM</div>
+                            <div class="schedule-content">
+                                <div class="schedule-subject">Calculus Introduction</div>
+                                <div class="schedule-class">Class 12A • Room 401 • 35 students</div>
+                            </div>
+                            <span class="schedule-status status-upcoming">Upcoming</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tasks -->
+                <div class="tasks-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Pending Tasks</h3>
+                        <button class="btn-secondary">View All</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="task-item">
+                            <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                            <div class="task-content">
+                                <div class="task-title">Grade Mid-term Exams - Class 10A</div>
+                                <div class="task-meta">45 papers • Due in 2 hours</div>
+                            </div>
+                            <span class="task-priority priority-high">High</span>
+                        </div>
+                        <div class="task-item">
+                            <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                            <div class="task-content">
+                                <div class="task-title">Update Attendance Records - All Classes</div>
+                                <div class="task-meta">3 classes • Due today</div>
+                            </div>
+                            <span class="task-priority priority-medium">Medium</span>
+                        </div>
+                        <div class="task-item">
+                            <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                            <div class="task-content">
+                                <div class="task-title">Prepare Lesson Plan - Advanced Algebra</div>
+                                <div class="task-meta">Class 11A • Due tomorrow</div>
+                            </div>
+                            <span class="task-priority priority-low">Low</span>
+                        </div>
+                        <div class="task-item">
+                            <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                            <div class="task-content">
+                                <div class="task-title">Review Student Submissions - Geometry Project</div>
+                                <div class="task-meta">37 submissions • Due in 3 days</div>
+                            </div>
+                            <span class="task-priority priority-medium">Medium</span>
+                        </div>
+                        <div class="task-item">
+                            <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                            <div class="task-content">
+                                <div class="task-title">Parent Meeting Notes - PTM Preparation</div>
+                                <div class="task-meta">15 parents • Due this week</div>
+                            </div>
+                            <span class="task-priority priority-low">Low</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <section class="activity-card">
+                <div class="card-header">
+                    <h3 class="card-title">Recent Activity</h3>
+                    <button class="btn-secondary">View All</button>
+                </div>
+                <div class="card-body">
+                    <div class="activity-item">
+                        <div class="activity-icon success">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-title">Attendance marked for Class 10A - 43/45 present</div>
+                            <div class="activity-time">2 hours ago • 8:00 AM class</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon info">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-title">New assignment created: Algebra Chapter 5 Exercise 1-20</div>
+                            <div class="activity-time">4 hours ago • Due: Dec 22, 2024</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon success">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-title">Graded 25 student papers - Geometry Test</div>
+                            <div class="activity-time">6 hours ago • Average: 82.5%</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon warning">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-title">3 students haven't submitted homework - Class 10B</div>
+                            <div class="activity-time">8 hours ago • Assignment: Chapter 4 Review</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon info">
+                            <i class="fas fa-comment"></i>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-title">New message from Principal - Staff Meeting Tomorrow</div>
+                            <div class="activity-time">1 day ago • Meeting: 10:00 AM in Conference Room</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script>
+        // Sidebar Toggle
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+
+        // Task Toggle
+        function toggleTask(checkbox) {
+            checkbox.classList.toggle('checked');
+            const taskTitle = checkbox.nextElementSibling.querySelector('.task-title').textContent;
+            const isChecked = checkbox.classList.contains('checked');
+            
+            if (isChecked) {
+                showToast(`Task completed: ${taskTitle}`, 'success');
+            } else {
+                showToast(`Task unmarked: ${taskTitle}`, 'info');
+            }
+        }
+
+        // Toast Notification System
+        function showToast(message, type = 'info') {
+            const toastContainer = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <i class="fas fa-${getToastIcon(type)}"></i>
+                    <div>
+                        <div style="font-weight: 500;">${message}</div>
+                        <div style="font-size: 0.875rem; color: var(--gray);">Just now</div>
+                    </div>
+                </div>
+            `;
+            
+            toastContainer.appendChild(toast);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                toast.style.animation = 'slideIn 0.3s ease reverse';
+                setTimeout(() => toast.remove(), 300);
+            }, 5000);
+        }
+
+        function getToastIcon(type) {
+            const icons = {
+                'success': 'check-circle',
+                'warning': 'exclamation-triangle',
+                'error': 'times-circle',
+                'info': 'info-circle'
+            };
+            return icons[type] || 'info-circle';
+        }
+
+        // Quick Action Functions
+        function quickMarkAttendance() {
+            showToast('📋 Opening attendance system...', 'info');
+            setTimeout(() => {
+                showToast('Loading Class 10A - 45 students...', 'info');
+            }, 500);
+            setTimeout(() => {
+                showToast('✅ Attendance marked: 43 Present, 2 Absent', 'success');
+            }, 1500);
+        }
+
+        function quickAddHomework() {
+            showToast('📚 Creating new assignment...', 'info');
+            setTimeout(() => {
+                showToast('Assignment: Mathematics Chapter 7', 'info');
+            }, 800);
+            setTimeout(() => {
+                showToast('✅ Homework posted! Due: Dec 22, 2024', 'success');
+            }, 1500);
+        }
+
+        function quickGradePapers() {
+            showToast('📊 Loading pending assignments...', 'info');
+            setTimeout(() => {
+                showToast('12 assignments ready for grading', 'info');
+            }, 800);
+            setTimeout(() => {
+                showToast('✅ 8 papers graded, 4 need review', 'success');
+            }, 2000);
+        }
+
+        function quickPostNotice() {
+            showToast('📢 Creating notice...', 'info');
+            setTimeout(() => {
+                showToast('Notice: Math Test Schedule Change', 'warning');
+            }, 800);
+            setTimeout(() => {
+                showToast('✅ Notice published to all students', 'success');
+            }, 1500);
+        }
+
+        function quickApplyLeave() {
+            showToast('📅 Opening leave application...', 'info');
+            setTimeout(() => {
+                showToast('Applying for tomorrow (Dec 14)', 'info');
+            }, 800);
+            setTimeout(() => {
+                showToast('✅ Leave submitted! ID: LEA-2024-046', 'success');
+            }, 1500);
+        }
+
+        function quickViewMessages() {
+            showToast('💬 Checking messages...', 'info');
+            setTimeout(() => {
+                showToast('🔔 5 new messages found!', 'success');
+            }, 800);
+            setTimeout(() => {
+                showToast('Latest: "Meeting tomorrow at 10 AM" - Admin', 'info');
+            }, 1500);
+        }
+
+        // Logout Function
+        function handleLogout() {
+            if (confirm('Are you sure you want to logout?')) {
+                showToast('Logging out...', 'info');
+                setTimeout(() => {
+                    window.location.href = '../login.html';
+                }, 1500);
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add smooth scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                });
+            });
+
+            // Add hover effects to cards
+            document.querySelectorAll('.action-card, .schedule-item, .task-item, .activity-item').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+
+        // Search functionality
+        document.querySelector('.search-bar input').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            if (searchTerm.length > 2) {
+                showToast(`Searching for: ${searchTerm}`, 'info');
+            }
+        });
+
+        // Notification button
+        document.querySelector('.notification-btn').addEventListener('click', function() {
+            showToast('You have 3 new notifications', 'info');
+        });
+    </script>
+</body>
+</html>

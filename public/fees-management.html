@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fees Management - School Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --secondary: #1e40af;
+            --dark: #0f172a;
+            --card: #111827;
+            --text: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --border: #334155;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--dark), #1a1f3a);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        .header {
+            background: var(--card);
+            border-bottom: 2px solid var(--border);
+            padding: 20px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .back-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        .main-content {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 30px;
+        }
+
+        .page-header {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-color: var(--primary);
+        }
+
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 15px;
+            color: white;
+        }
+
+        .stat-icon.total { background: linear-gradient(135deg, var(--primary), var(--secondary)); }
+        .stat-icon.paid { background: linear-gradient(135deg, var(--success), #16a34a); }
+        .stat-icon.pending { background: linear-gradient(135deg, var(--warning), #d97706); }
+        .stat-icon.overdue { background: linear-gradient(135deg, var(--danger), #dc2626); }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--text);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .content-card {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid var(--border);
+            margin-bottom: 30px;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        .fees-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .fees-table th {
+            background: var(--dark);
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--primary);
+            border-bottom: 2px solid var(--border);
+        }
+
+        .fees-table td {
+            padding: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .fees-table tr:hover {
+            background: rgba(59, 130, 246, 0.05);
+        }
+
+        .student-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .student-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .status-badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .status-badge.paid {
+            background: rgba(34, 197, 94, 0.2);
+            color: var(--success);
+        }
+
+        .status-badge.pending {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--warning);
+        }
+
+        .status-badge.overdue {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--danger);
+        }
+
+        .amount {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: var(--text);
+        }
+
+        .action-btns {
+            display: flex;
+            gap: 8px;
+        }
+
+        .action-btn {
+            padding: 6px 10px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn.send {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--primary);
+        }
+
+        .action-btn.view {
+            background: rgba(34, 197, 94, 0.2);
+            color: var(--success);
+        }
+
+        .action-btn:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .page-header { flex-direction: column; gap: 20px; }
+            .fees-table { font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                School Management System
+            </div>
+            <a href="dashboard.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Back to Dashboard
+            </a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="page-header">
+            <h1 class="page-title">
+                <i class="fas fa-dollar-sign"></i>
+                Fees Management
+            </h1>
+            <div style="display: flex; gap: 15px;">
+                <button class="btn btn-primary">
+                    <i class="fas fa-plus"></i> Add Fee
+                </button>
+                <button class="btn btn-primary">
+                    <i class="fas fa-download"></i> Export
+                </button>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon total">
+                    <i class="fas fa-dollar-sign"></i>
+                </div>
+                <div class="stat-value">$125,000</div>
+                <div class="stat-label">Total Collection</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon paid">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="stat-value">$98,500</div>
+                <div class="stat-label">Paid Fees</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon pending">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="stat-value">$22,000</div>
+                <div class="stat-label">Pending Fees</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon overdue">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="stat-value">$4,500</div>
+                <div class="stat-label">Overdue Fees</div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <i class="fas fa-list"></i>
+                    Fee Records
+                </h3>
+            </div>
+
+            <table class="fees-table">
+                <thead>
+                    <tr>
+                        <th>Student</th>
+                        <th>Fee Type</th>
+                        <th>Amount</th>
+                        <th>Due Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="student-info">
+                                <div class="student-avatar">JD</div>
+                                <div>
+                                    <div>John Doe</div>
+                                    <small style="color: var(--text-secondary);">STU001</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Tuition Fee</td>
+                        <td><span class="amount">$2,500</span></td>
+                        <td>January 15, 2024</td>
+                        <td><span class="status-badge paid">Paid</span></td>
+                        <td>
+                            <div class="action-btns">
+                                <button class="action-btn view">
+                                    <i class="fas fa-receipt"></i> Receipt
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="student-info">
+                                <div class="student-avatar">JS</div>
+                                <div>
+                                    <div>Jane Smith</div>
+                                    <small style="color: var(--text-secondary);">STU002</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Tuition Fee</td>
+                        <td><span class="amount">$2,500</span></td>
+                        <td>January 15, 2024</td>
+                        <td><span class="status-badge pending">Pending</span></td>
+                        <td>
+                            <div class="action-btns">
+                                <button class="action-btn send">
+                                    <i class="fas fa-envelope"></i> Reminder
+                                </button>
+                                <button class="action-btn view">
+                                    <i class="fas fa-eye"></i> View
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="student-info">
+                                <div class="student-avatar">MJ</div>
+                                <div>
+                                    <div>Michael Johnson</div>
+                                    <small style="color: var(--text-secondary);">STU003</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Tuition Fee</td>
+                        <td><span class="amount">$2,500</span></td>
+                        <td>January 10, 2024</td>
+                        <td><span class="status-badge overdue">Overdue</span></td>
+                        <td>
+                            <div class="action-btns">
+                                <button class="action-btn send">
+                                    <i class="fas fa-bell"></i> Notify
+                                </button>
+                                <button class="action-btn view">
+                                    <i class="fas fa-eye"></i> View
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="student-info">
+                                <div class="student-avatar">EW</div>
+                                <div>
+                                    <div>Emma Wilson</div>
+                                    <small style="color: var(--text-secondary);">STU004</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Lab Fee</td>
+                        <td><span class="amount">$500</span></td>
+                        <td>January 20, 2024</td>
+                        <td><span class="status-badge paid">Paid</span></td>
+                        <td>
+                            <div class="action-btns">
+                                <button class="action-btn view">
+                                    <i class="fas fa-receipt"></i> Receipt
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="student-info">
+                                <div class="student-avatar">DB</div>
+                                <div>
+                                    <div>David Brown</div>
+                                    <small style="color: var(--text-secondary);">STU005</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Library Fee</td>
+                        <td><span class="amount">$200</span></td>
+                        <td>January 25, 2024</td>
+                        <td><span class="status-badge pending">Pending</span></td>
+                        <td>
+                            <div class="action-btns">
+                                <button class="action-btn send">
+                                    <i class="fas fa-envelope"></i> Reminder
+                                </button>
+                                <button class="action-btn view">
+                                    <i class="fas fa-eye"></i> View
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="content-card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <i class="fas fa-chart-line"></i>
+                    Fee Collection Trends
+                </h3>
+            </div>
+            <div style="text-align: center; padding: 50px; color: var(--text-secondary);">
+                <i class="fas fa-chart-area" style="font-size: 4rem; margin-bottom: 20px; color: var(--primary);"></i>
+                <h3>Fee Analytics Dashboard</h3>
+                <p>Track fee collection patterns, payment trends, and generate financial reports.</p>
+                <button class="btn btn-primary">
+                    <i class="fas fa-chart-bar"></i> View Analytics
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

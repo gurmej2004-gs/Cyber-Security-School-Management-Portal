@@ -1,0 +1,292 @@
+/**
+ * Student Navigation Bot Styles
+ * Simple, clean design
+ */
+
+.student-nav-bot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10000;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Floating Button */
+.student-nav-bot-toggle {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #8b5cf6, #6366f1);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.student-nav-bot-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(139, 92, 246, 0.4);
+}
+
+.student-nav-bot-toggle:active {
+    transform: scale(0.95);
+}
+
+/* Chat Modal */
+.student-nav-bot-modal {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 380px;
+    max-width: calc(100vw - 40px);
+    height: 500px;
+    max-height: calc(100vh - 120px);
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header */
+.student-nav-bot-header {
+    background: linear-gradient(135deg, #8b5cf6, #6366f1);
+    color: white;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.student-nav-bot-title {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.student-nav-bot-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+    line-height: 1;
+}
+
+.student-nav-bot-close:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Messages */
+.student-nav-bot-messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.student-nav-bot-messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+.student-nav-bot-messages::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.student-nav-bot-messages::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+/* Message Bubbles */
+.student-nav-bot-message {
+    display: flex;
+    animation: messageAppear 0.3s ease forwards;
+}
+
+@keyframes messageAppear {
+    to {
+        opacity: 1;
+    }
+}
+
+.user-message {
+    justify-content: flex-end;
+}
+
+.bot-message {
+    justify-content: flex-start;
+}
+
+.message-content {
+    max-width: 80%;
+    padding: 12px 16px;
+    border-radius: 18px;
+}
+
+.user-message .message-content {
+    background: linear-gradient(135deg, #8b5cf6, #6366f1);
+    color: white;
+    border-bottom-right-radius: 6px;
+}
+
+.bot-message .message-content {
+    background: white;
+    color: #333;
+    border: 1px solid #e0e0e0;
+    border-bottom-left-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.message-text {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 4px;
+    word-wrap: break-word;
+}
+
+.message-time {
+    font-size: 11px;
+    opacity: 0.7;
+    text-align: right;
+}
+
+.user-message .message-time {
+    text-align: right;
+}
+
+.bot-message .message-time {
+    text-align: left;
+}
+
+/* Quick Actions */
+.student-nav-bot-quick-actions {
+    padding: 12px 20px;
+    background: white;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.nav-quick-btn {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 6px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #666;
+    font-family: inherit;
+}
+
+.nav-quick-btn:hover {
+    background: linear-gradient(135deg, #8b5cf6, #6366f1);
+    color: white;
+    border-color: #8b5cf6;
+    transform: translateY(-1px);
+}
+
+.nav-quick-btn:active {
+    transform: translateY(0);
+}
+
+/* Input Area */
+.student-nav-bot-input-area {
+    padding: 16px 20px;
+    background: white;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+#student-nav-bot-input {
+    flex: 1;
+    border: 1px solid #ddd;
+    border-radius: 24px;
+    padding: 12px 16px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+    font-family: inherit;
+}
+
+#student-nav-bot-input:focus {
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+#student-nav-bot-input::placeholder {
+    color: #999;
+}
+
+.student-nav-bot-send-btn {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #8b5cf6, #6366f1);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: white;
+    flex-shrink: 0;
+}
+
+.student-nav-bot-send-btn:hover:not(:disabled) {
+    opacity: 0.9;
+    transform: scale(1.05);
+}
+
+.student-nav-bot-send-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .student-nav-bot-modal {
+        width: calc(100vw - 40px);
+        height: calc(100vh - 140px);
+        bottom: 80px;
+        right: 20px;
+    }
+    
+    .student-nav-bot-container {
+        right: 20px;
+        bottom: 20px;
+    }
+}
+

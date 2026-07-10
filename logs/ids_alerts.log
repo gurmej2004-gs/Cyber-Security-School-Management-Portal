@@ -1,0 +1,106 @@
+[2025-09-12T06:00:09.590Z] BRUTE_FORCE_DETECTED: IP ::1 blocked for 15 minutes - 3 failed attempts on usernames: admin
+[2025-09-12T06:00:09.717Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-12T06:00:09.727Z] BLOCKED_REQUEST: IP ::1 attempted GET /students while blocked
+[2025-09-12T06:00:09.735Z] BLOCKED_REQUEST: IP ::1 attempted GET /teachers while blocked
+[2025-09-12T06:00:09.752Z] BLOCKED_REQUEST: IP ::1 attempted GET /users while blocked
+[2025-09-12T06:00:09.766Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-12T06:00:09.780Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-12T06:04:53.044Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-12T06:04:53.103Z] BLOCKED_REQUEST: IP ::1 attempted GET /students while blocked
+[2025-09-12T06:04:53.123Z] BLOCKED_REQUEST: IP ::1 attempted GET /teachers while blocked
+[2025-09-12T06:04:53.133Z] BLOCKED_REQUEST: IP ::1 attempted GET /users while blocked
+[2025-09-12T06:04:53.144Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-12T06:11:12.661Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-12T06:11:12.700Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-12T06:14:39.378Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-12T06:14:39.489Z] BLOCKED_REQUEST: IP ::1 attempted GET /students while blocked
+[2025-09-12T06:14:39.546Z] BLOCKED_REQUEST: IP ::1 attempted GET /teachers while blocked
+[2025-09-12T06:14:39.643Z] BLOCKED_REQUEST: IP ::1 attempted GET /users while blocked
+[2025-09-12T06:19:44.732Z] CLEANUP: Expired block removed for IP ::1
+[2025-09-14T05:40:39.298Z] IPS_AUTO_BLOCK: IP ::1 blocked for 10 minutes - 3 failed attempts on usernames: admin, teacher1, teacher2
+[2025-09-14T05:40:39.822Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-14T05:40:40.340Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-14T05:40:40.861Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-14T05:40:41.372Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-14T05:40:41.886Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-14T05:40:42.398Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-14T05:40:42.930Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-14T05:40:45.458Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-14T05:40:45.993Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-14T05:40:46.517Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-14T05:40:47.051Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-14T05:40:47.572Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-14T05:40:48.096Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-14T05:40:48.613Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-14T05:40:49.127Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-14T05:40:49.641Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-14T05:40:50.162Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-14T05:40:52.853Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-14T05:40:53.370Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-14T05:40:53.892Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-14T05:40:54.403Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-14T05:40:54.936Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-14T05:40:55.469Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-14T05:40:55.995Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-14T05:40:56.510Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-14T05:40:57.034Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-14T05:40:57.555Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-14T05:41:00.090Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-14T05:41:01.108Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-14T05:41:02.148Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-14T05:41:03.160Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-14T05:41:04.196Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-14T05:41:05.224Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-14T05:41:40.513Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-14T05:41:41.491Z] BLOCKED_REQUEST: IP ::1 attempted GET /api/students?id=1%27%20AND%20SLEEP(5)-- while blocked
+[2025-09-14T05:41:42.764Z] BLOCKED_REQUEST: IP ::1 attempted GET /api/teachers?id=1%27%20AND%20SLEEP(5)-- while blocked
+[2025-09-14T05:41:44.051Z] BLOCKED_REQUEST: IP ::1 attempted GET /api/users?search=1%27%20AND%20SLEEP(5)-- while blocked
+[2025-09-14T05:41:44.383Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-14T05:41:47.436Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-14T05:52:33.762Z] CLEANUP: Expired block removed for IP ::1
+[2025-09-15T05:48:09.503Z] IPS_AUTO_BLOCK: IP ::1 blocked for 10 minutes - 3 failed attempts on usernames: admin, teacher1
+[2025-09-15T05:57:26.688Z] IPS_AUTO_BLOCK: IP ::1 blocked for 10 minutes - 3 failed attempts on usernames: admin, teacher1
+[2025-09-15T05:57:26.791Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-15T05:58:48.809Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-15T05:58:48.854Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-15T06:01:18.002Z] IPS_AUTO_BLOCK: IP ::1 blocked for 10 minutes - 3 failed attempts on usernames: admin, teacher1
+[2025-09-15T06:01:18.043Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-15T06:03:47.228Z] IPS_AUTO_BLOCK: IP ::1 blocked for 10 minutes - 3 failed attempts on usernames: admin, teacher1
+[2025-09-15T06:04:56.815Z] IPS_AUTO_BLOCK: IP ::1 blocked for 10 minutes - 3 failed attempts on usernames: teacher1, admin
+[2025-09-17T15:54:46.047Z] IPS_AUTO_BLOCK: IP ::1 blocked for 10 minutes - 3 failed attempts on usernames: teacher1
+[2025-09-17T15:55:14.969Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-18T10:16:40.058Z] IPS_AUTO_BLOCK: IP ::1 blocked for 10 minutes - 3 failed attempts on usernames: teacher1, admin
+[2025-09-18T10:16:44.523Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-18T10:17:01.752Z] BLOCKED_REQUEST: IP ::1 attempted GET / while blocked
+[2025-09-18T10:19:01.866Z] IPS_AUTO_BLOCK: IP ::1 blocked for 10 minutes - 3 failed attempts on usernames: admin, teacher1
+[2025-09-18T10:19:13.333Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-18T10:25:41.229Z] IPS_AUTO_BLOCK: IP ::1 blocked for 10 minutes - 3 failed attempts on usernames: admin
+[2025-09-18T10:25:43.025Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-18T10:58:02.441Z] IPS_AUTO_BLOCK: IP ::1 blocked for 10 minutes - 3 failed attempts on usernames: admin
+[2025-09-18T10:58:08.554Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-18T11:22:00.412Z] IPS_AUTO_BLOCK: IP ::1 blocked for 10 minutes - 3 failed attempts on usernames: admin
+[2025-09-18T11:22:02.311Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-09-18T14:14:07.619Z] CLEANUP: Expired block removed for IP ::1
+[2025-09-23T06:58:24.244Z] IPS_AUTO_BLOCK: IP ::1 blocked for 10 minutes - 3 failed attempts on usernames: admin
+[2025-09-23T11:10:18.594Z] IPS_AUTO_BLOCK: IP ::1 blocked for 10 minutes - 3 failed attempts on usernames: admin
+[2025-09-23T11:10:21.598Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-12-31T11:45:19.701Z] IPS_AUTO_BLOCK: IP ::1 blocked for 10 minutes - 3 failed attempts on usernames: admin
+[2025-12-31T11:45:20.783Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-12-31T11:45:29.693Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2025-12-31T11:45:31.064Z] BLOCKED_REQUEST: IP ::1 attempted GET /login.html while blocked
+[2025-12-31T12:17:33.694Z] IPS_AUTO_BLOCK: IP ::1 blocked for 10 minutes - 3 failed attempts on usernames: student1, student2
+[2026-01-02T09:16:30.966Z] IPS_AUTO_BLOCK: IP ::1 blocked for 10 minutes - 3 failed attempts on usernames: student5
+[2026-01-02T09:17:12.548Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2026-01-02T09:17:33.646Z] BLOCKED_REQUEST: IP ::1 attempted GET /login.html while blocked
+[2026-01-02T09:25:05.888Z] IPS_AUTO_BLOCK: IP ::1 blocked for 10 minutes - 3 failed attempts on usernames: admin
+[2026-01-02T09:25:07.437Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2026-01-02T09:25:13.497Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2026-01-02T09:25:17.322Z] BLOCKED_REQUEST: IP ::1 attempted GET /login.html while blocked
+[2026-01-03T05:45:57.462Z] IPS_AUTO_BLOCK: IP ::1 blocked for 10 minutes - 3 failed attempts on usernames: student5, student1
+[2026-01-03T05:46:07.551Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2026-01-03T05:46:16.031Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2026-01-03T05:46:17.447Z] BLOCKED_REQUEST: IP ::1 attempted GET /login.html while blocked
+[2026-02-02T04:35:05.315Z] IPS_AUTO_BLOCK: IP ::1 blocked for 10 minutes - 3 failed attempts on usernames: student1, student
+[2026-02-02T04:35:15.756Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked
+[2026-02-02T08:01:38.582Z] IPS_AUTO_BLOCK: IP ::1 blocked for 10 minutes - 3 failed attempts on usernames: adminadmin@123, teacher1
+[2026-02-02T08:01:58.110Z] BLOCKED_REQUEST: IP ::1 attempted POST /api/login while blocked

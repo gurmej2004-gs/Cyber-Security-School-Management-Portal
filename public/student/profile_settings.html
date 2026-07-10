@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile & Settings - Student Portal</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .profile-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .header h1 {
+            color: #1a1a2e;
+            font-size: 2.5rem;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .header .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+
+        .profile-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .profile-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .profile-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            z-index: 0;
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            position: relative;
+            z-index: 1;
+            border: 4px solid white;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .profile-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 5px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-role {
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            background: #f8fafc;
+            border-radius: 10px;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .quick-actions {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .action-btn {
+            padding: 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: #1a1a2e;
+        }
+
+        .action-btn:hover {
+            border-color: #667eea;
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .action-btn i {
+            color: #667eea;
+            font-size: 1.3rem;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .settings-section {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            resize: vertical;
+            min-height: 100px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .form-textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .toggle-switch {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            background: #f8fafc;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .toggle-info {
+            flex: 1;
+        }
+
+        .toggle-label {
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 3px;
+        }
+
+        .toggle-description {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .switch {
+            position: relative;
+            width: 50px;
+            height: 26px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #cbd5e1;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #667eea;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(24px);
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-secondary {
+            background: #f1f5f9;
+            color: #4b5563;
+        }
+
+        .btn-secondary:hover {
+            background: #e2e8f0;
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(239, 68, 68, 0.3);
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: flex-end;
+            margin-top: 30px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .success-message {
+            background: #d1fae5;
+            color: #059669;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .profile-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .profile-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <a href="student_dashboard.html" class="back-btn">
+            <i class="material-icons">arrow_back</i>
+            Back to Dashboard
+        </a>
+
+        <div class="header">
+            <h1>
+                <i class="material-icons" style="color: #667eea;">settings</i>
+                Profile & Settings
+            </h1>
+            <div class="subtitle">Manage your account information and preferences</div>
+        </div>
+
+        <div class="profile-content">
+            <div class="profile-sidebar">
+                <div class="profile-card">
+                    <div class="profile-avatar">
+                        <img src="../images/sakib image.jpg" alt="Mohd Sakib Malik">
+                    </div>
+                    <div class="profile-name">Mohd Sakib Malik</div>
+                    <div class="profile-role">B.Tech Student</div>
+                    
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">3.7</div>
+                            <div class="stat-label">GPA</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">6</div>
+                            <div class="stat-label">Courses</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">85%</div>
+                            <div class="stat-label">Attendance</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quick-actions">
+                    <div class="section-title">
+                        <i class="material-icons">bolt</i>
+                        Quick Actions
+                    </div>
+                    <div class="action-buttons">
+                        <a href="#" class="action-btn">
+                            <i class="material-icons">edit</i>
+                            <span>Edit Profile</span>
+                        </a>
+                        <a href="#" class="action-btn">
+                            <i class="material-icons">lock</i>
+                            <span>Change Password</span>
+                        </a>
+                        <a href="#" class="action-btn">
+                            <i class="material-icons">download</i>
+                            <span>Download Data</span>
+                        </a>
+                        <a href="#" class="action-btn">
+                            <i class="material-icons">help</i>
+                            <span>Help & Support</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div class="settings-section">
+                    <div class="section-title">
+                        <i class="material-icons">person</i>
+                        Personal Information
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">First Name</label>
+                            <input type="text" class="form-input" value="Mohd" id="firstName">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Last Name</label>
+                            <input type="text" class="form-input" value="Sakib Malik" id="lastName">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" class="form-input" value="mohd.sakib@university.edu" id="email">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Phone Number</label>
+                            <input type="tel" class="form-input" value="+91 9876543210" id="phone">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Student ID</label>
+                            <input type="text" class="form-input" value="2025001" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Program</label>
+                            <input type="text" class="form-input" value="B.Tech Computer Science" readonly>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Bio</label>
+                        <textarea class="form-textarea" id="bio" placeholder="Tell us about yourself...">Passionate about technology and programming. Interested in artificial intelligence and machine learning.</textarea>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <div class="section-title">
+                        <i class="material-icons">notifications</i>
+                        Notification Preferences
+                    </div>
+                    
+                    <div class="toggle-switch">
+                        <div class="toggle-info">
+                            <div class="toggle-label">Email Notifications</div>
+                            <div class="toggle-description">Receive updates about your courses and assignments</div>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="toggle-switch">
+                        <div class="toggle-info">
+                            <div class="toggle-label">SMS Notifications</div>
+                            <div class="toggle-description">Get important alerts via text message</div>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="toggle-switch">
+                        <div class="toggle-info">
+                            <div class="toggle-label">Assignment Reminders</div>
+                            <div class="toggle-description">Get notified before assignment deadlines</div>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="toggle-switch">
+                        <div class="toggle-info">
+                            <div class="toggle-label">Grade Updates</div>
+                            <div class="toggle-description">Receive notifications when grades are posted</div>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <div class="section-title">
+                        <i class="material-icons">security</i>
+                        Security Settings
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Current Password</label>
+                        <input type="password" class="form-input" placeholder="Enter current password">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">New Password</label>
+                            <input type="password" class="form-input" placeholder="Enter new password">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Confirm New Password</label>
+                            <input type="password" class="form-input" placeholder="Confirm new password">
+                        </div>
+                    </div>
+
+                    <div class="toggle-switch">
+                        <div class="toggle-info">
+                            <div class="toggle-label">Two-Factor Authentication</div>
+                            <div class="toggle-description">Add an extra layer of security to your account</div>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <div class="section-title">
+                        <i class="material-icons">privacy_tip</i>
+                        Privacy Settings
+                    </div>
+                    
+                    <div class="toggle-switch">
+                        <div class="toggle-info">
+                            <div class="toggle-label">Profile Visibility</div>
+                            <div class="toggle-description">Make your profile visible to other students</div>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="toggle-switch">
+                        <div class="toggle-info">
+                            <div class="toggle-label">Show Online Status</div>
+                            <div class="toggle-description">Let others see when you're online</div>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="toggle-switch">
+                        <div class="toggle-info">
+                            <div class="toggle-label">Data Analytics</div>
+                            <div class="toggle-description">Help improve our services with usage data</div>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button class="btn btn-secondary" onclick="resetForm()">
+                        <i class="material-icons">refresh</i>
+                        Reset
+                    </button>
+                    <button class="btn btn-danger" onclick="deleteAccount()">
+                        <i class="material-icons">delete</i>
+                        Delete Account
+                    </button>
+                    <button class="btn btn-primary" onclick="saveSettings()">
+                        <i class="material-icons">save</i>
+                        Save Changes
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function saveSettings() {
+            // Show success message
+            const successDiv = document.createElement('div');
+            successDiv.className = 'success-message';
+            successDiv.innerHTML = `
+                <i class="material-icons">check_circle</i>
+                Your settings have been saved successfully!
+            `;
+            
+            const container = document.querySelector('.profile-container');
+            container.insertBefore(successDiv, container.firstChild);
+            
+            // Remove message after 3 seconds
+            setTimeout(() => {
+                successDiv.remove();
+            }, 3000);
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        function resetForm() {
+            if (confirm('Are you sure you want to reset all changes?')) {
+                location.reload();
+            }
+        }
+        
+        function deleteAccount() {
+            if (confirm('Are you sure you want to delete your account? This action cannot be undone.')) {
+                if (confirm('This will permanently delete all your data. Are you absolutely sure?')) {
+                    alert('Account deletion requested. You will receive a confirmation email shortly.');
+                    // In a real application, this would trigger an API call
+                }
+            }
+        }
+        
+        // Add input validation
+        document.getElementById('email').addEventListener('input', function(e) {
+            const email = e.target.value;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (email && !emailRegex.test(email)) {
+                e.target.style.borderColor = '#ef4444';
+            } else {
+                e.target.style.borderColor = '#e2e8f0';
+            }
+        });
+        
+        document.getElementById('phone').addEventListener('input', function(e) {
+            const phone = e.target.value;
+            const phoneRegex = /^[\d\s\-\+\(\)]+$/;
+            
+            if (phone && !phoneRegex.test(phone)) {
+                e.target.style.borderColor = '#ef4444';
+            } else {
+                e.target.style.borderColor = '#e2e8f0';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+[2026-02-02T05:54:13.913Z] 2026-02-02T05:54:13.913Z - CHATBOT - User: student1 (student) - Query: "show my grades" - Intent: grades
+[2026-02-02T05:54:17.919Z] 2026-02-02T05:54:17.919Z - CHATBOT - User: student1 (student) - Query: "show my attendance" - Intent: attendance
+[2026-02-02T05:54:38.179Z] 2026-02-02T05:54:38.179Z - CHATBOT - User: student1 (student) - Query: "show my attendance" - Intent: attendance

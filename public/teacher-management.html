@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Management - School Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --secondary: #1e40af;
+            --dark: #0f172a;
+            --card: #111827;
+            --text: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --border: #334155;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--dark), #1a1f3a);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        .header {
+            background: var(--card);
+            border-bottom: 2px solid var(--border);
+            padding: 20px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .back-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        .main-content {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 30px;
+        }
+
+        .page-header {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, var(--success), #16a34a);
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-color: var(--primary);
+        }
+
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 15px;
+            color: white;
+        }
+
+        .stat-icon.total { background: linear-gradient(135deg, var(--primary), var(--secondary)); }
+        .stat-icon.active { background: linear-gradient(135deg, var(--success), #16a34a); }
+        .stat-icon.subjects { background: linear-gradient(135deg, var(--warning), #d97706); }
+        .stat-icon.experience { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--text);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .content-card {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid var(--border);
+            margin-bottom: 30px;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 12px 16px;
+            background: var(--dark);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .filter-select {
+            padding: 12px 16px;
+            background: var(--dark);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+        }
+
+        .teachers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .teacher-card {
+            background: var(--dark);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .teacher-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-color: var(--primary);
+        }
+
+        .teacher-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .teacher-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .teacher-info h4 {
+            color: var(--text);
+            margin-bottom: 5px;
+        }
+
+        .teacher-subject {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .teacher-details {
+            margin-bottom: 20px;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .detail-item i {
+            color: var(--primary);
+            width: 20px;
+        }
+
+        .teacher-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .teacher-stat {
+            text-align: center;
+            padding: 10px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 8px;
+        }
+
+        .teacher-stat-value {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .teacher-stat-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .teacher-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 8px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn.edit {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--primary);
+        }
+
+        .action-btn.delete {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--danger);
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .page-header { flex-direction: column; gap: 20px; }
+            .search-box { flex-direction: column; }
+            .teachers-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                School Management System
+            </div>
+            <a href="dashboard.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Back to Dashboard
+            </a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="page-header">
+            <h1 class="page-title">
+                <i class="fas fa-chalkboard-teacher"></i>
+                Teacher Management
+            </h1>
+            <div class="action-buttons">
+                <button class="btn btn-primary" onclick="openAddModal()">
+                    <i class="fas fa-plus"></i> Add Teacher
+                </button>
+                <button class="btn btn-success" onclick="openExportModal()">
+                    <i class="fas fa-download"></i> Export
+                </button>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon total">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <div class="stat-value">56</div>
+                <div class="stat-label">Total Teachers</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon active">
+                    <i class="fas fa-user-check"></i>
+                </div>
+                <div class="stat-value">52</div>
+                <div class="stat-label">Active Teachers</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon subjects">
+                    <i class="fas fa-book"></i>
+                </div>
+                <div class="stat-value">12</div>
+                <div class="stat-label">Subjects Covered</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon experience">
+                    <i class="fas fa-award"></i>
+                </div>
+                <div class="stat-value">8.5</div>
+                <div class="stat-label">Avg. Years Experience</div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <i class="fas fa-users"></i>
+                    Teaching Staff
+                </h3>
+            </div>
+
+            <div class="search-box">
+                <input type="text" class="search-input" id="teacherSearchInput" placeholder="Search teachers by name, subject, or email...">
+                <select class="filter-select" id="subjectFilter">
+                    <option value="">All Subjects</option>
+                    <option value="Mathematics">Mathematics</option>
+                    <option value="Science">Science</option>
+                    <option value="English">English</option>
+                    <option value="History">History</option>
+                    <option value="Physics">Physics</option>
+                    <option value="Chemistry">Chemistry</option>
+                    <option value="Literature">Literature</option>
+                    <option value="Geography">Geography</option>
+                </select>
+                <select class="filter-select" id="departmentFilter">
+                    <option value="">All Departments</option>
+                    <option value="Science Department">Science Department</option>
+                    <option value="Arts Department">Arts Department</option>
+                    <option value="Languages Department">Languages Department</option>
+                </select>
+            </div>
+
+            <div class="teachers-grid" id="teachersGrid">
+                <div class="teacher-card">
+                    <div class="teacher-header">
+                        <div class="teacher-avatar">RS</div>
+                        <div class="teacher-info">
+                            <h4>Robert Smith</h4>
+                            <div class="teacher-subject">Mathematics</div>
+                        </div>
+                    </div>
+                    <div class="teacher-details">
+                        <div class="detail-item">
+                            <i class="fas fa-envelope"></i>
+                            robert.smith@school.edu
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-phone"></i>
+                            +1-234-567-8901
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-building"></i>
+                            Science Department
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar"></i>
+                            10 years experience
+                        </div>
+                    </div>
+                    <div class="teacher-stats">
+                        <div class="teacher-stat">
+                            <div class="teacher-stat-value">4</div>
+                            <div class="teacher-stat-label">Classes</div>
+                        </div>
+                        <div class="teacher-stat">
+                            <div class="teacher-stat-value">120</div>
+                            <div class="teacher-stat-label">Students</div>
+                        </div>
+                        <div class="teacher-stat">
+                            <div class="teacher-stat-value">98%</div>
+                            <div class="teacher-stat-label">Pass Rate</div>
+                        </div>
+                    </div>
+                    <div class="teacher-actions">
+                        <button class="action-btn edit" onclick="editTeacher(1)">
+                            <i class="fas fa-edit"></i> Edit
+                        </button>
+                        <button class="action-btn delete" onclick="deleteTeacher(1)">
+                            <i class="fas fa-trash"></i> Delete
+                        </button>
+                    </div>
+                </div>
+
+                <div class="teacher-card">
+                    <div class="teacher-header">
+                        <div class="teacher-avatar">EJ</div>
+                        <div class="teacher-info">
+                            <h4>Emily Johnson</h4>
+                            <div class="teacher-subject">Physics & Chemistry</div>
+                        </div>
+                    </div>
+                    <div class="teacher-details">
+                        <div class="detail-item">
+                            <i class="fas fa-envelope"></i>
+                            emily.j@school.edu
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-phone"></i>
+                            +1-234-567-8902
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-building"></i>
+                            Science Department
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar"></i>
+                            8 years experience
+                        </div>
+                    </div>
+                    <div class="teacher-stats">
+                        <div class="teacher-stat">
+                            <div class="teacher-stat-value">3</div>
+                            <div class="teacher-stat-label">Classes</div>
+                        </div>
+                        <div class="teacher-stat">
+                            <div class="teacher-stat-value">90</div>
+                            <div class="teacher-stat-label">Students</div>
+                        </div>
+                        <div class="teacher-stat">
+                            <div class="teacher-stat-value">95%</div>
+                            <div class="teacher-stat-label">Pass Rate</div>
+                        </div>
+                    </div>
+                    <div class="teacher-actions">
+                        <button class="action-btn edit" onclick="editTeacher(2)">
+                            <i class="fas fa-edit"></i> Edit
+                        </button>
+                        <button class="action-btn delete" onclick="deleteTeacher(2)">
+                            <i class="fas fa-trash"></i> Delete
+                        </button>
+                    </div>
+                </div>
+
+                <div class="teacher-card">
+                    <div class="teacher-header">
+                        <div class="teacher-avatar">MW</div>
+                        <div class="teacher-info">
+                            <h4>Michael Wilson</h4>
+                            <div class="teacher-subject">English Literature</div>
+                        </div>
+                    </div>
+                    <div class="teacher-details">
+                        <div class="detail-item">
+                            <i class="fas fa-envelope"></i>
+                            michael.w@school.edu
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-phone"></i>
+                            +1-234-567-8903
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-building"></i>
+                            Arts Department
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar"></i>
+                            12 years experience
+                        </div>
+                    </div>
+                    <div class="teacher-stats">
+                        <div class="teacher-stat">
+                            <div class="teacher-stat-value">5</div>
+                            <div class="teacher-stat-label">Classes</div>
+                        </div>
+                        <div class="teacher-stat">
+                            <div class="teacher-stat-value">150</div>
+                            <div class="teacher-stat-label">Students</div>
+                        </div>
+                        <div class="teacher-stat">
+                            <div class="teacher-stat-value">92%</div>
+                            <div class="teacher-stat-label">Pass Rate</div>
+                        </div>
+                    </div>
+                    <div class="teacher-actions">
+                        <button class="action-btn edit" onclick="editTeacher(3)">
+                            <i class="fas fa-edit"></i> Edit
+                        </button>
+                        <button class="action-btn delete" onclick="deleteTeacher(3)">
+                            <i class="fas fa-trash"></i> Delete
+                        </button>
+                    </div>
+                </div>
+
+                <div class="teacher-card">
+                    <div class="teacher-header">
+                        <div class="teacher-avatar">SB</div>
+                        <div class="teacher-info">
+                            <h4>Sarah Brown</h4>
+                            <div class="teacher-subject">History & Geography</div>
+                        </div>
+                    </div>
+                    <div class="teacher-details">
+                        <div class="detail-item">
+                            <i class="fas fa-envelope"></i>
+                            sarah.b@school.edu
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-phone"></i>
+                            +1-234-567-8904
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-building"></i>
+                            Arts Department
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar"></i>
+                            6 years experience
+                        </div>
+                    </div>
+                    <div class="teacher-stats">
+                        <div class="teacher-stat">
+                            <div class="teacher-stat-value">4</div>
+                            <div class="teacher-stat-label">Classes</div>
+                        </div>
+                        <div class="teacher-stat">
+                            <div class="teacher-stat-value">110</div>
+                            <div class="teacher-stat-label">Students</div>
+                        </div>
+                        <div class="teacher-stat">
+                            <div class="teacher-stat-value">88%</div>
+                            <div class="teacher-stat-label">Pass Rate</div>
+                        </div>
+                    </div>
+                    <div class="teacher-actions">
+                        <button class="action-btn edit" onclick="editTeacher(4)">
+                            <i class="fas fa-edit"></i> Edit
+                        </button>
+                        <button class="action-btn delete" onclick="deleteTeacher(4)">
+                            <i class="fas fa-trash"></i> Delete
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Teacher Modal -->
+    <div id="addTeacherModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="addTeacherModalTitle">Add New Teacher</h3>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <form id="addTeacherForm">
+                <input type="hidden" id="teacherEditId">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" class="form-control" id="teacherName" placeholder="Enter teacher name" required>
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" class="form-control" id="teacherEmail" placeholder="Enter email address" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" class="form-control" id="teacherPhone" placeholder="Enter phone number">
+                </div>
+                <div class="form-group">
+                    <label>Subject</label>
+                    <input type="text" class="form-control" id="teacherSubject" placeholder="Enter subject" required>
+                </div>
+                <div class="form-group">
+                    <label>Department</label>
+                    <select class="form-control" id="teacherDepartment" required>
+                        <option value="">Select Department</option>
+                        <option value="Science Department">Science Department</option>
+                        <option value="Arts Department">Arts Department</option>
+                        <option value="Languages Department">Languages Department</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Experience (years)</label>
+                    <input type="number" class="form-control" id="teacherExperience" placeholder="Enter years of experience" min="0">
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <button type="submit" class="btn btn-primary" id="addTeacherSubmitBtn">Add Teacher</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Export Modal -->
+    <div id="exportModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Export Teachers</h3>
+                <button class="close-btn" onclick="closeExportModal()">&times;</button>
+            </div>
+            <form id="exportForm">
+                <div class="form-group">
+                    <label>Search (name/email/subject)</label>
+                    <input type="text" class="form-control" id="exportSearch" placeholder="Leave blank to include all">
+                </div>
+                <div class="form-group">
+                    <label>Subject</label>
+                    <select class="form-control" id="exportSubject">
+                        <option value="">All Subjects</option>
+                        <option value="Mathematics">Mathematics</option>
+                        <option value="Science">Science</option>
+                        <option value="English">English</option>
+                        <option value="History">History</option>
+                        <option value="Physics">Physics</option>
+                        <option value="Chemistry">Chemistry</option>
+                        <option value="Literature">Literature</option>
+                        <option value="Geography">Geography</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Department</label>
+                    <select class="form-control" id="exportDepartment">
+                        <option value="">All Departments</option>
+                        <option value="Science Department">Science Department</option>
+                        <option value="Arts Department">Arts Department</option>
+                        <option value="Languages Department">Languages Department</option>
+                    </select>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <button type="submit" class="btn btn-primary">Export</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeExportModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content" style="max-width: 400px;">
+            <div class="modal-header">
+                <h3 class="modal-title" id="confirmTitle">Confirm</h3>
+                <button class="close-btn" onclick="closeConfirmModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="confirmMessage"></p>
+            </div>
+            <div class="modal-footer" style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px;">
+                <button class="btn btn-secondary" id="confirmCancelBtn">Cancel</button>
+                <button class="btn btn-primary" id="confirmOkBtn">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Modal styles (reuse from student-management)
+        const style = document.createElement('style');
+        style.textContent = `
+            .modal {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.7);
+                z-index: 1000;
+                align-items: center;
+                justify-content: center;
+            }
+            .modal-content {
+                background: var(--card);
+                border-radius: 16px;
+                padding: 30px;
+                max-width: 500px;
+                width: 90%;
+                border: 1px solid var(--border);
+            }
+            .modal-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 25px;
+            }
+            .modal-title {
+                font-size: 1.5rem;
+                color: var(--primary);
+            }
+            .close-btn {
+                background: none;
+                border: none;
+                color: var(--text-secondary);
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+            .form-group {
+                margin-bottom: 20px;
+            }
+            .form-group label {
+                display: block;
+                margin-bottom: 8px;
+                color: var(--text-secondary);
+                font-weight: 500;
+            }
+            .form-control {
+                width: 100%;
+                padding: 12px 16px;
+                background: var(--dark);
+                border: 1px solid var(--border);
+                border-radius: 8px;
+                color: var(--text);
+                font-size: 1rem;
+            }
+        `;
+        document.head.appendChild(style);
+
+        let allTeachers = [];
+
+        function openAddModal() {
+            document.getElementById('addTeacherModalTitle').textContent = 'Add New Teacher';
+            document.getElementById('addTeacherSubmitBtn').textContent = 'Add Teacher';
+            document.getElementById('teacherEditId').value = '';
+            document.getElementById('addTeacherForm').reset();
+            document.getElementById('addTeacherModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('addTeacherModal').style.display = 'none';
+            document.getElementById('addTeacherForm').reset();
+            document.getElementById('teacherEditId').value = '';
+        }
+
+        function openExportModal() {
+            document.getElementById('exportModal').style.display = 'flex';
+        }
+
+        function closeExportModal() {
+            document.getElementById('exportModal').style.display = 'none';
+            document.getElementById('exportForm').reset();
+        }
+
+        function showConfirm(title, message, onConfirm, okText = 'Confirm', cancelText = 'Cancel') {
+            document.getElementById('confirmTitle').textContent = title;
+            document.getElementById('confirmMessage').textContent = message;
+            document.getElementById('confirmOkBtn').textContent = okText;
+            document.getElementById('confirmCancelBtn').textContent = cancelText;
+            document.getElementById('confirmModal').style.display = 'flex';
+
+            const handleConfirm = () => {
+                closeConfirmModal();
+                onConfirm();
+            };
+            const handleCancel = () => {
+                closeConfirmModal();
+            };
+
+            document.getElementById('confirmOkBtn').onclick = handleConfirm;
+            document.getElementById('confirmCancelBtn').onclick = handleCancel;
+        }
+
+        function closeConfirmModal() {
+            document.getElementById('confirmModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const addModal = document.getElementById('addTeacherModal');
+            const exportModal = document.getElementById('exportModal');
+            const confirmModal = document.getElementById('confirmModal');
+            if (event.target == addModal) {
+                closeModal();
+            }
+            if (event.target == exportModal) {
+                closeExportModal();
+            }
+            if (event.target == confirmModal) {
+                closeConfirmModal();
+            }
+        };
+
+        // Load teachers from backend
+        async function loadTeachers() {
+            try {
+                const response = await authenticatedFetch('/teachers');
+                const data = await response.json();
+                if (!response.ok) throw new Error(data.message || 'Failed to load teachers');
+                allTeachers = Array.isArray(data.data) ? data.data : [];
+                renderTeachers(allTeachers);
+            } catch (err) {
+                console.error('Failed to load teachers:', err);
+            }
+        }
+
+        function renderTeachers(teachers) {
+            const grid = document.getElementById('teachersGrid');
+            if (!teachers || teachers.length === 0) {
+                grid.innerHTML = '<p style="text-align: center; color: var(--text-secondary);">No teachers found.</p>';
+                return;
+            }
+            grid.innerHTML = teachers.map(teacher => {
+                const initials = teacher.name ? teacher.name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2) : '??';
+                return `
+                    <div class="teacher-card">
+                        <div class="teacher-header">
+                            <div class="teacher-avatar">${initials}</div>
+                            <div class="teacher-info">
+                                <h4>${teacher.name || 'Unknown'}</h4>
+                                <div class="teacher-subject">${teacher.subject || 'No subject'}</div>
+                            </div>
+                        </div>
+                        <div class="teacher-details">
+                            <div class="detail-item">
+                                <i class="fas fa-envelope"></i>
+                                ${teacher.email || 'No email'}
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-phone"></i>
+                                ${teacher.phone || 'No phone'}
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-building"></i>
+                                ${teacher.department || 'No department'}
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-calendar"></i>
+                                ${teacher.experience ? teacher.experience + ' years experience' : 'No experience info'}
+                            </div>
+                        </div>
+                        <div class="teacher-stats">
+                            <div class="teacher-stat">
+                                <div class="teacher-stat-value">-</div>
+                                <div class="teacher-stat-label">Classes</div>
+                            </div>
+                            <div class="teacher-stat">
+                                <div class="teacher-stat-value">-</div>
+                                <div class="teacher-stat-label">Students</div>
+                            </div>
+                            <div class="teacher-stat">
+                                <div class="teacher-stat-value">-</div>
+                                <div class="teacher-stat-label">Pass Rate</div>
+                            </div>
+                        </div>
+                        <div class="teacher-actions">
+                            <button class="action-btn edit" onclick="editTeacher(${teacher.id})">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                            <button class="action-btn delete" onclick="deleteTeacher(${teacher.id})">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Filter teachers based on search and filters
+        function filterTeachers() {
+            const query = document.getElementById('teacherSearchInput').value.trim().toLowerCase();
+            const subjectFilter = document.getElementById('subjectFilter').value;
+            const departmentFilter = document.getElementById('departmentFilter').value;
+
+            const filtered = allTeachers.filter(teacher => {
+                const matchesSearch = !query || (
+                    (teacher.name && teacher.name.toLowerCase().includes(query)) ||
+                    (teacher.email && teacher.email.toLowerCase().includes(query)) ||
+                    (teacher.subject && teacher.subject.toLowerCase().includes(query))
+                );
+                const matchesSubject = !subjectFilter || teacher.subject === subjectFilter;
+                const matchesDepartment = !departmentFilter || teacher.department === departmentFilter;
+                return matchesSearch && matchesSubject && matchesDepartment;
+            });
+
+            renderTeachers(filtered);
+        }
+
+        // Add/Edit teacher form submission
+        document.getElementById('addTeacherForm').addEventListener('submit', async function(e) {
+            console.log('Form submitted');
+            e.preventDefault();
+            const editId = document.getElementById('teacherEditId').value;
+            const isEdit = !!editId;
+
+            const name = document.getElementById('teacherName').value.trim();
+            const email = document.getElementById('teacherEmail').value.trim();
+            const phone = document.getElementById('teacherPhone').value.trim();
+            const subject = document.getElementById('teacherSubject').value.trim();
+            const department = document.getElementById('teacherDepartment').value;
+            const experience = document.getElementById('teacherExperience').value ? parseInt(document.getElementById('teacherExperience').value) : null;
+
+            console.log('Form data:', { name, email, phone, subject, department, experience });
+
+            if (!name || !email || !subject || !department) {
+                showConfirm('Validation Error', 'Please fill in all required fields.', () => {}, 'OK');
+                return;
+            }
+
+            const payload = { name, email, phone, subject, department, experience };
+            console.log('Payload:', payload);
+            try {
+                const method = isEdit ? 'PUT' : 'POST';
+                const url = isEdit ? `/teachers/${editId}` : '/teachers';
+                console.log('Sending request:', method, url, payload);
+                const response = await authenticatedFetch(url, {
+                    method,
+                    body: JSON.stringify(payload)
+                });
+                const data = await response.json();
+                console.log('Response:', data);
+                if (!response.ok) throw new Error(data.message || `Failed to ${isEdit ? 'update' : 'add'} teacher`);
+                showConfirm('Success', `Teacher ${isEdit ? 'updated' : 'added'} successfully!`, () => {}, 'OK');
+                closeModal();
+                await loadTeachers();
+            } catch (err) {
+                console.error('Error:', err);
+                showConfirm('Error', 'Error: ' + (err.message || 'Something went wrong'), () => {}, 'OK');
+            }
+        });
+
+        // Export form submission
+        document.getElementById('exportForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const search = document.getElementById('exportSearch').value.trim();
+            const subject = document.getElementById('exportSubject').value;
+            const department = document.getElementById('exportDepartment').value;
+
+            const filtered = allTeachers.filter(teacher => {
+                const matchesSearch = !search || (
+                    (teacher.name && teacher.name.toLowerCase().includes(search.toLowerCase())) ||
+                    (teacher.email && teacher.email.toLowerCase().includes(search.toLowerCase())) ||
+                    (teacher.subject && teacher.subject.toLowerCase().includes(search.toLowerCase()))
+                );
+                const matchesSubject = !subject || teacher.subject === subject;
+                const matchesDepartment = !department || teacher.department === department;
+                return matchesSearch && matchesSubject && matchesDepartment;
+            });
+
+            if (filtered.length === 0) {
+                showConfirm('No Results', 'No teachers match the given criteria.', () => {}, 'OK');
+                return;
+            }
+
+            const criteria = [
+                search && `search "${search}"`,
+                subject && `subject ${subject}`,
+                department && `department ${department}`
+            ].filter(Boolean).join(', ') || 'all teachers';
+
+            showConfirm(
+                'Export Teachers',
+                `Export ${filtered.length} teacher(s) (${criteria})?`,
+                () => {
+                    const rows = [['ID', 'Name', 'Email', 'Phone', 'Subject', 'Department', 'Experience']];
+                    filtered.forEach(teacher => {
+                        rows.push([
+                            teacher.id || '',
+                            teacher.name || '',
+                            teacher.email || '',
+                            teacher.phone || '',
+                            teacher.subject || '',
+                            teacher.department || '',
+                            teacher.experience || ''
+                        ]);
+                    });
+                    const csvContent = rows.map(r => r.map(cell => `"${cell}"`).join(',')).join('\n');
+                    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+                    const link = document.createElement('a');
+                    const url = URL.createObjectURL(blob);
+                    const suffix = criteria !== 'all teachers' ? '_' + criteria.replace(/[^a-z0-9]+/gi, '_') : '';
+                    link.setAttribute('href', url);
+                    link.setAttribute('download', `teachers_export${suffix}_${new Date().toISOString().slice(0,10)}.csv`);
+                    link.style.visibility = 'hidden';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                },
+                'Export',
+                'Cancel'
+            );
+            closeExportModal();
+        });
+
+        // Edit teacher
+        async function editTeacher(id) {
+            const teacher = allTeachers.find(t => t.id == id);
+            if (!teacher) {
+                showConfirm('Not Found', 'Teacher not found.', () => {}, 'OK');
+                return;
+            }
+            document.getElementById('addTeacherModalTitle').textContent = 'Edit Teacher';
+            document.getElementById('addTeacherSubmitBtn').textContent = 'Update Teacher';
+            document.getElementById('teacherEditId').value = id;
+            document.getElementById('teacherName').value = teacher.name || '';
+            document.getElementById('teacherEmail').value = teacher.email || '';
+            document.getElementById('teacherPhone').value = teacher.phone || '';
+            document.getElementById('teacherSubject').value = teacher.subject || '';
+            document.getElementById('teacherDepartment').value = teacher.department || '';
+            document.getElementById('teacherExperience').value = teacher.experience || '';
+            document.getElementById('addTeacherModal').style.display = 'flex';
+        }
+
+        // Delete teacher
+        async function deleteTeacher(id) {
+            showConfirm(
+                'Delete Teacher',
+                'Are you sure you want to delete this teacher?',
+                async () => {
+                    try {
+                        const response = await authenticatedFetch(`/teachers/${id}`, { method: 'DELETE' });
+                        const data = await response.json();
+                        if (!response.ok) throw new Error(data.message || 'Failed to delete teacher');
+                        showConfirm('Success', 'Teacher deleted successfully!', () => {}, 'OK');
+                        await loadTeachers();
+                    } catch (err) {
+                        showConfirm('Error', 'Error deleting teacher: ' + (err.message || 'Something went wrong'), () => {}, 'OK');
+                    }
+                },
+                'Delete',
+                'Cancel'
+            );
+        }
+
+        // Initialize
+        window.addEventListener('DOMContentLoaded', () => {
+            loadTeachers();
+            // Wire up search and filters
+            document.getElementById('teacherSearchInput').addEventListener('input', filterTeachers);
+            document.getElementById('subjectFilter').addEventListener('change', filterTeachers);
+            document.getElementById('departmentFilter').addEventListener('change', filterTeachers);
+        });
+    </script>
+</body>
+</html>

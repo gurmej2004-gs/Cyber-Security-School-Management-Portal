@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Grades - Student Portal</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --primary-dark: #020617;
+            --secondary: #1e293b;
+            --accent: #3b82f6;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --info: #06b6d4;
+            --dark: #020617;
+            --gray: #64748b;
+            --light: #f1f5f9;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 2px 0 rgb(15 23 42 / 0.05);
+            --shadow: 0 4px 6px -1px rgb(15 23 42 / 0.1), 0 2px 4px -2px rgb(15 23 42 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(15 23 42 / 0.1), 0 4px 6px -4px rgb(15 23 42 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(15 23 42 / 0.1), 0 8px 10px -6px rgb(15 23 42 / 0.1);
+            --radius: 8px;
+            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #ffffff;
+            min-height: 100vh;
+            color: var(--dark);
+            line-height: 1.5;
+            font-size: 14px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .grades-container {
+            max-width: 100%;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 0;
+            padding: 0;
+            box-shadow: none;
+            border: none;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(30deg, rgba(255,255,255,0.03) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.03) 87.5%, rgba(255,255,255,0.03)),
+                linear-gradient(150deg, rgba(255,255,255,0.03) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.03) 87.5%, rgba(255,255,255,0.03)),
+                linear-gradient(30deg, rgba(255,255,255,0.03) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.03) 87.5%, rgba(255,255,255,0.03)),
+                linear-gradient(150deg, rgba(255,255,255,0.03) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.03) 87.5%, rgba(255,255,255,0.03)),
+                linear-gradient(60deg, rgba(255,255,255,0.05) 25%, transparent 25.5%, transparent 75%, rgba(255,255,255,0.05) 75%, rgba(255,255,255,0.05)),
+                linear-gradient(120deg, rgba(255,255,255,0.05) 25%, transparent 25.5%, transparent 75%, rgba(255,255,255,0.05) 75%, rgba(255,255,255,0.05));
+            background-size: 80px 140px;
+            pointer-events: none;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header h1 {
+            font-size: 2.25rem;
+            font-weight: 600;
+            color: white;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.025em;
+        }
+
+        .header .material-icons {
+            font-size: 2.25rem;
+            color: white;
+        }
+
+        .header .subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.875rem;
+            font-weight: 400;
+            margin-top: 0.5rem;
+        }
+
+        .content-wrapper {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fafbfc;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--white);
+            color: var(--dark);
+            padding: 0.625rem 1.25rem;
+            border: 1px solid #e5e7eb;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            font-size: 0.875rem;
+        }
+
+        .back-btn:hover {
+            background: #f9fafb;
+            border-color: #d1d5db;
+            transform: translateY(-1px);
+            box-shadow: var(--shadow);
+        }
+
+        .grades-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .subject-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid #e5e7eb;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .subject-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--accent), #1d4ed8);
+        }
+
+        .subject-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            border-color: #d1d5db;
+        }
+
+        .subject-name {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .subject-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--accent), #1d4ed8);
+            color: white;
+            font-size: 1.25rem;
+            box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
+        }
+
+        .grade-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .grade-item {
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: var(--radius);
+            transition: var(--transition);
+            border: 1px solid #e2e8f0;
+        }
+
+        .grade-item:hover {
+            background: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+
+        .grade-label {
+            font-size: 0.75rem;
+            color: var(--gray);
+            margin-bottom: 0.375rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .grade-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            line-height: 1;
+        }
+
+        .grade-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: var(--transition);
+            cursor: default;
+        }
+
+        .grade-badge:hover {
+            transform: scale(1.02);
+        }
+
+        .grade-A { 
+            background: linear-gradient(135deg, var(--success), #059669); 
+            color: white;
+            box-shadow: 0 2px 4px rgba(16, 185, 129, 0.2);
+        }
+
+        .grade-B { 
+            background: linear-gradient(135deg, var(--info), #0891b2); 
+            color: white;
+            box-shadow: 0 2px 4px rgba(6, 182, 212, 0.2);
+        }
+
+        .grade-C { 
+            background: linear-gradient(135deg, var(--warning), #d97706); 
+            color: white;
+            box-shadow: 0 2px 4px rgba(245, 158, 11, 0.2);
+        }
+
+        .grade-D { 
+            background: linear-gradient(135deg, var(--danger), #dc2626); 
+            color: white;
+            box-shadow: 0 2px 4px rgba(239, 68, 68, 0.2);
+        }
+
+        .summary-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .summary-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(30deg, rgba(255,255,255,0.02) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.02) 87.5%, rgba(255,255,255,0.02)),
+                linear-gradient(150deg, rgba(255,255,255,0.02) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.02) 87.5%, rgba(255,255,255,0.02)),
+                linear-gradient(30deg, rgba(255,255,255,0.02) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.02) 87.5%, rgba(255,255,255,0.02)),
+                linear-gradient(150deg, rgba(255,255,255,0.02) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.02) 87.5%, rgba(255,255,255,0.02));
+            background-size: 60px 100px;
+            pointer-events: none;
+        }
+
+        .summary-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .summary-section h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: white;
+            letter-spacing: -0.025em;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            text-align: center;
+        }
+
+        .summary-item {
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        .summary-item:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-1px);
+        }
+
+        .summary-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.375rem;
+            color: white;
+        }
+
+        .summary-label {
+            font-size: 0.75rem;
+            opacity: 0.8;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                padding: 2rem 1rem;
+            }
+
+            .header h1 {
+                font-size: 1.875rem;
+            }
+
+            .content-wrapper {
+                padding: 1.5rem 1rem;
+            }
+
+            .grades-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .grade-info {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+
+            .summary-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .summary-section {
+                padding: 1.5rem 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .subject-card {
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        .subject-card:nth-child(1) { animation-delay: 0.05s; }
+        .subject-card:nth-child(2) { animation-delay: 0.1s; }
+        .subject-card:nth-child(3) { animation-delay: 0.15s; }
+        .subject-card:nth-child(4) { animation-delay: 0.2s; }
+        .subject-card:nth-child(5) { animation-delay: 0.25s; }
+        .subject-card:nth-child(6) { animation-delay: 0.3s; }
+
+        .summary-item {
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        .summary-item:nth-child(1) { animation-delay: 0.35s; }
+        .summary-item:nth-child(2) { animation-delay: 0.4s; }
+        .summary-item:nth-child(3) { animation-delay: 0.45s; }
+        .summary-item:nth-child(4) { animation-delay: 0.5s; }
+    </style>
+</head>
+<body>
+    <div class="grades-container">
+        <header class="header">
+            <div class="header-content">
+                <h1>
+                    <i class="material-icons">grade</i>
+                    My Grades
+                </h1>
+                <div class="subtitle">Academic Performance - Semester 1, 2025</div>
+            </div>
+        </header>
+
+        <div class="content-wrapper">
+            <a href="student_dashboard.html" class="back-btn">
+                <i class="material-icons">arrow_back</i>
+                Back to Dashboard
+            </a>
+
+        <div class="grades-grid">
+            <div class="subject-card">
+                <div class="subject-name">
+                    <i class="material-icons subject-icon">science</i>
+                    Computer Science
+                </div>
+                <div class="grade-info">
+                    <div class="grade-item">
+                        <div class="grade-label">Mid Term</div>
+                        <div class="grade-value">92%</div>
+                    </div>
+                    <div class="grade-item">
+                        <div class="grade-label">Final Term</div>
+                        <div class="grade-value">88%</div>
+                    </div>
+                    <div class="grade-item">
+                        <div class="grade-label">Assignments</div>
+                        <div class="grade-value">95%</div>
+                    </div>
+                    <div class="grade-item">
+                        <div class="grade-label">Attendance</div>
+                        <div class="grade-value">98%</div>
+                    </div>
+                </div>
+                <div class="grade-badge grade-A">Grade: A</div>
+            </div>
+
+            <div class="subject-card">
+                <div class="subject-name">
+                    <i class="material-icons subject-icon">calculate</i>
+                    Mathematics
+                </div>
+                <div class="grade-info">
+                    <div class="grade-item">
+                        <div class="grade-label">Mid Term</div>
+                        <div class="grade-value">85%</div>
+                    </div>
+                    <div class="grade-item">
+                        <div class="grade-label">Final Term</div>
+                        <div class="grade-value">82%</div>
+                    </div>
+                    <div class="grade-item">
+                        <div class="grade-label">Assignments</div>
+                        <div class="grade-value">90%</div>
+                    </div>
+                    <div class="grade-item">
+                        <div class="grade-label">Attendance</div>
+                        <div class="grade-value">95%</div>
+                    </div>
+                </div>
+                <div class="grade-badge grade-B">Grade: B</div>
+            </div>
+
+            <div class="subject-card">
+                <div class="subject-name">
+                    <i class="material-icons subject-icon">biotech</i>
+                    Physics
+                </div>
+                <div class="grade-info">
+                    <div class="grade-item">
+                        <div class="grade-label">Mid Term</div>
+                        <div class="grade-value">78%</div>
+                    </div>
+                    <div class="grade-item">
+                        <div class="grade-label">Final Term</div>
+                        <div class="grade-value">75%</div>
+                    </div>
+                    <div class="grade-item">
+                        <div class="grade-label">Assignments</div>
+                        <div class="grade-value">88%</div>
+                    </div>
+                    <div class="grade-item">
+                        <div class="grade-label">Attendance</div>
+                        <div class="grade-value">92%</div>
+                    </div>
+                </div>
+                <div class="grade-badge grade-B">Grade: B</div>
+            </div>
+
+            <div class="subject-card">
+                <div class="subject-name">
+                    <i class="material-icons subject-icon">chemistry</i>
+                    Chemistry
+                </div>
+                <div class="grade-info">
+                    <div class="grade-item">
+                        <div class="grade-label">Mid Term</div>
+                        <div class="grade-value">88%</div>
+                    </div>
+                    <div class="grade-item">
+                        <div class="grade-label">Final Term</div>
+                        <div class="grade-value">91%</div>
+                    </div>
+                    <div class="grade-item">
+                        <div class="grade-label">Assignments</div>
+                        <div class="grade-value">94%</div>
+                    </div>
+                    <div class="grade-item">
+                        <div class="grade-label">Attendance</div>
+                        <div class="grade-value">96%</div>
+                    </div>
+                </div>
+                <div class="grade-badge grade-A">Grade: A</div>
+            </div>
+
+            <div class="subject-card">
+                <div class="subject-name">
+                    <i class="material-icons subject-icon">language</i>
+                    English
+                </div>
+                <div class="grade-info">
+                    <div class="grade-item">
+                        <div class="grade-label">Mid Term</div>
+                        <div class="grade-value">90%</div>
+                    </div>
+                    <div class="grade-item">
+                        <div class="grade-label">Final Term</div>
+                        <div class="grade-value">87%</div>
+                    </div>
+                    <div class="grade-item">
+                        <div class="grade-label">Assignments</div>
+                        <div class="grade-value">93%</div>
+                    </div>
+                    <div class="grade-item">
+                        <div class="grade-label">Attendance</div>
+                        <div class="grade-value">97%</div>
+                    </div>
+                </div>
+                <div class="grade-badge grade-A">Grade: A</div>
+            </div>
+
+            <div class="subject-card">
+                <div class="subject-name">
+                    <i class="material-icons subject-icon">history_edu</i>
+                    History
+                </div>
+                <div class="grade-info">
+                    <div class="grade-item">
+                        <div class="grade-label">Mid Term</div>
+                        <div class="grade-value">72%</div>
+                    </div>
+                    <div class="grade-item">
+                        <div class="grade-label">Final Term</div>
+                        <div class="grade-value">68%</div>
+                    </div>
+                    <div class="grade-item">
+                        <div class="grade-label">Assignments</div>
+                        <div class="grade-value">85%</div>
+                    </div>
+                    <div class="grade-item">
+                        <div class="grade-label">Attendance</div>
+                        <div class="grade-value">90%</div>
+                    </div>
+                </div>
+                <div class="grade-badge grade-C">Grade: C</div>
+            </div>
+        </div>
+
+        <div class="summary-section">
+            <div class="summary-content">
+                <h2>Academic Summary</h2>
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <div class="summary-value">85.5%</div>
+                        <div class="summary-label">Overall Average</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-value">3.7</div>
+                        <div class="summary-label">GPA</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-value">94.7%</div>
+                        <div class="summary-label">Attendance Rate</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-value">6</div>
+                        <div class="summary-label">Total Subjects</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

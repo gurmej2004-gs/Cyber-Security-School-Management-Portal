@@ -1,0 +1,12 @@
+[2025-09-12T10:41:16.689Z] PHISHING_BLOCKED: INVALID_HOST - IP: ::1 - Details: {"host":"malicious-phishing-site.com","endpoint":"/api/login","userAgent":"axios/1.12.0"}
+[2025-09-12T10:41:16.695Z] PHISHING_DETAILS: Type: INVALID_HOST, IP: ::1, Action: BLOCKED, Domain: unknown
+[2025-09-12T10:41:16.707Z] PHISHING_BLOCKED: INVALID_ORIGIN - IP: ::1 - Details: {"origin":"http://fake-school-login.com","domain":"fake-school-login.com","endpoint":"/api/login","userAgent":"axios/1.12.0"}
+[2025-09-12T10:41:16.709Z] PHISHING_DETAILS: Type: INVALID_ORIGIN, IP: ::1, Action: BLOCKED, Domain: fake-school-login.com
+[2025-09-12T10:41:16.720Z] PHISHING_BLOCKED: INVALID_REFERER - IP: ::1 - Details: {"referer":"http://phishing-school-portal.com/fake-login.html","domain":"phishing-school-portal.com","endpoint":"/api/login","userAgent":"axios/1.12.0"}
+[2025-09-12T10:41:16.726Z] PHISHING_DETAILS: Type: INVALID_REFERER, IP: ::1, Action: BLOCKED, Domain: phishing-school-portal.com
+[2025-09-12T10:41:16.746Z] PHISHING_BLOCKED: INVALID_HOST - IP: ::1 - Details: {"host":"evil-school-hack.com","endpoint":"/api/login","userAgent":"PhishingBot/1.0"}
+[2025-09-12T10:41:16.755Z] PHISHING_DETAILS: Type: INVALID_HOST, IP: ::1, Action: BLOCKED, Domain: unknown
+[2025-09-14T05:40:04.897Z] PHISHING_BLOCKED: INVALID_HOST - IP: ::1 - Details: {"host":"evil-phishing-site.com","endpoint":"/api/login","userAgent":"axios/1.12.0"}
+[2025-09-14T05:40:04.899Z] PHISHING_DETAILS: Type: INVALID_HOST, IP: ::1, Action: BLOCKED, Domain: unknown
+[2025-09-14T05:40:05.459Z] PHISHING_BLOCKED: INVALID_REFERER - IP: ::1 - Details: {"referer":"https://credential-stealer.com/fake-portal","domain":"credential-stealer.com","endpoint":"/api/login","userAgent":"axios/1.12.0"}
+[2025-09-14T05:40:05.471Z] PHISHING_DETAILS: Type: INVALID_REFERER, IP: ::1, Action: BLOCKED, Domain: credential-stealer.com

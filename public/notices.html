@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notices & Announcements - School Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --secondary: #1e40af;
+            --dark: #0f172a;
+            --card: #111827;
+            --text: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --border: #334155;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--dark), #1a1f3a);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        .header {
+            background: var(--card);
+            border-bottom: 2px solid var(--border);
+            padding: 20px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .back-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        .main-content {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 30px;
+        }
+
+        .page-header {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        .notices-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .notice-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .notice-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-color: var(--primary);
+        }
+
+        .notice-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .notice-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 20px;
+        }
+
+        .notice-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+
+        .notice-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .notice-meta i {
+            color: var(--primary);
+        }
+
+        .notice-type {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .notice-type.urgent {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--danger);
+        }
+
+        .notice-type.important {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--warning);
+        }
+
+        .notice-type.info {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--primary);
+        }
+
+        .notice-content {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .notice-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+
+        .action-btn.edit {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--primary);
+        }
+
+        .action-btn.delete {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--danger);
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .content-card {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid var(--border);
+            margin-bottom: 30px;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .create-notice-form {
+            display: grid;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .form-control {
+            padding: 12px 16px;
+            background: var(--dark);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        @media (max-width: 768px) {
+            .page-header { flex-direction: column; gap: 20px; }
+            .notices-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                School Management System
+            </div>
+            <a href="dashboard.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Back to Dashboard
+            </a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="page-header">
+            <h1 class="page-title">
+                <i class="fas fa-bullhorn"></i>
+                Notices & Announcements
+            </h1>
+            <button class="btn btn-primary">
+                <i class="fas fa-plus"></i> Create Notice
+            </button>
+        </div>
+
+        <div class="content-card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <i class="fas fa-edit"></i>
+                    Create New Notice
+                </h3>
+            </div>
+
+            <form class="create-notice-form">
+                <div class="form-group">
+                    <label>Notice Title</label>
+                    <input type="text" class="form-control" placeholder="Enter notice title">
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="form-group">
+                        <label>Notice Type</label>
+                        <select class="form-control">
+                            <option>Information</option>
+                            <option>Important</option>
+                            <option>Urgent</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Target Audience</label>
+                        <select class="form-control">
+                            <option>All Students</option>
+                            <option>All Teachers</option>
+                            <option>Class 10</option>
+                            <option>Class 9</option>
+                            <option>Specific Department</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Notice Content</label>
+                    <textarea class="form-control" placeholder="Write your notice content here..."></textarea>
+                </div>
+
+                <div style="display: flex; gap: 15px;">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Publish Notice
+                    </button>
+                    <button type="button" class="btn btn-secondary" style="background: var(--card); color: var(--text); border: 1px solid var(--border);">
+                        <i class="fas fa-save"></i> Save as Draft
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="content-card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <i class="fas fa-list"></i>
+                    Published Notices
+                </h3>
+            </div>
+
+            <div class="notices-grid">
+                <div class="notice-card">
+                    <div class="notice-header">
+                        <div>
+                            <div class="notice-type urgent">Urgent</div>
+                            <h3 class="notice-title">School Holiday Notice</h3>
+                        </div>
+                    </div>
+                    <div class="notice-meta">
+                        <span><i class="fas fa-calendar"></i> Jan 15, 2024</span>
+                        <span><i class="fas fa-user"></i> Admin</span>
+                    </div>
+                    <div class="notice-content">
+                        School will remain closed on Monday, January 20, 2024 due to maintenance work. All classes and activities are cancelled. Regular schedule will resume from Tuesday.
+                    </div>
+                    <div class="notice-actions">
+                        <button class="action-btn edit">
+                            <i class="fas fa-edit"></i> Edit
+                        </button>
+                        <button class="action-btn delete">
+                            <i class="fas fa-trash"></i> Delete
+                        </button>
+                    </div>
+                </div>
+
+                <div class="notice-card">
+                    <div class="notice-header">
+                        <div>
+                            <div class="notice-type important">Important</div>
+                            <h3 class="notice-title">Exam Schedule Released</h3>
+                        </div>
+                    </div>
+                    <div class="notice-meta">
+                        <span><i class="fas fa-calendar"></i> Jan 12, 2024</span>
+                        <span><i class="fas fa-user"></i> Academic Office</span>
+                    </div>
+                    <div class="notice-content">
+                        Final examination schedule for the academic year 2023-24 has been released. Students are advised to check the timetable and prepare accordingly. Exams will begin from January 25.
+                    </div>
+                    <div class="notice-actions">
+                        <button class="action-btn edit">
+                            <i class="fas fa-edit"></i> Edit
+                        </button>
+                        <button class="action-btn delete">
+                            <i class="fas fa-trash"></i> Delete
+                        </button>
+                    </div>
+                </div>
+
+                <div class="notice-card">
+                    <div class="notice-header">
+                        <div>
+                            <div class="notice-type info">Information</div>
+                            <h3 class="notice-title">Sports Day Registration</h3>
+                        </div>
+                    </div>
+                    <div class="notice-meta">
+                        <span><i class="fas fa-calendar"></i> Jan 10, 2024</span>
+                        <span><i class="fas fa-user"></i> Sports Department</span>
+                    </div>
+                    <div class="notice-content">
+                        Annual sports day will be held on February 5, 2024. Interested students should register with their class teachers by January 25. Various athletic events and competitions are planned.
+                    </div>
+                    <div class="notice-actions">
+                        <button class="action-btn edit">
+                            <i class="fas fa-edit"></i> Edit
+                        </button>
+                        <button class="action-btn delete">
+                            <i class="fas fa-trash"></i> Delete
+                        </button>
+                    </div>
+                </div>
+
+                <div class="notice-card">
+                    <div class="notice-header">
+                        <div>
+                            <div class="notice-type important">Important</div>
+                            <h3 class="notice-title">Fee Payment Reminder</h3>
+                        </div>
+                    </div>
+                    <div class="notice-meta">
+                        <span><i class="fas fa-calendar"></i> Jan 8, 2024</span>
+                        <span><i class="fas fa-user"></i> Accounts Office</span>
+                    </div>
+                    <div class="notice-content">
+                        Parents are requested to pay the second term fees before January 20, 2024 to avoid late payment charges. Payment can be made online or at the school accounts office.
+                    </div>
+                    <div class="notice-actions">
+                        <button class="action-btn edit">
+                            <i class="fas fa-edit"></i> Edit
+                        </button>
+                        <button class="action-btn delete">
+                            <i class="fas fa-trash"></i> Delete
+                        </button>
+                    </div>
+                </div>
+
+                <div class="notice-card">
+                    <div class="notice-header">
+                        <div>
+                            <div class="notice-type info">Information</div>
+                            <h3 class="notice-title">Parent-Teacher Meeting</h3>
+                        </div>
+                    </div>
+                    <div class="notice-meta">
+                        <span><i class="fas fa-calendar"></i> Jan 5, 2024</span>
+                        <span><i class="fas fa-user"></i> Principal Office</span>
+                    </div>
+                    <div class="notice-content">
+                        Parent-teacher meeting for Class 10 students will be held on January 18, 2024. Parents are requested to attend the meeting to discuss their ward's academic progress.
+                    </div>
+                    <div class="notice-actions">
+                        <button class="action-btn edit">
+                            <i class="fas fa-edit"></i> Edit
+                        </button>
+                        <button class="action-btn delete">
+                            <i class="fas fa-trash"></i> Delete
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

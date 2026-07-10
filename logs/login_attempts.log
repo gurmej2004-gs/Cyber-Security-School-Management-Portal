@@ -1,0 +1,205 @@
+[2025-09-12T05:54:17.172Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2025-09-12T05:54:17.279Z] LOGIN_FAILED: Username: invalid_user | Role: admin | IP: ::1 | Reason: User not found
+[2025-09-12T05:54:17.479Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2025-09-12T05:54:17.490Z] LOGIN_FAILED: Username: admin | Role: unknown | IP: ::1 | Reason: Missing credentials
+[2025-09-12T06:00:08.793Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2025-09-12T06:00:09.138Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2025-09-12T06:00:09.584Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2025-09-12T06:46:28.491Z] LOGIN_FAILED: Username: admin' OR 1=1 -- | Role: admin | IP: ::1 | Reason: User not found
+[2025-09-12T10:41:16.651Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2025-09-12T10:59:40.960Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2025-09-12T11:01:20.739Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2025-09-12T11:01:52.672Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2025-09-12T11:05:37.372Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2025-09-12T11:07:56.811Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2025-09-12T11:08:21.886Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2025-09-12T11:08:45.445Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2025-09-12T11:09:45.512Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2025-09-12T11:09:54.340Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2025-09-12T11:28:27.569Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2025-09-14T05:20:52.942Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2025-09-14T05:40:38.240Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2025-09-14T05:40:38.773Z] LOGIN_FAILED: Username: teacher1 | Role: student | IP: ::1 | Reason: User not found
+[2025-09-14T05:40:39.297Z] LOGIN_FAILED: Username: teacher2 | Role: student | IP: ::1 | Reason: User not found
+[2025-09-15T05:47:04.438Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2025-09-15T05:47:04.492Z] LOGIN_FAILED: Username: teacher1 | Role: teacher | IP: ::1 | Reason: Invalid first-time password
+[2025-09-15T05:48:09.500Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid first-time password
+[2025-09-15T05:55:47.355Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid first-time password
+[2025-09-15T05:56:51.482Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid first-time password
+[2025-09-15T05:56:51.546Z] LOGIN_FAILED: Username: teacher1 | Role: teacher | IP: ::1 | Reason: Invalid first-time password
+[2025-09-15T05:57:26.676Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid first-time password
+[2025-09-15T06:00:54.050Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid first-time password
+[2025-09-15T06:00:54.094Z] LOGIN_FAILED: Username: teacher1 | Role: teacher | IP: ::1 | Reason: Invalid first-time password
+[2025-09-15T06:01:18.001Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid first-time password
+[2025-09-15T06:02:42.838Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid first-time password
+[2025-09-15T06:02:42.889Z] LOGIN_FAILED: Username: teacher1 | Role: teacher | IP: ::1 | Reason: Invalid first-time password
+[2025-09-15T06:03:47.227Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid first-time password
+[2025-09-15T06:03:47.292Z] LOGIN_FAILED: Username: teacher1 | Role: teacher | IP: ::1 | Reason: Invalid first-time password
+[2025-09-15T06:04:12.911Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid first-time password
+[2025-09-15T06:04:56.678Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2025-09-15T06:04:56.813Z] LOGIN_FAILED: Username: teacher1 | Role: teacher | IP: ::1 | Reason: Invalid first-time password
+[2025-09-15T06:06:10.363Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2025-09-15T06:07:37.481Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2025-09-15T06:14:17.826Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2025-09-15T06:15:49.662Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2025-09-17T09:42:56.283Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2025-09-17T09:42:57.030Z] LOGIN_SUCCESS: Username: teacher | Role: teacher | IP: ::1 | Reason: First time login
+[2025-09-17T09:42:57.587Z] LOGIN_SUCCESS: Username: teacher1 | Role: teacher | IP: ::1 | Reason: First time login
+[2025-09-17T09:42:58.150Z] LOGIN_SUCCESS: Username: student1 | Role: student | IP: ::1 | Reason: First time login
+[2025-09-17T09:42:58.721Z] LOGIN_SUCCESS: Username: student2 | Role: student | IP: ::1 | Reason: First time login
+[2025-09-17T15:02:50.240Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2025-09-17T15:03:33.220Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2025-09-17T15:03:38.386Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2025-09-17T15:51:37.116Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2025-09-17T15:51:42.132Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2025-09-17T15:54:00.581Z] LOGIN_FAILED: Username: teacher1 | Role: admin | IP: ::1 | Reason: User not found
+[2025-09-17T15:54:32.338Z] LOGIN_FAILED: Username: teacher1 | Role: admin | IP: ::1 | Reason: User not found
+[2025-09-17T15:54:46.043Z] LOGIN_FAILED: Username: teacher1 | Role: admin | IP: ::1 | Reason: User not found
+[2025-09-17T16:05:14.331Z] LOGIN_FAILED: Username: student1 | Role: student | IP: ::1 | Reason: Invalid first-time password
+[2025-09-17T16:05:28.877Z] LOGIN_FAILED: Username: student2 | Role: student | IP: ::1 | Reason: Invalid first-time password
+[2025-09-18T10:12:44.282Z] LOGIN_FAILED: Username: teacher1 | Role: teacher | IP: ::1 | Reason: Invalid first-time password
+[2025-09-18T10:16:37.886Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2025-09-18T10:16:40.055Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2025-09-18T10:18:37.759Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2025-09-18T10:18:41.522Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2025-09-18T10:19:01.855Z] LOGIN_FAILED: Username: teacher1 | Role: teacher | IP: ::1 | Reason: Invalid first-time password
+[2025-09-18T10:25:23.458Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2025-09-18T10:25:29.788Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2025-09-18T10:25:41.157Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2025-09-18T10:51:13.719Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2025-09-18T10:57:48.247Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2025-09-18T10:57:52.286Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2025-09-18T10:58:02.434Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2025-09-18T11:13:13.967Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2025-09-18T11:13:18.220Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2025-09-18T11:22:00.371Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2025-09-20T06:06:24.165Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2025-09-20T06:06:42.277Z] LOGIN_FAILED: Username: te | Role: teacher | IP: ::1 | Reason: User not found
+[2025-09-23T06:26:31.201Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2025-09-23T06:26:34.329Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2025-09-23T06:58:19.708Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2025-09-23T06:58:22.189Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2025-09-23T06:58:24.210Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2025-09-23T11:10:09.651Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2025-09-23T11:10:14.125Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2025-09-23T11:10:18.588Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2025-12-30T12:35:01.989Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2025-12-31T11:36:55.234Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2025-12-31T11:36:59.320Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2025-12-31T11:45:15.115Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2025-12-31T11:45:17.795Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2025-12-31T11:45:19.696Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2025-12-31T12:15:59.621Z] LOGIN_FAILED: Username: student1 | Role: student | IP: ::1 | Reason: Invalid first-time password
+[2025-12-31T12:16:01.794Z] LOGIN_FAILED: Username: student1 | Role: student | IP: ::1 | Reason: Invalid first-time password
+[2025-12-31T12:17:33.692Z] LOGIN_FAILED: Username: student2 | Role: student | IP: ::1 | Reason: Invalid first-time password
+[2026-01-02T09:13:03.270Z] LOGIN_FAILED: Username: student5 | Role: student | IP: ::1 | Reason: User not found
+[2026-01-02T09:15:11.076Z] LOGIN_SUCCESS: Username: student5 | Role: student | IP: ::1 | Reason: First time login
+[2026-01-02T09:16:16.416Z] LOGIN_FAILED: Username: student5 | Role: student | IP: ::1 | Reason: Invalid first-time password
+[2026-01-02T09:16:30.962Z] LOGIN_FAILED: Username: student5 | Role: student | IP: ::1 | Reason: Invalid first-time password
+[2026-01-02T09:24:51.849Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2026-01-02T09:24:56.380Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2026-01-02T09:25:05.886Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2026-01-03T05:41:59.182Z] LOGIN_FAILED: Username: student5 | Role: student | IP: ::1 | Reason: Invalid first-time password
+[2026-01-03T05:44:37.653Z] LOGIN_FAILED: Username: student5 | Role: student | IP: ::1 | Reason: Invalid first-time password
+[2026-01-03T05:45:20.325Z] LOGIN_FAILED: Username: student5 | Role: student | IP: ::1 | Reason: Invalid first-time password
+[2026-01-03T05:45:35.656Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-01-03T05:45:57.458Z] LOGIN_FAILED: Username: student1 | Role: student | IP: ::1 | Reason: Invalid first-time password
+[2026-01-03T05:53:15.472Z] LOGIN_FAILED: Username: student1 | Role: student | IP: ::1 | Reason: Invalid first-time password
+[2026-01-03T05:57:14.173Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-01-03T06:00:15.662Z] LOGIN_FAILED: Username: teacher1 | Role: teacher | IP: ::1 | Reason: Invalid first-time password
+[2026-01-03T06:00:32.357Z] LOGIN_SUCCESS: Username: student1 | Role: student | IP: ::1 | Reason: Successful login
+[2026-01-03T06:02:12.319Z] LOGIN_SUCCESS: Username: student5 | Role: student | IP: ::1 | Reason: Successful login
+[2026-01-03T06:08:10.288Z] LOGIN_SUCCESS: Username: teacher1 | Role: teacher | IP: ::1 | Reason: Successful login
+[2026-01-03T06:16:59.987Z] LOGIN_SUCCESS: Username: student1 | Role: student | IP: ::1 | Reason: Successful login
+[2026-01-03T06:23:29.775Z] LOGIN_SUCCESS: Username: student1 | Role: student | IP: ::1 | Reason: Successful login
+[2026-01-03T06:26:36.777Z] LOGIN_SUCCESS: Username: student1 | Role: student | IP: ::1 | Reason: Successful login
+[2026-01-03T06:30:41.858Z] LOGIN_SUCCESS: Username: student1 | Role: student | IP: ::1 | Reason: Successful login
+[2026-01-03T06:33:30.310Z] LOGIN_SUCCESS: Username: student1 | Role: student | IP: ::1 | Reason: Successful login
+[2026-01-04T05:40:50.422Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2026-01-04T05:40:53.506Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-01-04T05:41:24.936Z] LOGIN_SUCCESS: Username: student1 | Role: student | IP: ::1 | Reason: Successful login
+[2026-01-04T05:47:03.314Z] LOGIN_SUCCESS: Username: student1 | Role: student | IP: ::1 | Reason: Successful login
+[2026-01-04T05:47:03.634Z] LOGIN_SUCCESS: Username: student1 | Role: student | IP: ::1 | Reason: Successful login
+[2026-01-04T06:48:32.646Z] LOGIN_SUCCESS: Username: student1 | Role: student | IP: ::1 | Reason: Successful login
+[2026-01-04T07:21:44.214Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-01-04T09:44:07.575Z] LOGIN_SUCCESS: Username: student1 | Role: student | IP: ::1 | Reason: Successful login
+[2026-01-04T09:46:56.620Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-01-05T06:39:57.043Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-01-05T06:48:28.562Z] LOGIN_SUCCESS: Username: teacher1 | Role: teacher | IP: ::1 | Reason: Successful login
+[2026-01-05T08:59:51.327Z] LOGIN_SUCCESS: Username: student1 | Role: student | IP: ::1 | Reason: Successful login
+[2026-01-05T09:00:50.881Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2026-01-05T09:00:54.962Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2026-01-05T09:01:23.308Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-01-05T09:29:59.600Z] LOGIN_SUCCESS: Username: student1 | Role: student | IP: ::1 | Reason: Successful login
+[2026-01-05T09:42:31.402Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-01-07T04:21:35.120Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-01-07T05:23:16.806Z] LOGIN_SUCCESS: Username: student1 | Role: student | IP: ::1 | Reason: Successful login
+[2026-01-07T05:27:05.633Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-01-30T04:31:32.195Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-01-30T04:33:46.943Z] LOGIN_FAILED: Username: teacher1 | Role: teacher | IP: ::1 | Reason: Invalid password
+[2026-01-30T04:34:00.151Z] LOGIN_SUCCESS: Username: teacher1 | Role: teacher | IP: ::1 | Reason: Successful login
+[2026-01-30T04:34:49.900Z] LOGIN_FAILED: Username: student1 | Role: student | IP: ::1 | Reason: Invalid password
+[2026-01-30T04:35:01.849Z] LOGIN_SUCCESS: Username: student1 | Role: student | IP: ::1 | Reason: Successful login
+[2026-01-30T04:43:12.181Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-01-30T08:24:13.098Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-01-30T10:01:43.091Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-01-31T04:24:15.360Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-01-31T05:27:56.921Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-01-31T07:59:32.041Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-01-31T09:08:45.623Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-01-31T09:19:22.326Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2026-01-31T09:19:27.935Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-01-31T10:19:59.520Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-01-31T10:47:32.760Z] LOGIN_SUCCESS: Username: student1 | Role: student | IP: ::1 | Reason: Successful login
+[2026-02-01T09:26:39.240Z] LOGIN_SUCCESS: Username: student1 | Role: student | IP: ::1 | Reason: Successful login
+[2026-02-02T04:24:18.366Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-02-02T04:28:48.215Z] LOGIN_SUCCESS: Username: teacher1 | Role: teacher | IP: ::1 | Reason: Successful login
+[2026-02-02T04:31:57.714Z] LOGIN_FAILED: Username: student1 | Role: student | IP: ::1 | Reason: Invalid password
+[2026-02-02T04:32:02.475Z] LOGIN_SUCCESS: Username: student1 | Role: student | IP: ::1 | Reason: Successful login
+[2026-02-02T04:35:00.218Z] LOGIN_FAILED: Username: student1 | Role: student | IP: ::1 | Reason: Invalid password
+[2026-02-02T04:35:05.309Z] LOGIN_FAILED: Username: student | Role: student | IP: ::1 | Reason: User not found
+[2026-02-02T04:36:04.435Z] LOGIN_SUCCESS: Username: student1 | Role: student | IP: ::1 | Reason: Successful login
+[2026-02-02T04:50:35.960Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-02-02T05:04:01.019Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-02-02T05:05:32.803Z] LOGIN_FAILED: Username: teacher1 | Role: student | IP: ::1 | Reason: User not found
+[2026-02-02T05:05:40.453Z] LOGIN_SUCCESS: Username: teacher1 | Role: teacher | IP: ::1 | Reason: Successful login
+[2026-02-02T05:05:40.502Z] LOGIN_SUCCESS: Username: teacher1 | Role: teacher | IP: ::1 | Reason: Successful login
+[2026-02-02T05:32:26.662Z] LOGIN_SUCCESS: Username: student1 | Role: student | IP: ::1 | Reason: Successful login
+[2026-02-02T06:00:05.556Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-02-02T06:00:27.765Z] LOGIN_SUCCESS: Username: teacher1 | Role: teacher | IP: ::1 | Reason: Successful login
+[2026-02-02T06:00:58.236Z] LOGIN_SUCCESS: Username: student1 | Role: student | IP: ::1 | Reason: Successful login
+[2026-02-02T07:45:54.558Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-02-02T08:01:07.033Z] LOGIN_FAILED: Username: adminadmin@123 | Role: admin | IP: ::1 | Reason: User not found
+[2026-02-02T08:01:11.617Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-02-02T08:01:32.208Z] LOGIN_FAILED: Username: teacher1 | Role: teacher | IP: ::1 | Reason: Invalid password
+[2026-02-02T08:01:38.572Z] LOGIN_FAILED: Username: teacher1 | Role: teacher | IP: ::1 | Reason: Invalid password
+[2026-02-02T08:02:58.132Z] LOGIN_SUCCESS: Username: teacher1 | Role: teacher | IP: ::1 | Reason: Successful login
+[2026-02-02T08:03:18.474Z] LOGIN_SUCCESS: Username: student1 | Role: student | IP: ::1 | Reason: Successful login
+[2026-02-02T08:18:00.057Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-02-02T08:18:24.757Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-02-02T08:18:49.121Z] LOGIN_FAILED: Username: student1 | Role: teacher | IP: ::1 | Reason: User not found
+[2026-02-02T08:18:53.747Z] LOGIN_FAILED: Username: student1 | Role: teacher | IP: ::1 | Reason: User not found
+[2026-02-02T08:19:13.704Z] LOGIN_SUCCESS: Username: teacher1 | Role: teacher | IP: ::1 | Reason: Successful login
+[2026-02-02T08:19:28.614Z] LOGIN_SUCCESS: Username: student1 | Role: student | IP: ::1 | Reason: Successful login
+[2026-02-02T08:26:14.984Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-02-03T05:22:14.756Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-02-03T05:22:58.755Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-02-03T05:45:00.607Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-02-03T05:45:56.398Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-02-03T05:49:16.052Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-02-03T06:04:00.888Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-02-03T06:05:22.271Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-02-03T06:07:59.077Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-02-03T06:20:15.294Z] LOGIN_SUCCESS: Username: student1 | Role: student | IP: ::1 | Reason: Successful login
+[2026-02-03T09:33:12.597Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-02-03T09:33:44.440Z] LOGIN_SUCCESS: Username: student1 | Role: student | IP: ::1 | Reason: Successful login
+[2026-02-04T06:19:01.185Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-02-04T06:22:08.526Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-02-04T06:33:23.502Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-02-04T06:33:59.683Z] LOGIN_SUCCESS: Username: student1 | Role: student | IP: ::1 | Reason: Successful login
+[2026-02-04T09:24:19.361Z] LOGIN_FAILED: Username: admin | Role: admin | IP: ::1 | Reason: Invalid password
+[2026-02-04T09:24:26.433Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login
+[2026-02-04T09:46:10.873Z] LOGIN_FAILED: Username: student1 | Role: admin | IP: ::1 | Reason: User not found
+[2026-02-04T09:46:22.696Z] LOGIN_SUCCESS: Username: student1 | Role: student | IP: ::1 | Reason: Successful login
+[2026-02-04T10:10:53.147Z] LOGIN_SUCCESS: Username: teacher1 | Role: teacher | IP: ::1 | Reason: Successful login
+[2026-02-04T10:55:44.500Z] LOGIN_SUCCESS: Username: admin | Role: admin | IP: ::1 | Reason: Successful login

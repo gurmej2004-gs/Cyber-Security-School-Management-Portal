@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - School Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+    <!-- Login Chatbot Styles -->
+    <link rel="stylesheet" href="css/login-chatbot.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.918), rgba(0, 0, 0, 0.4)),
+                url('images/geu-campus.jpg') center/cover no-repeat,
+                url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 450px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(2px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transform: translateY(0);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .animation-container {
+            width: 100%;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: #fff;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 600;
+            font-size: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            color: #fff;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .form-group input:focus {
+            border-color: #00d4aa;
+            box-shadow: 0 0 0 3px rgba(0, 212, 170, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Password toggle styles */
+        .password-container {
+            position: relative;
+        }
+        
+        .toggle-password {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: rgba(255, 255, 255, 0.6);
+            transition: color 0.3s ease;
+        }
+        
+        .toggle-password:hover {
+            color: #00d4aa;
+        }
+        
+        .toggle-password.active {
+            color: #00d4aa;
+        }
+
+        .form-group input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            color: #fff;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .form-control:focus {
+            border-color: #4cc9f0;
+            box-shadow: 0 0 0 3px rgba(76, 201, 240, 0.3);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, #00d4aa, #007cf0);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: 0 4px 15px rgba(0, 212, 170, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 212, 170, 0.5);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #007cf0, #00d4aa);
+            z-index: -1;
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .btn:hover::before {
+            opacity: 1;
+        }
+
+        .error-message {
+            color: #ff6b6b;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            min-height: 20px;
+        }
+
+        /* Enhanced Security Banner Styles */
+        .security-banner-enhanced {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(5, 150, 105, 0.25));
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 
+                0 8px 32px rgba(16, 185, 129, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .security-banner-enhanced::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .security-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .security-icon-enhanced {
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .shield-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        .pulse-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 56px;
+            height: 56px;
+            border: 2px solid #10b981;
+            border-radius: 50%;
+            animation: pulse 2s ease-out infinite;
+            z-index: 1;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1.3);
+                opacity: 0;
+            }
+        }
+
+        .security-text-enhanced {
+            flex: 1;
+        }
+
+        .security-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .security-subtitle {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.4;
+            font-weight: 400;
+        }
+
+        .security-badges {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .security-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 8px 12px;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .security-badge:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .badge-icon {
+            width: 24px;
+            height: 24px;
+            background: rgba(16, 185, 129, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #10b981;
+            flex-shrink: 0;
+        }
+
+        /* Enhanced Session Warning Styles */
+        .session-warning {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            border-radius: 16px;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            color: #fff;
+            text-align: center;
+            font-size: 15px;
+            font-weight: 600;
+            display: none !important;
+            animation: warningPulse 1s ease-in-out infinite;
+            z-index: 1000;
+            position: relative;
+            box-shadow: 
+                0 8px 32px rgba(245, 158, 11, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(245, 158, 11, 0.4);
+        }
+
+        @keyframes warningPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            25% { opacity: 0.7; transform: scale(1.02); }
+            50% { opacity: 0.3; transform: scale(1.05); }
+            75% { opacity: 0.7; transform: scale(1.02); }
+        }
+
+        .session-warning.show {
+            display: block !important;
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .form-group input {
+                padding: 12px 15px;
+            }
+            
+            .btn {
+                padding: 12px;
+            }
+
+            .security-banner-enhanced {
+                padding: 15px;
+                margin-bottom: 20px;
+            }
+
+            .security-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 12px;
+            }
+
+            .security-title {
+                font-size: 16px;
+            }
+
+            .security-subtitle {
+                font-size: 12px;
+            }
+
+            .security-badges {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .security-badge {
+                justify-content: center;
+                padding: 10px;
+            }
+
+            .session-warning {
+                font-size: 14px;
+                padding: 12px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Enhanced Security Banner -->
+        <div class="security-banner-enhanced">
+            <div class="security-header">
+                <div class="security-icon-enhanced">
+                    <div class="shield-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            <path d="M9 12l2 2 4-4"/>
+                        </svg>
+                    </div>
+                    <div class="pulse-ring"></div>
+                </div>
+                <div class="security-text-enhanced">
+                    <div class="security-title">🔒 Official School Portal</div>
+                    <div class="security-subtitle">You are on the secure, official school management system. Always verify the URL before entering credentials.</div>
+                </div>
+            </div>
+            
+            <div class="security-badges">
+                <div class="security-badge">
+                    <div class="badge-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                            <circle cx="12" cy="16" r="1"/>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        </svg>
+                    </div>
+                    <span>HTTPS Secured</span>
+                </div>
+                <div class="security-badge">
+                    <div class="badge-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <span>Anti-Phishing</span>
+                </div>
+                <div class="security-badge">
+                    <div class="badge-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 12l2 2 4-4"/>
+                            <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"/>
+                            <path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3"/>
+                        </svg>
+                    </div>
+                    <span>Encrypted Data</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Session Warning (hidden by default) -->
+        <div class="session-warning" id="sessionWarning">
+            ⚠️ Your session will expire in <span id="warningTime">5</span> minutes. Please save your work.
+        </div>
+        
+        <div class="animation-container" id="lottie-animation"></div>
+        <div class="welcome-container">
+            <h1 class="welcome-text"><span id="typed-text"></span><span class="cursor">|</span></h1>
+            <div class="welcome-underline"></div>
+            <div class="welcome-particles">
+                <span class="particle">✨</span>
+                <span class="particle">🌟</span>
+                <span class="particle">💫</span>
+                <span class="particle">⭐</span>
+                <span class="particle">✨</span>
+            </div>
+            <div class="welcome-glow"></div>
+        </div>
+        <style>
+            .welcome-container {
+                text-align: center;
+                margin-bottom: 30px;
+                position: relative;
+                padding-bottom: 15px;
+                min-height: 80px;
+                overflow: visible;
+            }
+            .welcome-text {
+                color: #fff;
+                font-size: 2.5rem;
+                font-weight: 700;
+                margin: 0;
+                position: relative;
+                display: inline-block;
+                padding: 0 15px;
+                text-shadow: 
+                    0 0 20px rgba(0, 212, 170, 0.5),
+                    0 2px 4px rgba(0,0,0,0.3),
+                    0 0 40px rgba(0, 124, 240, 0.3);
+                min-height: 1.5em;
+                background: linear-gradient(45deg, #00d4aa, #007cf0, #00d4aa);
+                background-size: 200% 200%;
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+                animation: gradientShift 3s ease-in-out infinite;
+                filter: drop-shadow(0 0 10px rgba(0, 212, 170, 0.3));
+            }
+            @keyframes gradientShift {
+                0%, 100% { background-position: 0% 50%; }
+                50% { background-position: 100% 50%; }
+            }
+            .cursor {
+                display: inline-block;
+                width: 4px;
+                height: 1.2em;
+                background: linear-gradient(45deg, #00d4aa, #007cf0);
+                margin-left: 3px;
+                animation: blink 0.8s infinite;
+                border-radius: 2px;
+                box-shadow: 0 0 10px rgba(0, 212, 170, 0.5);
+            }
+            @keyframes blink {
+                0%, 100% { opacity: 1; }
+                50% { opacity: 0; }
+            }
+            .welcome-underline {
+                height: 4px;
+                width: 100px;
+                background: linear-gradient(90deg, #00d4aa, #007cf0, #00d4aa);
+                margin: 25px auto 0;
+                border-radius: 4px;
+                position: relative;
+                overflow: hidden;
+                transform: scaleX(0);
+                transform-origin: center;
+                animation: expand 0.6s ease-out 1.5s forwards;
+                box-shadow: 0 0 20px rgba(0, 212, 170, 0.4);
+            }
+            @keyframes expand {
+                to { transform: scaleX(1); }
+            }
+            .welcome-underline::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+                animation: shine 2.5s infinite 2s;
+            }
+            @keyframes shine {
+                100% { left: 100%; }
+            }
+            .welcome-particles {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 300px;
+                height: 100px;
+                pointer-events: none;
+                z-index: -1;
+            }
+            .particle {
+                position: absolute;
+                font-size: 1.2rem;
+                animation: float 4s ease-in-out infinite;
+                opacity: 0;
+            }
+            .particle:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 3s; }
+            .particle:nth-child(2) { left: 30%; animation-delay: 0.5s; animation-duration: 3.5s; }
+            .particle:nth-child(3) { left: 50%; animation-delay: 1s; animation-duration: 4s; }
+            .particle:nth-child(4) { left: 70%; animation-delay: 1.5s; animation-duration: 3.2s; }
+            .particle:nth-child(5) { left: 90%; animation-delay: 2s; animation-duration: 3.8s; }
+            @keyframes float {
+                0% {
+                    opacity: 0;
+                    transform: translateY(20px) scale(0.5);
+                }
+                20% {
+                    opacity: 1;
+                    transform: translateY(-10px) scale(1);
+                }
+                50% {
+                    opacity: 0.8;
+                    transform: translateY(-15px) scale(0.9);
+                }
+                80% {
+                    opacity: 0.6;
+                    transform: translateY(-5px) scale(0.8);
+                }
+                100% {
+                    opacity: 0;
+                    transform: translateY(20px) scale(0.5);
+                }
+            }
+            .welcome-glow {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 250px;
+                height: 60px;
+                background: radial-gradient(ellipse at center, rgba(0, 212, 170, 0.15) 0%, transparent 70%);
+                border-radius: 50%;
+                animation: glow 3s ease-in-out infinite alternate;
+                pointer-events: none;
+                z-index: -1;
+            }
+            @keyframes glow {
+                0% {
+                    opacity: 0.3;
+                    transform: translate(-50%, -50%) scale(0.8);
+                }
+                100% {
+                    opacity: 0.6;
+                    transform: translate(-50%, -50%) scale(1.2);
+                }
+            }
+            @media (max-width: 576px) {
+                .welcome-container {
+                    min-height: 70px;
+                    margin-bottom: 25px;
+                }
+                .welcome-text {
+                    font-size: 2rem;
+                    padding: 0 10px;
+                }
+                .welcome-particles {
+                    width: 250px;
+                }
+                .particle {
+                    font-size: 1rem;
+                }
+                .welcome-glow {
+                    width: 200px;
+                    height: 50px;
+                }
+            }
+        </style>
+        <form id="loginForm">
+            <div class="form-group">
+                <label class="role-label">Select Your Role</label>
+                <div class="role-options">
+                    <label class="role-option">
+                        <input type="radio" name="role" value="admin" required>
+                        <div class="role-card">
+                            <div class="role-icon">
+                                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" fill="none">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                </svg>
+                            </div>
+                            <span>Admin</span>
+                        </div>
+                    </label>
+                    <label class="role-option">
+                        <input type="radio" name="role" value="teacher">
+                        <div class="role-card">
+                            <div class="role-icon">
+                                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" fill="none">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                                </svg>
+                            </div>
+                            <span>Teacher</span>
+                        </div>
+                    </label>
+                    <label class="role-option">
+                        <input type="radio" name="role" value="student">
+                        <div class="role-card">
+                            <div class="role-icon">
+                                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" fill="none">
+                                    <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                                    <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.01a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.01a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path>
+                                </svg>
+                            </div>
+                            <span>Student</span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+            <style>
+                .role-label {
+                    display: block;
+                    margin-bottom: 12px;
+                    font-weight: 500;
+                    color: #fff;
+                    text-align: center;
+                }
+                .role-options {
+                    display: flex;
+                    gap: 12px;
+                    margin-bottom: 20px;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+                .role-option {
+                    flex: 1;
+                    min-width: 120px;
+                    max-width: 140px;
+                }
+                .role-option input[type="radio"] {
+                    display: none;
+                }
+                .role-card {
+                    background: rgba(255, 255, 255, 0.1);
+                    backdrop-filter: blur(10px);
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    border-radius: 12px;
+                    padding: 20px 10px;
+                    text-align: center;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .role-card:hover {
+                    background: rgba(255, 255, 255, 0.15);
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+                }
+                .role-option input[type="radio"]:checked + .role-card {
+                    border-color: #00d4aa;
+                    background: rgba(0, 212, 170, 0.2);
+                    box-shadow: 0 0 0 3px rgba(0, 212, 170, 0.3);
+                }
+                .role-icon {
+                    width: 40px;
+                    height: 40px;
+                    background: rgba(0, 212, 170, 0.1);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0 auto 10px;
+                    color: #00d4aa;
+                }
+                .role-card span {
+                    display: block;
+                    color: #fff;
+                    font-weight: 500;
+                    margin-top: 8px;
+                }
+                @media (max-width: 480px) {
+                    .role-options {
+                        flex-direction: column;
+                        align-items: center;
+                    }
+                    .role-option {
+                        width: 100%;
+                        max-width: 200px;
+                    }
+                }
+            </style>
+            <div class="form-group">
+                <input type="text" id="username" placeholder="Username" required>
+            </div>
+            <div class="form-group password-container">
+                <input type="password" id="password" placeholder="Password" required>
+                <span class="toggle-password" id="togglePassword">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="eye-icon">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                </span>
+            </div>
+            <button type="submit" class="btn">Login</button>
+            <div class="error-message" id="errorMessage"></div>
+        </form>
+    </div>
+
+    <script src="js/security.js"></script>
+    <!-- Login Chatbot Script -->
+    <script src="js/login-chatbot.js"></script>
+    <script>
+        // Toggle password visibility
+        function setupPasswordToggle() {
+            const togglePassword = document.getElementById('togglePassword');
+            const passwordInput = document.getElementById('password');
+            
+            if (togglePassword && passwordInput) {
+                console.log('Password toggle elements found');
+                
+                // Mouse events for desktop
+                togglePassword.addEventListener('mousedown', function(e) {
+                    e.preventDefault();
+                    passwordInput.type = 'text';
+                    this.classList.add('active');
+                    console.log('Password shown');
+                });
+                
+                togglePassword.addEventListener('mouseup', function(e) {
+                    e.preventDefault();
+                    passwordInput.type = 'password';
+                    this.classList.remove('active');
+                    console.log('Password hidden');
+                });
+                
+                togglePassword.addEventListener('mouseleave', function(e) {
+                    e.preventDefault();
+                    passwordInput.type = 'password';
+                    this.classList.remove('active');
+                    console.log('Password hidden (mouseleave)');
+                });
+                
+                // Click event for mobile and toggle
+                togglePassword.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    if (passwordInput.type === 'password') {
+                        passwordInput.type = 'text';
+                        this.classList.add('active');
+                        console.log('Password shown (click)');
+                    } else {
+                        passwordInput.type = 'password';
+                        this.classList.remove('active');
+                        console.log('Password hidden (click)');
+                    }
+                });
+            } else {
+                console.log('Password toggle elements not found:', {
+                    togglePassword: !!togglePassword,
+                    passwordInput: !!passwordInput
+                });
+            }
+        }
+        
+        // Combined DOMContentLoaded event listener
+        document.addEventListener('DOMContentLoaded', function() {
+            // Setup password toggle first
+            setupPasswordToggle();
+            
+            // Typewriter effect for welcome text
+            const text = '|Welcome Back';
+            const typedText = document.getElementById('typed-text');
+            let i = 0;
+            
+            function typeWriter() {
+                if (i < text.length) {
+                    typedText.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 100);
+                } else {
+                    document.querySelector('.cursor').style.animation = 'none';
+                }
+            }
+            
+            // Start the typewriter effect after a short delay
+            setTimeout(typeWriter, 300);
+        });
+
+        // Initialize Lottie animation
+        var animation = lottie.loadAnimation({
+            container: document.getElementById('lottie-animation'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'https://assets3.lottiefiles.com/packages/lf20_hu9cd9.json'
+        });
+        
+        // Test session warning in console
+        console.log('To test session warning, run in console: document.getElementById("sessionWarning").classList.add("show")');
+        console.log('To hide it: document.getElementById("sessionWarning").classList.remove("show")');
+        
+        // Auto-test session warning on page load (blinks for 5 seconds then disappears)
+        setTimeout(() => {
+            const warning = document.getElementById('sessionWarning');
+            if (warning) {
+                warning.classList.add('show');
+                console.log('Session warning: Blinking for 5 seconds then will disappear');
+                
+                // Auto-hide after 5 seconds
+                setTimeout(() => {
+                    warning.classList.remove('show');
+                    console.log('Session warning: Hidden after 5 seconds');
+                }, 5000);
+            }
+        }, 1000);
+        
+        // Form submission
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const role = document.querySelector('input[name="role"]:checked')?.value;
+            const errorElement = document.getElementById('errorMessage');
+            
+            // Simple validation
+            if (!username || !password || !role) {
+                errorElement.textContent = 'Please fill in all fields and select a role';
+                errorElement.style.display = 'block';
+                return;
+            }
+            
+            try {
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ username, password, role })
+                });
+                
+                const data = await response.json();
+                
+                if (data.status === 'success') {
+                    // Store user data and JWT token in localStorage
+                    localStorage.setItem('userRole', data.user.role);
+                    localStorage.setItem('username', data.user.username);
+                    localStorage.setItem('token', data.token);
+                    
+                    // Store session ID if provided
+                    if (data.sessionId) {
+                        localStorage.setItem('sessionId', data.sessionId);
+                    }
+                    
+                    // Show success message with security confirmation
+                    securityManager.showSecurityAlert('Login successful! Redirecting to secure dashboard...', 'info');
+                    
+                    // Restart session monitoring for the new session
+                    securityManager.startSessionMonitoring();
+                    
+                    // Redirect based on role and login status after short delay
+                    setTimeout(() => {
+                        switch(role) {
+                            case 'admin':
+                                window.location.href = 'dashboard.html';
+                                break;
+                            case 'teacher':
+                                window.location.href = 'teacher/teacher_dashboard.html';
+                                break;
+                            case 'student':
+                                window.location.href = 'student/student_dashboard.html';
+                                break;
+                        }
+                    }, 1000);
+                } else if (data.status === 'first_time') {
+                    // First time login for student - redirect to change password
+                    localStorage.setItem('username', username);
+                    window.location.href = 'change_password.html';
+                } else {
+                    errorElement.textContent = data.message || 'Invalid username or password';
+                    errorElement.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                errorElement.textContent = 'An error occurred during login. Please try again.';
+                errorElement.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

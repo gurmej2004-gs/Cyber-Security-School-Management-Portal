@@ -1,0 +1,8 @@
+[2025-09-12T06:12:08.651Z] ADS_ANOMALY_DETECTED: MASS_STUDENT_FETCH - User: admin123 - User fetched 75 student records in single request - Severity: HIGH
+[2025-09-12T06:12:08.651Z] ADS_DETAILS: Pattern: MASS_STUDENT_FETCH, User: admin123, Operation: FETCH_STUDENTS, Count: 75, Severity: HIGH
+[2025-09-12T06:12:09.652Z] ADS_ANOMALY_DETECTED: MASS_TEACHER_FETCH - User: admin123 - User fetched 35 teacher records in single request - Severity: MEDIUM
+[2025-09-12T06:12:09.652Z] ADS_DETAILS: Pattern: MASS_TEACHER_FETCH, User: admin123, Operation: FETCH_TEACHERS, Count: 35, Severity: MEDIUM
+[2025-09-12T06:12:10.652Z] ADS_ANOMALY_DETECTED: RAPID_REQUESTS - User: teacher456 - 12 requests in 60 seconds - Severity: MEDIUM
+[2025-09-12T06:12:10.652Z] ADS_DETAILS: Pattern: RAPID_REQUESTS, User: teacher456, Operation: MULTIPLE, Count: 12, Severity: MEDIUM
+[2025-09-12T06:12:11.652Z] ADS_ANOMALY_DETECTED: BULK_OPERATIONS - User: admin123 - 25 bulk operations detected in session - Severity: HIGH
+[2025-09-12T06:12:11.652Z] ADS_DETAILS: Pattern: BULK_OPERATIONS, User: admin123, Operation: BULK_MULTIPLE, Count: 25, Severity: HIGH

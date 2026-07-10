@@ -1,0 +1,3 @@
+{"timestamp":"2026-02-02T05:54:13.863Z","userId":"student1","userMessage":"show my grades","botResponse":"❌ Unable to retrieve grade information at this time.","intent":"grades"}
+{"timestamp":"2026-02-02T05:54:17.916Z","userId":"student1","userMessage":"show my attendance","botResponse":"📅 **Your Attendance Record**\n\n*Attendance tracking is available in your student dashboard. Please check there for detailed records.*","intent":"attendance"}
+{"timestamp":"2026-02-02T05:54:38.177Z","userId":"student1","userMessage":"show my attendance","botResponse":"📅 **Your Attendance Record**\n\n*Attendance tracking is available in your student dashboard. Please check there for detailed records.*","intent":"attendance"}
